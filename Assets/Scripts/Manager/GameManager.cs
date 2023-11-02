@@ -183,12 +183,11 @@ public class GameManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        
         Gizmos.color = Color.red;
-        if (Physics.Raycast(ray, out hit))
-        {
-            Gizmos.DrawLine(ray.origin, hit.point * 100f);
-        }
+        
+        Gizmos.DrawLine(ray.origin, ray.direction * 100f);
+        
         
     }
 }

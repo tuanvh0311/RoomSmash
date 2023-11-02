@@ -846,8 +846,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: _totalHitPoints
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: _currentHitPoints
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: velocityReduction
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[0].maxHitPoints
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[0].minHitPoints
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[1].maxHitPoints
+      value: 4.7999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[1].minHitPoints
+      value: 3.6999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[2].maxHitPoints
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[2].minHitPoints
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[3].maxHitPoints
+      value: 2.3999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[3].minHitPoints
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[4].maxHitPoints
+      value: 1.1999999
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: replaceMaterials.Array.data[0].ReplacementMaterial
@@ -1024,7 +1068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 735668441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoot Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735668440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.30000007, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1131,7 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 817593401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1211,6 +1255,7 @@ MonoBehaviour:
   - {fileID: 8755693585099603241, guid: 9377c3859f28e3e4f961ae826bf1334f, type: 3}
   - {fileID: 2634898677216402440, guid: ee9fb9d2af68a5149ba7bcb1e063ca62, type: 3}
   - {fileID: 4138134225584927480, guid: 7795b657d5e02934eb49e344833c0412, type: 3}
+  - {fileID: 3104359389771642029, guid: 2e6f50cc0bad110498a24cb37539fd4f, type: 3}
   currentWeapon: {fileID: 0}
   currentWeaponType: 0
   mode: 0
@@ -1634,6 +1679,9 @@ MonoBehaviour:
     Count: 5
     OnlyPooled: 0
   - Prefab: {fileID: 1187546458036812, guid: d5aeb9c866c9c56428af104ef949e9ca, type: 3}
+    Count: 10
+    OnlyPooled: 0
+  - Prefab: {fileID: 4812914548866334399, guid: 07235d861a39a7749a6a59973ccee9d9, type: 3}
     Count: 10
     OnlyPooled: 0
   suppressWarnings: 0
@@ -2822,7 +2870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806687417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.09, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

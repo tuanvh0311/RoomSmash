@@ -12,7 +12,7 @@ public class Bazooka : Weapon
         
         if (!canShoot()) return;
         GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, s.transform.position, Quaternion.identity);
-        newObject.transform.LookAt(vec * 100);
+        newObject.transform.LookAt(vec * 100000);
         base.Shoot(vec, s);
     }
 }

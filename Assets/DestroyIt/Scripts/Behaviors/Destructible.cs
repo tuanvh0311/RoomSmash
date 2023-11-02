@@ -169,9 +169,13 @@ namespace DestroyIt
                 UpdateDeactivation(destructionManager.deactivateAfter);
             else if (destructionManager.autoDeactivateDestructibleTerrainObjects && isTerrainTree && shouldDeactivate)
                 UpdateDeactivation(destructionManager.deactivateAfter);
-            
+
             if (IsDestroyed) 
+            {
+                //GetComponentInChildren<Arrow>().release();
                 destructionManager.ProcessDestruction(this, destroyedPrefab, new ExplosiveDamage(), _isObliterated);
+            } 
+                
 
             // If this is the first fixed update frame and autoDeativateDestructibles is true, start this component deactivated.
             if (_firstFixedUpdate)
@@ -227,8 +231,13 @@ namespace DestroyIt
 
             PlayDamageEffects();
 
+            
             if (IsDestroyed)
-                DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, new DirectDamage{DamageAmount = amount}, _isObliterated);
+            {
+                //GetComponentInChildren<Arrow>().release();
+                DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, new DirectDamage { DamageAmount = amount }, _isObliterated);
+            }
+           
         }
 
         public void ApplyDamage(Damage damage)
@@ -266,7 +275,11 @@ namespace DestroyIt
             PlayDamageEffects();
 
             if (IsDestroyed)
+            {
+                //GetComponentInChildren<Arrow>().release();
                 DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, damage, _isObliterated);
+            }
+                
         }
 
         public void RepairDamage(float amount) 
@@ -297,7 +310,7 @@ namespace DestroyIt
 
             CurrentHitPoints = 0;
             PlayDamageEffects();
-
+            GetComponentInChildren<Arrow>().release();
             DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, CurrentHitPoints, _isObliterated);
         }
 

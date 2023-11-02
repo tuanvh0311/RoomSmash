@@ -19,7 +19,7 @@ public class Gatling : Weapon
             Vector3 randomVector = new Vector3(vec.x * Random.Range(0.8f, 1f),
                                                 vec.y * Random.Range(0.8f, 1f),
                                                 vec.z * Random.Range(0.8f, 1f));
-            newObject.transform.LookAt(randomVector * 100);
+            newObject.transform.LookAt(randomVector * 100000);
             newObject.GetComponent<Bullet>().bulletDamage = bulletDamage;
             newObject.GetComponent<Bullet>().bulletForce = bulletForce;
         }
