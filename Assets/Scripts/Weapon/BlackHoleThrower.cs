@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crossbow : Weapon
+public class BlackHoleThrower : Weapon
 {
-    public float projectileSpeed;
+    // Start is called before the first frame update
+    public float Force;
     public override void Shoot(Vector3 vec, GameObject s)
     {
         
         if (!canShoot()) return;
         GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, s.transform.position, Quaternion.identity);
-        newObject.transform.LookAt((vec)* 100000);
+        newObject.transform.LookAt((vec) * 100000);
         Rigidbody rb = newObject.GetComponent<Rigidbody>();
-        rb.AddForce(vec * projectileSpeed, ForceMode.Impulse);
+        rb.mass = 1;
+        rb.AddForce(vec * Force, ForceMode.Impulse);
         //rb.AddTorque(vec * projectileSpeed, ForceMode.Force);
         rb.solverIterations = 255;
         base.Shoot(vec, s);
