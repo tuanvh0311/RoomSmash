@@ -9,7 +9,7 @@ namespace DestroyIt
         public bool removeWhenPooled;   // Remove this script when the object is pooled?
         public bool resetToPrefab;      // Reset the entire object back to prefab? (This means it will destroy and recreate the object.)
 
-        private float _timeLeft;
+        public float _timeLeft;
         private bool _isInitialized;
 
         void Start()
@@ -46,6 +46,10 @@ namespace DestroyIt
 
                 ObjectPool.Instance.PoolObject(this.gameObject, reenableChildren);
             }
+        }
+        public void PoolObject()
+        {
+            ObjectPool.Instance.PoolObject(this.gameObject, reenableChildren);
         }
     }
 }

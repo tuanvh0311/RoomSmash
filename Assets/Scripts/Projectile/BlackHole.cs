@@ -31,7 +31,7 @@ public class BlackHole : MonoBehaviour
     }
     void addForceToRigid(Rigidbody rb, Vector3 direction, float distance)
     {
-        rb.AddForce(direction * 1000 * 1 / distance / rb.mass, ForceMode.Force);
+        rb.AddForce(direction * 1000 * 1 / distance / rb.mass / 5, ForceMode.Force);
     }
     private void OnDrawGizmos()
     {

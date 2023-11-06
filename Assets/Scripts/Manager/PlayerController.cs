@@ -9,6 +9,16 @@ public class PlayerController : MonoBehaviour
     public Transform camPos;
     public Rigidbody rb;
 
+    private void Start()
+    {
+        GameManager.Instance.reloadScene += OnInit;
+    }
+
+    private void OnInit()
+    {
+        transform.position = new Vector3(0, 1.5f, 0);
+    }
+
     public void FixedUpdate()
     {
         if (Joystick.Vertical == 0 && Joystick.Horizontal == 0)

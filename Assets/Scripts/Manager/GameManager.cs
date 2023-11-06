@@ -1,8 +1,12 @@
+using DestroyIt;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +16,14 @@ public class GameManager : MonoBehaviour
     public GameObject shootPos = null;
     public float cooldown = 0;
     public Light mainLight;
+    public GameObject mapPrefab = null;
+    public UnityAction reloadScene;
 
     private float holdTime;
     private Vector3 holdPosition;
     private bool startHold;
     private bool isShooting;
+
 
     public enum Mode
      
@@ -37,9 +44,10 @@ public class GameManager : MonoBehaviour
     private const string SETTING_KEY = "Setting";
     private int currentSetting;
     
-    void Start()
+    void Awake()
     {
         GameManager.Instance = this;
+        ReloadScene();
         currentSetting = LoadSetting();
         SetSetting(currentSetting);
         for (int i = 0; i < weapons.Length; i++)
@@ -133,6 +141,17 @@ public class GameManager : MonoBehaviour
         }
         SaveSetting(setting);
         
+    }
+    public void ReloadScene()
+    {
+        reloadScene?.Invoke();
+        GameObject map = GameObject.Find("Map");
+        if (map)
+        {
+            map.GetComponent<PoolAfter>()._timeLeft = 0;
+        }
+        ObjectPool.Instance.Spawn(mapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+       
     }
     void checkCamMode()
     {

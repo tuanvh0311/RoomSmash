@@ -9,7 +9,7 @@ public class BlackHoleBomb : Bomb
     {
         base.Explode();       
         Debug.Log("explose");
-        GameObject blackhole = ObjectPool.Instance.Spawn(explodeObject, transform.position, Quaternion.identity);
+        GameObject blackhole = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
         ObjectPool.Instance.PoolObject(gameObject);       
     }
     

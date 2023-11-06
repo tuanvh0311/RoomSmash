@@ -249,7 +249,7 @@ namespace DestroyIt
                 oldObj.gameObject.layer = debrisLayer;
 
             // Try to get the destroyed prefab from the object pool
-            GameObject newObj = ObjectPool.Instance.Spawn(destroyedPrefab, oldObj.PositionFixedUpdate, oldObj.RotationFixedUpdate, oldObj.GetInstanceID());
+            GameObject newObj = ObjectPool.Instance.Spawn(destroyedPrefab, oldObj.PositionFixedUpdate, oldObj.RotationFixedUpdate,oldObj.transform.parent , oldObj.GetInstanceID());
             InstantiateDebris(newObj, oldObj, damageInfo);
 
             oldObj.gameObject.SetActive(false);

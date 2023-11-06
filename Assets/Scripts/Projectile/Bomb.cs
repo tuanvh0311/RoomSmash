@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public GameObject explodeObject;
-    public ParticleSystem particalSystem;
+    public GameObject explosionPrefab;
     public float explodeTimer;
     private float currentTimer;
     private bool hasExploded;
 
-    private void OnEnable()
+    public virtual void OnEnable()
     {
         hasExploded = false;
         currentTimer = explodeTimer;

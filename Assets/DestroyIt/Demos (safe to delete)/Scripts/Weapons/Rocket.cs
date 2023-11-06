@@ -244,7 +244,13 @@ namespace DestroyIt
                     continue;                           
                 // Ignore self (the rocket)
                 if (col == GetComponent<Collider>())
+                {
                     continue;
+                }
+                if(col.gameObject.name == "Rocket")
+                {
+                    continue;
+                }
 
                 // Check for Rigidbodies
                 Rigidbody rbody = col.attachedRigidbody;
@@ -280,6 +286,7 @@ namespace DestroyIt
             GetComponent<Rigidbody>().Sleep();
             GetComponent<Rigidbody>().useGravity = false;
             ObjectPool.Instance.PoolObject(gameObject, true);
+            Destroy(smokeTrailObj);
             StopAllCoroutines();
         }
     }
