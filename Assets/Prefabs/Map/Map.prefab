@@ -63,7 +63,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1458911923032259142
 Transform:
@@ -248,13 +248,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54137527141858926, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54137527141858926, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _totalHitPoints
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _currentHitPoints
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: velocityReduction
@@ -362,13 +370,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54137527141858926, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54137527141858926, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _totalHitPoints
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _currentHitPoints
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: velocityReduction
@@ -376,39 +392,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[0].maxHitPoints
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[0].minHitPoints
-      value: 400.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[1].maxHitPoints
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[1].minHitPoints
-      value: 300.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[2].maxHitPoints
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[0].minHitPoints
+      value: 240.09999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[1].maxHitPoints
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[1].minHitPoints
+      value: 180.09999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[2].maxHitPoints
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[2].minHitPoints
-      value: 200.09999
+      value: 120.1
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[3].maxHitPoints
-      value: 200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[3].minHitPoints
-      value: 100.1
+      value: 60.1
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[4].maxHitPoints
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: replaceMaterials.Array.data[0].ReplacementMaterial
@@ -476,13 +492,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54137527141858926, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54137527141858926, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _totalHitPoints
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _currentHitPoints
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: velocityReduction
@@ -498,39 +522,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[0].maxHitPoints
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[0].minHitPoints
-      value: 400.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[1].maxHitPoints
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[1].minHitPoints
-      value: 300.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
-      propertyPath: damageLevels.Array.data[2].maxHitPoints
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[0].minHitPoints
+      value: 240.09999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[1].maxHitPoints
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[1].minHitPoints
+      value: 180.09999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[2].maxHitPoints
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[2].minHitPoints
-      value: 200.09999
+      value: 120.1
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[3].maxHitPoints
-      value: 200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[3].minHitPoints
-      value: 100.1
+      value: 60.1
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[4].maxHitPoints
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: replaceMaterials.Array.data[0].ReplacementMaterial

@@ -14,7 +14,7 @@ public class Nuke : Weapon
     public float shockwaveSpeed = 800;
     public float dustWallDistance = 150;
 
-    public override void Shoot(Vector3 vec, GameObject s)
+    public override void Shoot(Vector3 vec, GameObject s, Transform parent)
     {
             
             if (!canShoot()) return;
@@ -28,7 +28,7 @@ public class Nuke : Weapon
             Vector3 nukePos = new Vector3(nukeForwardPos.x, 0f, nukeForwardPos.z);
             if (groundChurnPrefab != null)
             {
-                GameObject groundChurn = Instantiate(groundChurnPrefab, nukePos, Quaternion.identity) as GameObject;
+                GameObject groundChurn = Instantiate(groundChurnPrefab, nukePos, Quaternion.identity,parent) as GameObject;
                 Follow followScript = groundChurn.AddComponent<Follow>();
                 followScript.isPositionFixed = true;
                 followScript.objectToFollow = player;
@@ -36,7 +36,7 @@ public class Nuke : Weapon
                 followScript.fixedFromPosition = nukePos;
                 followScript.fixedDistance = groundChurnDistance;
             }
-            GameObject nuke = Instantiate(projectilePrefab, nukePos, Quaternion.Euler(Vector3.zero)) as GameObject;
+            GameObject nuke = Instantiate(projectilePrefab, nukePos, Quaternion.Euler(Vector3.zero), parent) as GameObject;
             nuke.transform.LookAt(player);
 
             // Configure Wind Zone
@@ -53,7 +53,7 @@ public class Nuke : Weapon
             // Configure Dust Wall
             if (dustWallPrefab != null)
             {
-                GameObject dustWall = Instantiate(dustWallPrefab, nukeForwardPos, Quaternion.Euler(Vector3.zero)) as GameObject;
+                GameObject dustWall = Instantiate(dustWallPrefab, nukeForwardPos, Quaternion.Euler(Vector3.zero), parent) as GameObject;
                 dustWall.transform.LookAt(player);
                 dustWall.transform.position += (dustWall.transform.forward * dustWallDistance);
                 dustWall.GetComponent<Rigidbody>().AddForce(dustWall.transform.forward * shockwaveSpeed, ForceMode.Force);
@@ -64,14 +64,14 @@ public class Nuke : Weapon
             // Configure Shock Wall
             if (shockWallPrefab != null)
             {
-                GameObject shockWall = Instantiate(shockWallPrefab, nukeForwardPos, Quaternion.Euler(Vector3.zero)) as GameObject;
+                GameObject shockWall = Instantiate(shockWallPrefab, nukeForwardPos, Quaternion.Euler(Vector3.zero), parent) as GameObject;
                 shockWall.transform.LookAt(player);
                 shockWall.GetComponent<Rigidbody>().AddForce(shockWall.transform.forward * shockwaveSpeed, ForceMode.Force);
                 ShockWall swScript = shockWall.GetComponent<ShockWall>();
                 swScript.origin = nukePos;
             }
 
-        base.Shoot(vec, s);
+        base.Shoot(vec, s, parent);
 
     }
     }

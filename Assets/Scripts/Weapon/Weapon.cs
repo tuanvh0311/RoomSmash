@@ -10,12 +10,12 @@ public class Weapon : MonoBehaviour
     public float cooldown = 30f;
     public WeaponType weaponType = WeaponType.THROWABLE;
     [SerializeField] GameObject weaponSprite;
-    [SerializeField] GameObject background;
+    public GameObject background;
     [SerializeField] Sprite sprite;
     public GameObject projectilePrefab;
     public bool isHoldToShoot = false;
 
-    public virtual void Shoot(Vector3 vec, GameObject shootPos)
+    public virtual void Shoot(Vector3 vec, GameObject shootPos, Transform parent)
     {
         setCooldown();
     }
@@ -49,8 +49,7 @@ public class Weapon : MonoBehaviour
     }
     public void onWeaponSelect()
     {
-        GameManager.Instance.cooldown = 0;
-        GameManager.Instance.currentWeapon = this;
+        GameManager.Instance.OnChangeWeapon(this);
     }
     
 }

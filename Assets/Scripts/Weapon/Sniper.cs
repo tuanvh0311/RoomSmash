@@ -8,13 +8,13 @@ public class Sniper : Weapon
     public float bulletDamage = 30;
     public float bulletForce = 200;
     // Start is called before the first frame update
-    public override void Shoot(Vector3 vec, GameObject s)
+    public override void Shoot(Vector3 vec, GameObject s, Transform parent)
     {       
         if (!canShoot()) return;
-        GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, s.transform.position, Quaternion.identity);
+        GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, s.transform.position, Quaternion.identity, parent);
         newObject.transform.LookAt(vec * 100000);
         newObject.GetComponent<Bullet>().bulletDamage = bulletDamage;
         newObject.GetComponent<Bullet>().bulletForce = bulletForce;
-        base.Shoot(vec, s);
+        base.Shoot(vec, s, parent);
     }
 }

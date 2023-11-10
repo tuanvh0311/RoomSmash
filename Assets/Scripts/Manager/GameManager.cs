@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,16 +41,17 @@ public class GameManager : MonoBehaviour
     public Mode mode = Mode.freeCam;
     public GameObject camJoystick = null;
     public GameObject movementJoystick = null;
+    public List<PoolAfter> remainObject = new List<PoolAfter>();
 
-    private const string SETTING_KEY = "Setting";
+    private const string GRAPHICS_KEY = "Graphics";
     private int currentSetting;
-    
+    private GameObject map;
     void Awake()
     {
         GameManager.Instance = this;
         ReloadScene();
-        currentSetting = LoadSetting();
-        SetSetting(currentSetting);
+        currentSetting = LoadGraphics();
+        SetGraphics(currentSetting);
         for (int i = 0; i < weapons.Length; i++)
         {
             Weapon weapon = Instantiate(weapons[i]);
@@ -60,18 +62,20 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private int LoadSetting()
+    private int LoadGraphics()
     {
-        if (!PlayerPrefs.HasKey(SETTING_KEY))
+        if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
             SaveSetting(0);
+            UIManager.onGraphicsButtonPress(0);
         }
-        return PlayerPrefs.GetInt(SETTING_KEY);
+        else UIManager.onGraphicsButtonPress(PlayerPrefs.GetInt(GRAPHICS_KEY));
+        return PlayerPrefs.GetInt(GRAPHICS_KEY);
     }
 
     private void SaveSetting(int setting)
     {
-        PlayerPrefs.SetInt(SETTING_KEY, setting);
+        PlayerPrefs.SetInt(GRAPHICS_KEY, setting);
     }
 
     // Update is called once per frame
@@ -113,15 +117,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnSettingButtonPress(int setting)
-    {
-        currentSetting += 1;
-        if (currentSetting > 2) currentSetting = 0;
-        SetSetting(currentSetting);
-    }
 
+    public void OnChangeWeapon(Weapon weapon)
+    {
+        
+        if(currentWeapon != weapon)
+        {
+            if(currentWeapon)
+            currentWeapon.background.GetComponent<Image>().color = Color.black;
+            cooldown = 0;
+            currentWeapon = weapon;
+            weapon.background.GetComponent<Image>().color = Color.yellow;
+        }
+        else
+        {
+            currentWeapon.background.GetComponent<Image>().color = Color.black;
+            currentWeapon = null;
+        }
+    }
     
-    private void SetSetting(int setting)
+    public void SetGraphics(int setting)
     {
 
         switch (setting)
@@ -145,12 +160,16 @@ public class GameManager : MonoBehaviour
     public void ReloadScene()
     {
         reloadScene?.Invoke();
-        GameObject map = GameObject.Find("Map");
-        if (map)
+        foreach (var item in remainObject)
         {
-            map.GetComponent<PoolAfter>()._timeLeft = 0;
+            item.timeLeft = 0f;
         }
-        ObjectPool.Instance.Spawn(mapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        map = GameObject.Find("Map");
+        if (map)
+        {           
+            map.GetComponent<PoolAfter>().timeLeft = 0;
+        }
+        map = ObjectPool.Instance.Spawn(mapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
        
     }
     void checkCamMode()
@@ -170,6 +189,7 @@ public class GameManager : MonoBehaviour
     }
     public void checkWeaponType(WeaponType weaponType)
     {
+        
         currentWeaponType = currentWeaponType == weaponType ? WeaponType.NONE :  weaponType;
         UIManager.onWeaponTypeChange();
         foreach (var weapon in weaponsList)
@@ -189,12 +209,12 @@ public class GameManager : MonoBehaviour
         {
             //RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            weapon.Shoot(ray.direction, shootPos);
+            weapon.Shoot(ray.direction, shootPos, map.transform);
 
         }
         else
         {
-            weapon.Shoot(Camera.main.transform.forward, shootPos);
+            weapon.Shoot(Camera.main.transform.forward, shootPos, map.transform);
         }
         
     }

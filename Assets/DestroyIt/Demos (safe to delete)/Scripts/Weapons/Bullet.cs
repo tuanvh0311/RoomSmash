@@ -108,7 +108,6 @@ namespace DestroyIt
             foreach (Destructible destObj in destObjs)
             {
                 if (!destObj.isActiveAndEnabled && !destObj.isTerrainTree) continue;
-                if (destObj.gameObject.name == "Player") continue;
                 ImpactDamage impactDamage = new ImpactDamage { DamageAmount = bulletDamage, AdditionalForce = bulletForce, AdditionalForcePosition = hitInfo.point, AdditionalForceRadius = .5f };
                 destObj.ApplyDamage(impactDamage);
                 break;
@@ -118,7 +117,7 @@ namespace DestroyIt
 
             // Apply impact force to rigidbody hit
             Rigidbody rbody = hitInfo.collider.attachedRigidbody;
-            if (rbody != null)
+            if (rbody != null && rbody.gameObject.name != "Player")
                 rbody.AddForceAtPosition(force, hitInfo.point, ForceMode.Impulse);
 
             // Check for Chip-Away Debris

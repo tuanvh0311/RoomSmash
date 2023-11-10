@@ -18,6 +18,7 @@ public class WeaponTypeSlot : MonoBehaviour
             Type.GetComponent<Image>().sprite = sprite;
         }
     }
+    
     public void getWeaponType()
     {
         GameManager.Instance.checkWeaponType(weaponType); 

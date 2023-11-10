@@ -58,13 +58,14 @@ MonoBehaviour:
   background: {fileID: 8755693586192470335}
   sprite: {fileID: 21300010, guid: f6ab1a76e58c0774b91a18b7843ec38f, type: 3}
   projectilePrefab: {fileID: 1254537413469816, guid: 43a35310b232a5148b7daa57121f2b38, type: 3}
+  isHoldToShoot: 0
   groundChurnPrefab: {fileID: 0}
   groundChurnDistance: 110
   nukeDistance: 100
   windZone: {fileID: 0}
   dustWallPrefab: {fileID: 100000, guid: ea6d654a841bdf342824592e0a2c8392, type: 3}
   shockWallPrefab: {fileID: 100000, guid: b50367461335f7841ac52a68aae62638, type: 3}
-  shockwaveSpeed: 800
+  shockwaveSpeed: 2000
   dustWallDistance: 150
 --- !u!114 &8755693585099603238
 MonoBehaviour:

@@ -5,6 +5,7 @@ public static class Cache
 {
 
     private static Dictionary<Collider, Rigidbody> rigidDict = new Dictionary<Collider, Rigidbody>();
+    public static int currentMap = 0;
 
     public static Rigidbody GetRigidbodyFromCollider(Collider collider)
     {
