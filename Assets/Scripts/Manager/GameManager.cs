@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
     public GameObject shootPos = null;
     public float cooldown = 0;
     public Light mainLight;
-    public GameObject mapPrefab = null;
+    public GameObject[] mapPrefabs = null;
+    public ScriptableMap[] scriptableMaps;
     public UnityAction reloadScene;
 
     private float holdTime;
     private Vector3 holdPosition;
     private bool startHold;
     private bool isShooting;
-
 
     public enum Mode
      
@@ -39,19 +39,19 @@ public class GameManager : MonoBehaviour
     public WeaponType currentWeaponType = WeaponType.NONE;
     List<Weapon> weaponsList = new List<Weapon>();
     public Mode mode = Mode.freeCam;
-    public GameObject camJoystick = null;
-    public GameObject movementJoystick = null;
     public List<PoolAfter> remainObject = new List<PoolAfter>();
 
     private const string GRAPHICS_KEY = "Graphics";
-    private int currentSetting;
+    private const string AUDIO_KEY = "Audio";
+    private int currentGraphics = 0;
+    private int currentAudioMode = 0;
     private GameObject map;
+    private int currentMapIndex;
     void Awake()
     {
-        GameManager.Instance = this;
-        ReloadScene();
-        currentSetting = LoadGraphics();
-        SetGraphics(currentSetting);
+        GameManager.Instance = this;  
+        LoadSetting();
+        SetGraphics(currentGraphics);
         for (int i = 0; i < weapons.Length; i++)
         {
             Weapon weapon = Instantiate(weapons[i]);
@@ -59,23 +59,35 @@ public class GameManager : MonoBehaviour
             weaponsList.Add(weapon);
             
         }
-        
+        LoadMap(0);
     }
 
     private int LoadGraphics()
     {
         if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
-            SaveSetting(0);
-            UIManager.onGraphicsButtonPress(0);
+            SaveSetting(0, currentAudioMode);
         }
-        else UIManager.onGraphicsButtonPress(PlayerPrefs.GetInt(GRAPHICS_KEY));
         return PlayerPrefs.GetInt(GRAPHICS_KEY);
     }
-
-    private void SaveSetting(int setting)
+    private int LoadAudioMode()
     {
-        PlayerPrefs.SetInt(GRAPHICS_KEY, setting);
+        if(!PlayerPrefs.HasKey(AUDIO_KEY))
+        {
+            SaveSetting(currentGraphics, 0);
+        }
+        return PlayerPrefs.GetInt(AUDIO_KEY);
+    }
+    public void LoadSetting()
+    {
+        currentGraphics = LoadGraphics();
+        currentAudioMode =LoadAudioMode();
+        SetGraphics(currentGraphics);
+    }
+    private void SaveSetting(int graphics, int audio)
+    {
+        PlayerPrefs.SetInt(GRAPHICS_KEY, graphics);
+        PlayerPrefs.SetInt(AUDIO_KEY, audio);
     }
 
     // Update is called once per frame
@@ -120,7 +132,6 @@ public class GameManager : MonoBehaviour
 
     public void OnChangeWeapon(Weapon weapon)
     {
-        
         if(currentWeapon != weapon)
         {
             if(currentWeapon)
@@ -154,38 +165,80 @@ public class GameManager : MonoBehaviour
                 mainLight.shadows = LightShadows.Soft;
                 break;
         }
-        SaveSetting(setting);
+        SaveSetting(setting, currentAudioMode);
         
     }
-    public void ReloadScene()
+
+    
+    public void LoadMap(int mapIndex)
     {
         reloadScene?.Invoke();
         foreach (var item in remainObject)
         {
             item.timeLeft = 0f;
         }
-        map = GameObject.Find("Map");
+        remainObject.Clear();
+        if (map)           
+            map.GetComponent<PoolAfter>().timeLeft = 0;
+        map = ObjectPool.Instance.Spawn(scriptableMaps[mapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        currentMapIndex = mapIndex;
+        mode = Mode.freeCam;
+        if(currentWeapon)
+        currentWeapon.background.GetComponent<Image>().color = Color.black;
+        currentWeapon = null;
+        currentWeaponType = WeaponType.NONE;    
+        checkWeaponType(currentWeaponType);   
+    }
+    public void ReloadMap()
+    {
+        reloadScene?.Invoke();
+        foreach (var item in remainObject)
+        {
+            item.timeLeft = 0f;
+        }
+        remainObject.Clear();
         if (map)
-        {           
+        {
             map.GetComponent<PoolAfter>().timeLeft = 0;
         }
-        map = ObjectPool.Instance.Spawn(mapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
-       
+        map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        mode = Mode.freeCam;
+        if (currentWeapon)
+            currentWeapon.background.GetComponent<Image>().color = Color.black;
+        currentWeapon = null;
+        currentWeaponType = WeaponType.NONE;
+        checkWeaponType(currentWeaponType);
     }
     void checkCamMode()
     {
-        if (mode == Mode.freeCam)
+        switch (mode)
         {
-            UIManager.onFreeCamEnable();
+            case Mode.freeCam:
+                UIManager.onFreeCamEnable();
+                break;
+            case Mode.fpsCam:
+                UIManager.onFpsCamEnable();
+                break;
+            case Mode.adsCam:
+                UIManager.onAdsCamEnable();
+                break;
         }
-        if (mode == Mode.fpsCam)
+    }
+    public void changeCamMode(int camMode)
+    {
+        switch(camMode) 
         {
-            UIManager.onFpsCamEnable();
+            case 0:
+                mode = Mode.freeCam;
+                break;
+            case 1:
+                mode = Mode.fpsCam;
+                break;
+            case 2:
+                mode = Mode.adsCam;
+                break;
         }
-        if (mode == Mode.adsCam)
-        {
-            UIManager.onAdsCamEnable();
-        }
+        checkCamMode();
     }
     public void checkWeaponType(WeaponType weaponType)
     {
