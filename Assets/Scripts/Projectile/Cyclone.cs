@@ -33,6 +33,7 @@ public class Cyclone : MonoBehaviour
         foreach (var hitCollider in hitColliders)
         {
             Rigidbody rb = Cache.GetRigidbodyFromCollider(hitCollider);
+            //Rigidbody rb = hitCollider.attachedRigidbody;
             if (rb == null) continue;
 
             Vector3 direction = transform.position - rb.position;

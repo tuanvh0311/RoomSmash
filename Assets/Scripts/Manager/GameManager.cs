@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public GameObject shootPos = null;
     public float cooldown = 0;
     public Light mainLight;
-    public GameObject[] mapPrefabs = null;
     public ScriptableMap[] scriptableMaps;
     public UnityAction reloadScene;
 
@@ -49,7 +48,11 @@ public class GameManager : MonoBehaviour
     private int currentMapIndex;
     void Awake()
     {
-        GameManager.Instance = this;  
+        GameManager.Instance = this;
+        // Disable vSync
+        QualitySettings.vSyncCount = 0;
+        // Make the game run as fast as possible
+        Application.targetFrameRate = 3000;
         LoadSetting();
         SetGraphics(currentGraphics);
         for (int i = 0; i < weapons.Length; i++)
@@ -97,7 +100,7 @@ public class GameManager : MonoBehaviour
         if (startHold)
         {
             holdTime += Time.deltaTime;
-            if (currentWeapon && !EventSystem.current.IsPointerOverGameObject())
+            if (currentWeapon && !Cache.IsPointerOverUIObject())
                 isShooting = currentWeapon.isHoldToShoot;
         }
         
@@ -110,7 +113,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             startHold = false;
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (!Cache.IsPointerOverUIObject())
             {
                 isShooting = (holdTime < 0.15f);
             }

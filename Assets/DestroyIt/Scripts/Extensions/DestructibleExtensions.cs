@@ -134,13 +134,14 @@ namespace DestroyIt
 
             impactDamage = Mathf.Abs(impactDamage); // can't have negative damage
 
-            if (impactDamage > 1f) // impact must do at least 1 damage to bother with.
+            if (impactDamage > 0f) // impact must do at least 1 damage to bother with.
             {
-                //Debug.Log("Impact Damage: " + impactDamage);
+                
                 //Debug.DrawRay(otherRbody.transform.position, collision.relativeVelocity, Color.yellow, 10f); // yellow: where the impact force is heading
                 ImpactDamage impactInfo = new ImpactDamage() { ImpactObject = otherRbody, DamageAmount = impactDamage, ImpactObjectVelocityFrom = collision.relativeVelocity * -1 };
                 destructibleObj.ApplyDamage(impactInfo);
             }
+            
         }
 
         public static void CalculateDamageLevels(this List<DamageLevel> damageLevels, float maxHitPoints)

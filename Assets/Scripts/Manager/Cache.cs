@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Cache
 {
@@ -16,6 +17,15 @@ public static class Cache
         }
 
         return rigidDict[collider];
+    }
+    public static bool IsPointerOverUIObject()
+    {
+        var eventSystem = EventSystem.current;
+        PointerEventData eventData = new PointerEventData(eventSystem);
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        eventSystem.RaycastAll(eventData, results);
+        return results.Count > 0;
     }
 
 }

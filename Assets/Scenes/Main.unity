@@ -1320,7 +1320,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -750.0006, y: 191.50058}
-  m_SizeDelta: {x: 0, y: 380.5}
+  m_SizeDelta: {x: 100, y: 380.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &159698521
 MonoBehaviour:
@@ -2521,7 +2521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &369099483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2531,7 +2531,7 @@ RectTransform:
   m_GameObject: {fileID: 369099482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35185185, y: 0.35185185, z: 0.35185185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 836556694}
@@ -2571,7 +2571,7 @@ RectTransform:
   m_GameObject: {fileID: 394572052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35185185, y: 0.35185185, z: 0.35185185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1512580067}
@@ -2579,7 +2579,7 @@ RectTransform:
   - {fileID: 164267198}
   - {fileID: 136734047}
   m_Father: {fileID: 550245412}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2954,8 +2954,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 394572053}
   - {fileID: 687290459}
+  - {fileID: 394572053}
   - {fileID: 369099483}
   m_Father: {fileID: 696873210}
   m_RootOrder: 2
@@ -2994,12 +2994,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3707,7 +3707,7 @@ GameObject:
   - component: {fileID: 687290461}
   - component: {fileID: 687290460}
   m_Layer: 5
-  m_Name: Option Button
+  m_Name: Hide Hud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3722,17 +3722,17 @@ RectTransform:
   m_GameObject: {fileID: 687290458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35185185, y: 0.35185185, z: 0.35185185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 301286334}
   - {fileID: 1610072792}
   m_Father: {fileID: 550245412}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 82.90741, y: -22.870361}
+  m_AnchoredPosition: {x: 229, y: -66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687290460
@@ -4137,7 +4137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735668440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5245,9 +5245,6 @@ MonoBehaviour:
   shootPos: {fileID: 735668440}
   cooldown: 0
   mainLight: {fileID: 705507994}
-  mapPrefabs:
-  - {fileID: 1458911923242181006, guid: ada8d0dd08a2f2144887a2d268a28d98, type: 3}
-  - {fileID: 7081101724992754204, guid: 971c59679df97c241abceb85a4633355, type: 3}
   scriptableMaps:
   - {fileID: 11400000, guid: ec52e08c8ad2bd84b99c7d268fe31275, type: 2}
   - {fileID: 11400000, guid: a84c13a9a36ecba4e9011c942dd3086a, type: 2}
@@ -5262,6 +5259,7 @@ MonoBehaviour:
   - {fileID: 324815959010521127, guid: 83a59cc59c184024db4be4df492599c6, type: 3}
   - {fileID: 3567435487524535769, guid: a5d1798645cc6cf4a898b5ee4701e824, type: 3}
   - {fileID: 5103322957134967298, guid: 0619ffd398262524ba633b8aa74f8af3, type: 3}
+  - {fileID: 5537530865489195072, guid: d78b7993c04e0bf40953fab27ac5a056, type: 3}
   currentWeapon: {fileID: 0}
   currentWeaponType: 0
   mode: 0
@@ -6348,8 +6346,8 @@ MonoBehaviour:
   destructibleTreesStayDeactivated: 1
   deactivateAfter: 2
   allowDamage: 1
-  maxPersistentDebris: 500
-  destroyedPrefabLimit: 25
+  maxPersistentDebris: 5000
+  destroyedPrefabLimit: 500
   withinSeconds: 4
   defaultParticle: {fileID: 19800000, guid: 45536824928c30649a722060696ea9be, type: 3}
   obliterateMultiplier: 3

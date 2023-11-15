@@ -27,6 +27,7 @@ namespace DestroyIt
             get { return _currentHitPoints; }
             set { _currentHitPoints = value; }
         }
+        public float InvulnerableTimer = 0.5f; // How long (in seconds) the destructible object is invulnerable after instantiation.
 
         [SerializeField]
         [FormerlySerializedAs("totalHitPoints")]
@@ -77,7 +78,7 @@ namespace DestroyIt
         [HideInInspector] public AudioClip repairedSound;
 
         // Private variables
-        private const float InvulnerableTimer = 0.5f; // How long (in seconds) the destructible object is invulnerable after instantiation.
+
         private DamageLevel _currentDamageLevel;
         private bool _isObliterated;
         private bool _isInitialized;
@@ -483,6 +484,7 @@ namespace DestroyIt
             Destructible destructibleObj = collision.contacts[0].otherCollider.gameObject.GetComponentInParent<Destructible>();
             if (destructibleObj != null && collision.contacts[0].otherCollider.attachedRigidbody == null)
                 destructibleObj.ProcessDestructibleCollision(collision, GetComponent<Rigidbody>());
+
         }
 
         // NOTE: OnDrawGizmos will only fire if Gizmos are turned on in the Unity Editor!
