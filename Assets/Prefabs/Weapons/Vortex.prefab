@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6193311349480001979}
   - component: {fileID: 8372792226523422765}
-  - component: {fileID: 5103322957134967298}
+  - component: {fileID: -715137671131770329}
   m_Layer: 0
   m_Name: Vortex
   m_TagString: Untagged
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5103322957134967298}
+      - m_Target: {fileID: -715137671131770329}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: onWeaponSelect
         m_Mode: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5103322957134967298
+--- !u!114 &-715137671131770329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,14 +257,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8439566991271216436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e68b6c3cb0bbd74ab29d649703e1024, type: 3}
+  m_Script: {fileID: 11500000, guid: 39ac7d31cae0fd84b8c7f4120dce4556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 10
+  cooldown: 1
   weaponType: 5
   weaponSprite: {fileID: 3214765734496488804}
   background: {fileID: 4193875941659292168}
   sprite: {fileID: 0}
-  projectilePrefab: {fileID: 3404558656239548759, guid: f51e6daa2793cdb4d997a3ee5b7d2730, type: 3}
+  projectilePrefab: {fileID: 2030478542905350946, guid: 47fa160b63b14244fa6c6048fae77b5f, type: 3}
   isHoldToShoot: 0
-  Force: 15
+  mask:
+    serializedVersion: 2
+    m_Bits: 2047
+  terrainMask:
+    serializedVersion: 2
+    m_Bits: 512

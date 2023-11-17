@@ -173,7 +173,10 @@ namespace DestroyIt
 
             if (IsDestroyed) 
             {
-                //GetComponentInChildren<Arrow>().release();
+                foreach (var item in GetComponentsInChildren<AttachableObject>())
+                {
+                    item.release();
+                }
                 destructionManager.ProcessDestruction(this, destroyedPrefab, new ExplosiveDamage(), _isObliterated);
             } 
                 
@@ -235,8 +238,12 @@ namespace DestroyIt
             
             if (IsDestroyed)
             {
-                //GetComponentInChildren<Arrow>().release();
+                foreach (var item in GetComponentsInChildren<AttachableObject>())
+                {
+                    item.release();
+                }
                 DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, new DirectDamage { DamageAmount = amount }, _isObliterated);
+                
             }
            
         }
@@ -277,7 +284,10 @@ namespace DestroyIt
 
             if (IsDestroyed)
             {
-                //GetComponentInChildren<Arrow>().release();
+                foreach (var item in GetComponentsInChildren<AttachableObject>())
+                {
+                    item.release();
+                }
                 DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, damage, _isObliterated);
             }
                 
@@ -311,7 +321,11 @@ namespace DestroyIt
 
             CurrentHitPoints = 0;
             PlayDamageEffects();
-            GetComponentInChildren<Arrow>().release();
+
+            foreach (var item in GetComponentsInChildren<Arrow>())
+            {
+                item.release();
+            }
             DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, CurrentHitPoints, _isObliterated);
         }
 

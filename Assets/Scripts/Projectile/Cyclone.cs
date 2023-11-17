@@ -49,7 +49,7 @@ public class Cyclone : MonoBehaviour
     void addForceToRigid(Rigidbody rb, Vector3 direction, float distance)
     {
         float random = Random.Range(-100f, 150f);
-        rb.AddForce(direction * VortexStrength /distance/ rb.mass / 5, ForceMode.Force);
+        rb.AddForce((VortexStrength /distance/2/ rb.mass / 5) * direction, ForceMode.Force);
         rb.AddForce(Vector3.up * random, ForceMode.Force);
     }
     private void OnDrawGizmos()

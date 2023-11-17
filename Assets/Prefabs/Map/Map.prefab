@@ -491,6 +491,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: replaceMaterials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: debrisToReParentByName.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -534,6 +542,10 @@ PrefabInstance:
       propertyPath: damageLevels.Array.data[4].maxHitPoints
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: replaceMaterials.Array.data[0].SourceMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 905f10ac7f860634da0fdb8632df6db8, type: 2}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: replaceMaterials.Array.data[0].ReplacementMaterial
       value: 

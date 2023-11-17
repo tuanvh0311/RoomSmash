@@ -18,8 +18,7 @@ public class Thrower : Weapon
         if (!rb) rb = newObject.AddComponent<Rigidbody>();
         rb.mass = 1;
         rb.AddForce(vec * Force, ForceMode.Impulse);
-        rb.AddTorque(new Vector3(3*Force,0f,0f), ForceMode.Impulse);
-        //rb.AddTorque(vec * projectileSpeed, ForceMode.Force);
+        rb.AddTorque(new Vector3(60f,0,0) * Force, ForceMode.Impulse);
         rb.solverIterations = 255;
         base.Shoot(vec, s, parent);
         //newObject.GetComponent<Rigidbody>().AddForceAtPosition(ray.direction * 5, hit.point, ForceMode.VelocityChange);

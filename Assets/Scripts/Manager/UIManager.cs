@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour
                 break;
             case 1:
 
-                Rigidbody[] rbs = GameObject.Find("Map").GetComponentsInChildren<Rigidbody>();
+                Rigidbody[] rbs = GameManager.Instance.map.GetComponentsInChildren<Rigidbody>();
                 foreach(Rigidbody rb in rbs)
                 {
                     rb.velocity = rb.velocity.normalized * 3;
@@ -152,7 +152,12 @@ public class UIManager : MonoBehaviour
     public void onGraphicsButtonPress(int key)
     {
         PlayerPrefs.SetInt("Graphics", key);
-        LoadSetting();
+        GameManager.Instance.LoadSetting();
+        foreach (var item in graphicsButtons)
+        {
+            item.color = defaultButtonColor;
+        }
+        graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = pressedButtonColor;
     }
     public void onAudioButtonPress()
     {
@@ -162,7 +167,17 @@ public class UIManager : MonoBehaviour
 
         }
         else PlayerPrefs.SetInt("Audio", 0);
-        LoadSetting();
+        GameManager.Instance.LoadSetting();
+        if (PlayerPrefs.GetInt("Audio") == 0)
+        {
+            audioModeButton.GetComponent<Image>().color = pressedButtonColor;
+            audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound On";
+        }
+        else
+        {
+            audioModeButton.GetComponent<Image>().color = defaultButtonColor;
+            audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
+        }
     }
     public void onBackToMenuButtonPress()
     {
@@ -188,6 +203,8 @@ public class UIManager : MonoBehaviour
             audioModeButton.GetComponent<Image>().color = defaultButtonColor;
             audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
         }
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         onGravityButtonPress(0);
         onCammodeButtonPress(0);
     }

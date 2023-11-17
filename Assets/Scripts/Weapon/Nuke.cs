@@ -18,7 +18,7 @@ public class Nuke : Weapon
     {
             
             if (!canShoot()) return;
-            FadeIn flashEffect = gameObject.AddComponent<FadeIn>();
+            FadeIn flashEffect = s.AddComponent<FadeIn>();
             flashEffect.startColor = Color.white;
             flashEffect.fadeLength = 5f;
 

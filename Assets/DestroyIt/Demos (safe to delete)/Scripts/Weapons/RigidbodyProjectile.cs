@@ -28,7 +28,7 @@ namespace DestroyIt
             switch (projectileType)
             {
                 case ProjectileType.Shuriken:                    
-                    rbody.velocity = rbody.velocity.normalized * 10f;
+                    rbody.velocity = rbody.velocity.normalized * 50f;
                     rbody.angularVelocity = new Vector3(0,180,0);
                     break;
                 default:

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -164,9 +165,9 @@ MonoBehaviour:
   sinkWhenDestroyed: 0
   shouldDeactivate: 0
   isTerrainTree: 0
-  destroyedSound: {fileID: 0}
-  damagedSound: {fileID: 0}
-  repairedSound: {fileID: 0}
+  destroyedSound: {fileID: 8300000, guid: 55bc0bc302a054e85b65fd3bc69b4d30, type: 3}
+  damagedSound: {fileID: 8300000, guid: e83fc6426e5f2e0448cc3e51102509aa, type: 3}
+  repairedSound: {fileID: 8300000, guid: d7d9352f94f1740e189ad0bd02e02d5e, type: 3}
 --- !u!54 &6070292680962595941
 Rigidbody:
   m_ObjectHideFlags: 0

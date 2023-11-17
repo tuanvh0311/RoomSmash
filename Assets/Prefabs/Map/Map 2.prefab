@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -246,7 +247,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -254,9 +255,9 @@ MonoBehaviour:
   sinkWhenDestroyed: 0
   shouldDeactivate: 0
   isTerrainTree: 0
-  destroyedSound: {fileID: 0}
-  damagedSound: {fileID: 0}
-  repairedSound: {fileID: 0}
+  destroyedSound: {fileID: 8300000, guid: 55bc0bc302a054e85b65fd3bc69b4d30, type: 3}
+  damagedSound: {fileID: 8300000, guid: e83fc6426e5f2e0448cc3e51102509aa, type: 3}
+  repairedSound: {fileID: 8300000, guid: d7d9352f94f1740e189ad0bd02e02d5e, type: 3}
 --- !u!54 &1414932706097993133
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -525,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -580,7 +582,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -813,6 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -868,7 +871,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -1057,6 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -1112,7 +1116,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -1255,6 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -1310,7 +1315,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -1453,6 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -1508,7 +1514,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -1651,6 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -1706,7 +1713,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -1849,6 +1856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -1904,7 +1912,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -2092,6 +2100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -2147,7 +2156,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -2336,6 +2345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -2391,7 +2401,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -2534,6 +2544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -2589,7 +2600,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -2912,6 +2923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -2967,7 +2979,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -3201,6 +3213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -3256,7 +3269,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -3626,6 +3639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -3681,7 +3695,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -4095,6 +4109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -4150,7 +4165,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -4339,6 +4354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -4394,7 +4410,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -4853,6 +4869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -4908,7 +4925,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -5051,6 +5068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -5106,7 +5124,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -5429,6 +5447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -5484,7 +5503,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -5672,6 +5691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -5727,7 +5747,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -5960,6 +5980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -6015,7 +6036,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -6158,6 +6179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -6213,7 +6235,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -6811,6 +6833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -6866,7 +6889,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -7327,6 +7350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -7382,7 +7406,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -7615,6 +7639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -7670,7 +7695,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -7813,6 +7838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -7868,7 +7894,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -8192,6 +8218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -8247,7 +8274,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -8616,6 +8643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -8671,7 +8699,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -8860,6 +8888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -8915,7 +8944,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -9103,6 +9132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -9158,7 +9188,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -9391,6 +9421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -9446,7 +9477,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -9996,6 +10027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -10051,7 +10083,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -10239,6 +10271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -10294,7 +10327,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -10843,6 +10876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -10898,7 +10932,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -11041,6 +11075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -11096,7 +11131,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -11693,6 +11728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -11748,7 +11784,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -11981,6 +12017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -12036,7 +12073,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -12360,6 +12397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -12415,7 +12453,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -12786,6 +12824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -12841,7 +12880,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -12984,6 +13023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -13039,7 +13079,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -13182,6 +13222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -13237,7 +13278,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -13380,6 +13421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -13435,7 +13477,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -14439,6 +14481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -14494,7 +14537,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -14683,6 +14726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -14738,7 +14782,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -14971,6 +15015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -15026,7 +15071,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -15305,6 +15350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -15360,7 +15406,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -15548,6 +15594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -15603,7 +15650,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -15792,6 +15839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -15847,7 +15895,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -16036,6 +16084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -16091,7 +16140,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -16234,6 +16283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -16289,7 +16339,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -16477,6 +16527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -16532,7 +16583,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -16675,6 +16726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -16730,7 +16782,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -17191,6 +17243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -17246,7 +17299,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -17479,6 +17532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -17534,7 +17588,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -17767,6 +17821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -17822,7 +17877,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -18100,6 +18155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -18155,7 +18211,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -18434,6 +18490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -18489,7 +18546,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -18904,6 +18961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -18959,7 +19017,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -19102,6 +19160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -19157,7 +19216,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -19526,6 +19585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -19581,7 +19641,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -19769,6 +19829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -19824,7 +19885,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -20376,6 +20437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -20431,7 +20493,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -20574,6 +20636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -20629,7 +20692,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -20953,6 +21016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -21008,7 +21072,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -21241,6 +21305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -21296,7 +21361,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -21664,6 +21729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -21719,7 +21785,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -21862,6 +21928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -21917,7 +21984,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -22105,6 +22172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -22160,7 +22228,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -22713,6 +22781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -22768,7 +22837,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -23139,6 +23208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -23194,7 +23264,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -23383,6 +23453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -23438,7 +23509,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -23581,6 +23652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -23636,7 +23708,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -24006,6 +24078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -24061,7 +24134,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -24703,6 +24776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -24758,7 +24832,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -24901,6 +24975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -24956,7 +25031,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -25099,6 +25174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -25154,7 +25230,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -26085,6 +26161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -26140,7 +26217,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -26329,6 +26406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -26384,7 +26462,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -26527,6 +26605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -26582,7 +26661,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -26770,6 +26849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -26825,7 +26905,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -27014,6 +27094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -27069,7 +27150,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -27711,6 +27792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -27766,7 +27848,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -28000,6 +28082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -28055,7 +28138,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -28289,6 +28372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -28344,7 +28428,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -28577,6 +28661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -28632,7 +28717,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -28775,6 +28860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -28830,7 +28916,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -29290,6 +29376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -29345,7 +29432,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -29625,6 +29712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -29680,7 +29768,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -29869,6 +29957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -29924,7 +30013,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -30296,6 +30385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -30351,7 +30441,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -30539,6 +30629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -30594,7 +30685,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -31146,6 +31237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -31201,7 +31293,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -31389,6 +31481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -31444,7 +31537,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -31587,6 +31680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -31642,7 +31736,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -31785,6 +31879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -31840,7 +31935,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -31848,7 +31943,7 @@ MonoBehaviour:
   sinkWhenDestroyed: 0
   shouldDeactivate: 0
   isTerrainTree: 0
-  destroyedSound: {fileID: 0}
+  destroyedSound: {fileID: 8300000, guid: 55bc0bc302a054e85b65fd3bc69b4d30, type: 3}
   damagedSound: {fileID: 0}
   repairedSound: {fileID: 0}
 --- !u!54 &3636927680992942956
@@ -32210,6 +32305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
   _totalHitPoints: 300
   _currentHitPoints: 300
   damageLevels:
@@ -32265,7 +32361,7 @@ MonoBehaviour:
   chipAwayDebrisMass: 1
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
+  autoPoolDestroyedPrefab: 0
   useFallbackParticle: 1
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
@@ -32419,6 +32515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (142)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &6158738198398951697 stripped
@@ -32492,6 +32592,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (107)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -32567,6 +32671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (97)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &5872898061668082515 stripped
@@ -32640,6 +32748,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -32715,6 +32827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &6659920299116519802 stripped
@@ -32788,6 +32904,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -32863,6 +32983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &6401057770074863138 stripped
@@ -32936,6 +33060,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (93)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33011,6 +33139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (125)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &4926579496210928757 stripped
@@ -33084,6 +33216,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33159,6 +33295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &4975729749754799607 stripped
@@ -33232,6 +33372,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33307,6 +33451,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &4867291152410150431 stripped
@@ -33380,6 +33528,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (116)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33455,6 +33607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &5713421222336052498 stripped
@@ -33528,6 +33684,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33603,6 +33763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &5282676918497511738 stripped
@@ -33676,6 +33840,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (138)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33751,6 +33919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &5431963688817663933 stripped
@@ -33824,6 +33996,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -33899,6 +34075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &8282735007716137848 stripped
@@ -33972,6 +34152,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (143)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34047,6 +34231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (98)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &7049674194058539471 stripped
@@ -34120,6 +34308,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34195,6 +34387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &8021316221571468847 stripped
@@ -34268,6 +34464,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34343,6 +34543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (89)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &1574822423581481129 stripped
@@ -34416,6 +34620,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34491,6 +34699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &2288542896576287255 stripped
@@ -34564,6 +34776,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34639,6 +34855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &1742418952675207237 stripped
@@ -34712,6 +34932,22 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: damagedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e83fc6426e5f2e0448cc3e51102509aa, type: 3}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: repairedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d7d9352f94f1740e189ad0bd02e02d5e, type: 3}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: destroyedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 55bc0bc302a054e85b65fd3bc69b4d30, type: 3}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34787,6 +35023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (124)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &1826630932015926041 stripped
@@ -34860,6 +35100,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (129)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -34935,6 +35179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &237988783518656091 stripped
@@ -35008,6 +35256,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -35083,6 +35335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (134)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &648278694311410438 stripped
@@ -35156,6 +35412,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -35231,6 +35491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &4393305383634763326 stripped
@@ -35304,6 +35568,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -35379,6 +35647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &4082623468362060949 stripped
@@ -35452,6 +35724,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (106)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -35527,6 +35803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (133)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &4310769737425545086 stripped
@@ -35600,6 +35880,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -35675,6 +35959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &2693438222679848220 stripped
@@ -35748,6 +36036,10 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (120)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
@@ -35823,6 +36115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Column (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
 --- !u!4 &2463170229882276827 stripped
@@ -35896,6 +36192,18 @@ PrefabInstance:
     - target: {fileID: 6122771248339074435, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
       propertyPath: m_Name
       value: Column (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: damagedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e83fc6426e5f2e0448cc3e51102509aa, type: 3}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: destroyedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 55bc0bc302a054e85b65fd3bc69b4d30, type: 3}
+    - target: {fileID: 6155027405603554453, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}
+      propertyPath: autoPoolDestroyedPrefab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc9887bb9051124ca8158c29d3920d1, type: 3}

@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Arrow : AttachableObject
 {
-    Rigidbody rb;
-    GameObject stickObject;
-    BoxCollider col;
+    
     // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        col = GetComponent<BoxCollider>();
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -21,20 +15,10 @@ public class Arrow : MonoBehaviour
         if(!stickObject)
         rb.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
-    private void SetKinematic(bool value)
+    
+    public override void release()
     {
-        rb.isKinematic = value;
-        col.isTrigger = value;
-    }
-    public void setParent(Transform parent)
-    {
-        transform.SetParent(parent);
-    }
-    public void release()
-    {
-        Debug.Log("release");
-        SetKinematic(false );
-        setParent(null);
+        base.release();
         col.enabled = true;
     }
     private void OnCollisionEnter(Collision collision)

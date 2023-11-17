@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Light mainLight;
     public ScriptableMap[] scriptableMaps;
     public UnityAction reloadScene;
+    public GameObject map;
 
     private float holdTime;
     private Vector3 holdPosition;
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     private const string AUDIO_KEY = "Audio";
     private int currentGraphics = 0;
     private int currentAudioMode = 0;
-    private GameObject map;
+    
     private int currentMapIndex;
     void Awake()
     {
