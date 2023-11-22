@@ -77,14 +77,21 @@ public class UIManager : MonoBehaviour
             image.color = defaultButtonColor;
         }
         gravityButtons[key].color = pressedButtonColor;
+        Rigidbody[] rbs = GameManager.Instance.map.GetComponentsInChildren<Rigidbody>();
         switch (key)
         {
             case 0:
-                Physics.gravity = new Vector3 (0, -9.81f, 0);
+                foreach (Rigidbody rb in rbs)
+                {
+                    //rb.velocity = rb.velocity.normalized * 3;
+                    rb.AddForce(Vector3.down * 3f, ForceMode.Impulse);
+                    rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f)));
+                }
+                Physics.gravity = new Vector3 (0, -20f, 0);
                 break;
             case 1:
-
-                Rigidbody[] rbs = GameManager.Instance.map.GetComponentsInChildren<Rigidbody>();
                 foreach(Rigidbody rb in rbs)
                 {
                     rb.velocity = rb.velocity.normalized * 3;
@@ -95,8 +102,16 @@ public class UIManager : MonoBehaviour
                 }
                 Physics.gravity = new Vector3(0f, 0f, 0f);
                 break;
-            case 2:
-                Physics.gravity = new Vector3(0, 5f, 0);
+            case 2:       
+                foreach (Rigidbody rb in rbs)
+                {
+                    //rb.velocity = rb.velocity.normalized * 3;
+                    rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+                    rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f)));
+                }
+                Physics.gravity = new Vector3(0, 20f, 0);
                 break;
         }
     }

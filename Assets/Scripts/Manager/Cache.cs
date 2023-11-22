@@ -6,6 +6,8 @@ public static class Cache
 {
 
     private static Dictionary<Collider, Rigidbody> rigidDict = new Dictionary<Collider, Rigidbody>();
+    //private static Dictionary<GameObject, Rigidbody> goDict = new Dictionary<GameObject, Rigidbody>();
+
     public static int currentMap = 0;
 
     public static Rigidbody GetRigidbodyFromCollider(Collider collider)
@@ -18,6 +20,10 @@ public static class Cache
 
         return rigidDict[collider];
     }
+    
+   
+    
+
     public static bool IsPointerOverUIObject()
     {
         var eventSystem = EventSystem.current;

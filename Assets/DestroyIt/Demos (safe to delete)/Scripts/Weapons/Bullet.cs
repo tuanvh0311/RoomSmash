@@ -67,8 +67,6 @@ namespace DestroyIt
                     streakFramesStable += 1;
             }
 
-            Vector3 lineEndPoint = transform.position + (transform.forward * speed * Time.deltaTime);
-            Debug.DrawLine(transform.position, lineEndPoint, Color.red, 5f);
 
             // Raycast in front of the bullet to see if it hit anything. Sort the hits from closest to farthest.
             RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, speed * Time.deltaTime);

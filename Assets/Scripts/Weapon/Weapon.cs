@@ -21,7 +21,6 @@ public class Weapon : MonoBehaviour
     }
     public bool canShoot()
     {
-        if (!projectilePrefab) return false;
         if (GameManager.Instance.cooldown > 0) return false;
         return true;
     }

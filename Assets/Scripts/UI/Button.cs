@@ -41,12 +41,14 @@ public class Button : MonoBehaviour
             isToggle = true;
             background.color = Color.yellow;
             panel.SetActive(true);
+            GameManager.Instance.disableShootTimer = 1000000000f;
         }
         else
         {
             isToggle = false;
             background.color = Color.black;
             panel.SetActive(false);
+            GameManager.Instance.disableShootTimer = Time.deltaTime * 2f;
         }
     }
     public void onToggleAndPanelReverse()

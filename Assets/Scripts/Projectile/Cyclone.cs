@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class Cyclone : MonoBehaviour
 {
     private float VortexStrength = 1500f;
-    private float SwirlStrength = 20f;
+    private float SwirlStrength = 50f;
     private float radius = 10f;
     private Vector3 direction = Vector3.zero;
     private float changeDirectionTimer = 0f;
@@ -39,9 +39,11 @@ public class Cyclone : MonoBehaviour
             Vector3 direction = transform.position - rb.position;
             direction = new Vector3(direction.x,0f, direction.z);
             float distance = Vector3.Distance(rb.position, transform.position);
+            float distanceY = Vector3.Distance(new Vector3(0,rb.position.y,0), new Vector3(0, transform.position.y, 0));
+            distanceY = (distanceY < 1) ? 1 : distanceY;
             if (distance < 1) distance = 1;           
             addForceToRigid(rb, direction, distance);
-            var tangent = Vector3.Cross(direction, Vector3.up).normalized * SwirlStrength;
+            var tangent = (SwirlStrength * (distanceY / 10f)) * Vector3.Cross(direction, Vector3.up).normalized;
             rb.velocity = tangent;
 
         }
@@ -49,8 +51,11 @@ public class Cyclone : MonoBehaviour
     void addForceToRigid(Rigidbody rb, Vector3 direction, float distance)
     {
         float random = Random.Range(-100f, 150f);
-        rb.AddForce((VortexStrength /distance/2/ rb.mass / 5) * direction, ForceMode.Force);
+        rb.AddForce((VortexStrength /distance / 2 / rb.mass) * direction, ForceMode.Force);
         rb.AddForce(Vector3.up * random, ForceMode.Force);
+        rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f)));
     }
     private void OnDrawGizmos()
     {

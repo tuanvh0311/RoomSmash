@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour
     private const string AUDIO_KEY = "Audio";
     private int currentGraphics = 0;
     private int currentAudioMode = 0;
-    
+    public float disableShootTimer = 0f;
     private int currentMapIndex;
     void Awake()
     {
@@ -55,7 +54,6 @@ public class GameManager : MonoBehaviour
         // Make the game run as fast as possible
         Application.targetFrameRate = 3000;
         LoadSetting();
-        SetGraphics(currentGraphics);
         for (int i = 0; i < weapons.Length; i++)
         {
             Weapon weapon = Instantiate(weapons[i]);
@@ -65,6 +63,8 @@ public class GameManager : MonoBehaviour
         }
         LoadMap(0);
     }
+
+    
 
     private int LoadGraphics()
     {
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadSetting()
     {
+
         currentGraphics = LoadGraphics();
         currentAudioMode =LoadAudioMode();
         SetGraphics(currentGraphics);
@@ -97,11 +98,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        disableShootTimer -= Time.deltaTime;
         cooldown -= Time.deltaTime;
         if (startHold)
         {
             holdTime += Time.deltaTime;
-            if (currentWeapon && !Cache.IsPointerOverUIObject())
+            if (currentWeapon && !Cache.IsPointerOverUIObject() && disableShootTimer <= 0)
                 isShooting = currentWeapon.isHoldToShoot;
         }
         
@@ -111,10 +113,10 @@ public class GameManager : MonoBehaviour
             holdPosition = Input.mousePosition;          
         }
         
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) )
         {
             startHold = false;
-            if (!Cache.IsPointerOverUIObject())
+            if (!Cache.IsPointerOverUIObject() && disableShootTimer <= 0)
             {
                 isShooting = (holdTime < 0.15f);
             }
@@ -153,19 +155,19 @@ public class GameManager : MonoBehaviour
     
     public void SetGraphics(int setting)
     {
-
+        float widthOnHeight = Screen.width/Screen.height;
         switch (setting)
         {
             case 0:
-                Screen.SetResolution(640, 360, true);
+                Screen.SetResolution(640, (int)(640 / widthOnHeight), true);
                 mainLight.shadows = LightShadows.None;
                 break; 
             case 1:
-                Screen.SetResolution(1280, 720, true);
+                Screen.SetResolution(1280, (int)(1280/ widthOnHeight), true);
                 mainLight.shadows = LightShadows.Hard;
                 break;
             case 2:
-                Screen.SetResolution(1920, 1080, true);
+                Screen.SetResolution(1920, (int)(1920 / widthOnHeight), true);
                 mainLight.shadows = LightShadows.Soft;
                 break;
         }
@@ -190,7 +192,8 @@ public class GameManager : MonoBehaviour
         if(currentWeapon)
         currentWeapon.background.GetComponent<Image>().color = Color.black;
         currentWeapon = null;
-        currentWeaponType = WeaponType.NONE;    
+        currentWeaponType = WeaponType.NONE;
+        disableShootTimer = 0;
         checkWeaponType(currentWeaponType);   
     }
     public void ReloadMap()
@@ -211,6 +214,7 @@ public class GameManager : MonoBehaviour
             currentWeapon.background.GetComponent<Image>().color = Color.black;
         currentWeapon = null;
         currentWeaponType = WeaponType.NONE;
+        disableShootTimer = 0;
         checkWeaponType(currentWeaponType);
     }
     void checkCamMode()

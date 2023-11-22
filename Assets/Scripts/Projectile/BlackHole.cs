@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlackHole : MonoBehaviour
 {
-    [SerializeField] public float GRAVITY_PULL = .78f;
 
     public float radius = 1f;
 
@@ -31,7 +30,7 @@ public class BlackHole : MonoBehaviour
     }
     void addForceToRigid(Rigidbody rb, Vector3 direction, float distance)
     {
-        rb.AddForce((1000 * 1 / distance / rb.mass / 3) * direction, ForceMode.Force);
+        rb.AddForce((3000f / distance / 3) * direction, ForceMode.Force);
     }
     private void OnDrawGizmos()
     {

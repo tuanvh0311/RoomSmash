@@ -12,7 +12,7 @@ public class Axe : AttachableObject
     private void FixedUpdate()
     {
         if(!isContacted)
-            transform.Rotate(Vector3.right * 480f * Time.fixedDeltaTime, Space.Self);
+            transform.Rotate(Vector3.right * 800f * Time.fixedDeltaTime, Space.Self);
     }
     private void OnTriggerEnter(Collider other)
     {
