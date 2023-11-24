@@ -83,7 +83,6 @@ public class UIManager : MonoBehaviour
             case 0:
                 foreach (Rigidbody rb in rbs)
                 {
-                    //rb.velocity = rb.velocity.normalized * 3;
                     rb.AddForce(Vector3.down * 3f, ForceMode.Impulse);
                     rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
                                                     Random.Range(-10f, 10f),
@@ -105,13 +104,32 @@ public class UIManager : MonoBehaviour
             case 2:       
                 foreach (Rigidbody rb in rbs)
                 {
-                    //rb.velocity = rb.velocity.normalized * 3;
                     rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
                     rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
                                                     Random.Range(-10f, 10f),
                                                     Random.Range(-10f, 10f)));
                 }
                 Physics.gravity = new Vector3(0, 20f, 0);
+                break;
+            case 3:
+                foreach (Rigidbody rb in rbs)
+                {
+                    rb.AddForce(Vector3.left * 3f, ForceMode.Impulse);
+                    rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f)));
+                }
+                Physics.gravity = new Vector3(-20f, 0, 0);
+                break;
+            case 4:
+                foreach (Rigidbody rb in rbs)
+                {
+                    rb.AddForce(Vector3.right * 3f, ForceMode.Impulse);
+                    rb.AddTorque(new Vector3(Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f),
+                                                    Random.Range(-10f, 10f)));
+                }
+                Physics.gravity = new Vector3(20f, 0, 0);
                 break;
         }
     }

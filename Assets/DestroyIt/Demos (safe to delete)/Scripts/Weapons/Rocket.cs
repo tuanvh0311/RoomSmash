@@ -169,6 +169,7 @@ namespace DestroyIt
         {
             Vector3 currPos = transform.position;
             isExploding = true;
+            CameraController.Instance.startShakeCamera(0f,1f);
             TurnOffSmokeTrail();
             // Play explosion particle effect.
             ObjectPool.Instance.Spawn(explosionPrefab, currPos, GetComponent<Rigidbody>().rotation);

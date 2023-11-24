@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 370906310803279464}
   - component: {fileID: -6467326743965052205}
   - component: {fileID: -2148023669034533269}
+  - component: {fileID: -8129114374450642309}
   m_Layer: 7
   m_Name: BlackHoleSimple
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 370906310801346728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8138363607083033566}
   m_Father: {fileID: 0}
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87bc6940a193ebc4a83bbf123155e999, type: 2}
+  - {fileID: 2100000, guid: 4d34bcb2343ffc240b6db76ac48eb104, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,11 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e3b64f8f6bf3b4f8eb5d01afa867d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GRAVITY_PULL: 0.78
   radius: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 1343
+--- !u!135 &-8129114374450642309
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370906310801346728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.13
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2782283152413803753
 GameObject:
   m_ObjectHideFlags: 0

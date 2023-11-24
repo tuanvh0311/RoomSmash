@@ -13,10 +13,7 @@ public class Cyclone : MonoBehaviour
 
     public LayerMask layerMask;
 
-    private void OnEnable()
-    {
-        
-    }
+    
     void FixedUpdate()
     {
         changeDirectionTimer -= Time.deltaTime;

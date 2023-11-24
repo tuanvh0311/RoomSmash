@@ -115,7 +115,7 @@ namespace DestroyIt
             if (collision.relativeVelocity.magnitude < destructibleObj.ignoreCollisionsUnder) return;
 
             if (collision.contacts.Length == 0) return;
-
+            
             float impactDamage;
             Rigidbody otherRbody = collision.contacts[0].otherCollider.gameObject.GetComponentInParent<Rigidbody>(true);
 

@@ -168,6 +168,7 @@ MonoBehaviour:
   reenableChildren: 1
   removeWhenPooled: 0
   resetToPrefab: 1
+  timeLeft: 0
 --- !u!114 &-4455132425715669954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ec952bc26e1bd419fdbd31c898261b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  stickObject: {fileID: 0}
+  col: {fileID: 0}
 --- !u!65 &3601932069475849540
 BoxCollider:
   m_ObjectHideFlags: 0

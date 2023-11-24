@@ -11,6 +11,7 @@ public class VortexSpawner : Weapon
     {
 
         if (!canShoot()) return;
+        CameraController.Instance.startShakeCamera(10f, 1f);
         Ray ray = new Ray();
         ray.direction = vec;
         RaycastHit hit;

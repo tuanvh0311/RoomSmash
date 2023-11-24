@@ -27,9 +27,9 @@ public class EarthquakeGO : MonoBehaviour
                 foreach (var hitCollider in hitColliders)
                 {
                     Rigidbody rb = Cache.GetRigidbodyFromCollider(hitCollider);
-                    Vector3 randomForce = new Vector3(Random.Range(-10f, 10f),
-                                                            Random.Range(-1f, 2f),
-                                                            Random.Range(-10f, 10f));
+                    Vector3 randomForce = new Vector3(Random.Range(-5f, 5f),
+                                                            Random.Range(-2f, 3f),
+                                                            Random.Range(-5f, 5f));
                     mass = rb.mass < 0 ? 1 : rb.mass;
 
                     rb.AddForce(randomForce * 80 / mass, ForceMode.Acceleration);
@@ -52,7 +52,7 @@ public class EarthquakeGO : MonoBehaviour
     {
         isShaking = true;
         shakeCount = 10;
-        CameraController.Instance.shakeCamera(shakeCount * shakePerSec);
+        CameraController.Instance.startShakeCamera(shakeCount * shakePerSec, 0.5f);
     }
 
 

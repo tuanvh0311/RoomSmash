@@ -21,7 +21,7 @@ public class Nuke : Weapon
             FadeIn flashEffect = s.AddComponent<FadeIn>();
             flashEffect.startColor = Color.white;
             flashEffect.fadeLength = 5f;
-
+            CameraController.Instance.startShakeCamera(5f, 0.8f);
             // position the nuke 2500m in front of where the player is facing.
             Transform player = s.transform;
             Vector3 nukeForwardPos = player.position + player.forward * nukeDistance;

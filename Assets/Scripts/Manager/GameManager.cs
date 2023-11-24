@@ -50,9 +50,9 @@ public class GameManager : MonoBehaviour
     {
         GameManager.Instance = this;
         // Disable vSync
+
         QualitySettings.vSyncCount = 0;
-        // Make the game run as fast as possible
-        Application.targetFrameRate = 3000;
+        Application.targetFrameRate = 30000;
         LoadSetting();
         for (int i = 0; i < weapons.Length; i++)
         {

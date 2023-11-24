@@ -17,6 +17,7 @@ public class AttachableObject : MonoBehaviour
     {
         SetKinematic(false);
         setParent(GameManager.Instance.map.transform);
+        stickObject = null;
     }
     public void SetKinematic(bool value)
     {

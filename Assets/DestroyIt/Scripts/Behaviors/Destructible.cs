@@ -322,7 +322,7 @@ namespace DestroyIt
             CurrentHitPoints = 0;
             PlayDamageEffects();
 
-            foreach (var item in GetComponentsInChildren<Arrow>())
+            foreach (var item in GetComponentsInChildren<AttachableObject>())
             {
                 item.release();
             }
@@ -490,6 +490,7 @@ namespace DestroyIt
         {
             if (DestructionManager.Instance == null) return;
             if (!isActiveAndEnabled) return;
+            if (collision.gameObject.CompareTag("DontDoDamage")) return; 
 
             this.ProcessDestructibleCollision(collision, GetComponent<Rigidbody>());
             

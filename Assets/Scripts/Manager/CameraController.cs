@@ -17,32 +17,117 @@ public class CameraController : MonoBehaviour
     private float shakeForce = 0f;
     private float shakeDelay = 0f;
     private bool isShaking = false;
-    private float length = 0f;
+
     Quaternion rot;
 
     private Camera m_Camera;
-    void Start()
+    void Awake()
     {
         GameManager.Instance.reloadScene += OnInit;
+        originalCamPos = camPos.transform.position;
         OnInit();
     }
 
     void OnInit()
     {
         CameraController.Instance = this;
-        originalCamPos = camPos.transform.position;
+        shakeTimer = 0f;
+        shakeForce = 0f;
+        camPos.transform.position = originalCamPos;
         camPos.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         m_Camera = Camera.main;
         rot = camPos.transform.rotation;
         m_Camera.transform.position = camPos.transform.position;
     }
-    public void shakeCamera(float duration)
+    public void startShakeCamera(float duration, float startForce)
     {
         duration -= 1f;
         isShaking = true;
         if(shakeTimer < duration)
-        shakeTimer = duration;
-        
+            shakeTimer = duration;
+        if(shakeForce < startForce) 
+            shakeForce = startForce;
+    }
+
+    public void shakeCamera(float time)
+    {
+        shakeTimer -= time;
+        shakeDelay -= time;
+        if (isShaking && shakeTimer > 0f)
+        {
+            shakeForce += time / 5;
+            if (shakeForce > 1f) shakeForce = 1.25f;
+            if (shakeDelay <= 0f)
+            {
+                shakeDelay = Time.deltaTime;
+                camPos.transform.position = originalCamPos + new Vector3(Random.Range(-1f, 1f),
+                                                            Random.Range(-0.3f, 0.3f),
+                                                            Random.Range(-1f, 1f)) * shakeForce;
+            }
+        }
+        else
+        {
+            shakeForce -= time;
+            if (shakeForce < 0f)
+            {
+                camPos.transform.position = originalCamPos;
+                shakeForce = 0f;
+                isShaking = false;
+            }
+            if (shakeDelay <= 0f)
+            {
+                shakeDelay = Time.deltaTime;
+                camPos.transform.position = originalCamPos + new Vector3(Random.Range(-1f, 1f),
+                                                    Random.Range(-0.3f, 0.3f),
+                                                    Random.Range(-1f, 1f)) * shakeForce;
+            }
+
+
+        }
+    }
+    public void shakeCamera2(float time)
+    {     
+        shakeTimer -= time;
+        shakeDelay -= time;
+        float lerpDuration = time * 2f;
+        if (isShaking && shakeTimer > 0f)
+        {
+            shakeForce += time / 5;
+            if (shakeForce > 1f) shakeForce = 1.25f;
+            if (shakeDelay <= 0f)
+            {
+                shakeDelay = Time.deltaTime;
+                Vector3 gotoPos = originalCamPos + (new Vector3(Random.Range(-1f, 1f),
+                                                    Random.Range(-0.3f, 0.3f),
+                                                    Random.Range(-1f, 1f)) * shakeForce * 3f);
+                camPos.transform.position = Vector3.Lerp(transform.position, gotoPos, lerpDuration);
+                //length = Vector3.Distance(camPos.transform.position, gotoPos);
+                //if (length > 0.01f)
+                //{
+                                    
+                //}
+                
+            }
+        }      
+        else
+        {
+            shakeForce -= time;
+            if (shakeForce < 0f)
+            {
+                shakeForce = 0f;
+                camPos.transform.position = Vector3.Lerp(transform.position, originalCamPos, lerpDuration);
+                isShaking = false;
+            }
+            if (shakeDelay <= 0f)
+            {
+                shakeDelay = Time.deltaTime;
+                Vector3 gotoPos = originalCamPos + (new Vector3(Random.Range(-1f, 1f),
+                                                    Random.Range(-0.3f, 0.3f),
+                                                    Random.Range(-1f, 1f)) * shakeForce * 3f);
+                camPos.transform.position = Vector3.Lerp(transform.position, gotoPos, lerpDuration);
+            }
+                       
+        }
     }
 
     void Update()
@@ -82,69 +167,7 @@ public class CameraController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        shakeTimer -= Time.fixedDeltaTime;
-        shakeDelay -= Time.fixedDeltaTime;
-        if (isShaking && shakeTimer > 0f)
-        {
-            shakeForce += Time.fixedDeltaTime / 5;
-            if (shakeForce > 1f) shakeForce = 1.25f;
-            if (shakeDelay <= 0f)
-            {
-                shakeDelay = Time.fixedDeltaTime * 2f;
-                camPos.transform.position = originalCamPos + new Vector3(Random.Range(-1, 1),
-                                                            Random.Range(-0.1f, 0.1f),
-                                                            Random.Range(-1, 1)) * shakeForce;
-            }
-        }
-
-        //camPos.transform.position = Vector3.Lerp(camPos.transform.position, gotoPos, Time.fixedDeltaTime);
-        //Vector3 gotoPos = originalCamPos + (new Vector3(Random.Range(-1, 1),
-        //                                        Random.Range(-0.1f, 0.1f),
-        //                                        Random.Range(0, 0.5f)) * shakeForce * 15f);
-        //if (length > 0.01f)
-        //{
-
-        //    gotoPos = originalCamPos + new Vector3(Random.Range(-1, 1),
-        //                                        Random.Range(-0.1f, 0.1f),
-        //                                        Random.Range(-1, 1)) * shakeForce;
-
-
-
-        //}
-        //else
-        //{
-        //    gotoPos = originalCamPos + (new Vector3(Random.Range(-1, 1),
-        //                                        Random.Range(-0.1f, 0.1f),
-        //                                        Random.Range(0, 0.5f)) * shakeForce * 15f);
-        //    length = Vector3.Distance(camPos.transform.position, gotoPos);
-        //    Debug.Log(length);
-
-        //}
-
-
-        //else
-        //{
-        //    camPos.transform.position = Vector3.Lerp(camPos.transform.position, originalCamPos, Time.fixedDeltaTime);
-        //    camPos.transform.position = originalCamPos;
-        //}
-        else
-        {
-            camPos.transform.position = originalCamPos;
-            shakeForce -= Time.fixedDeltaTime;
-            if (shakeForce < 0f)
-            {
-                shakeForce = 0f;
-                isShaking = false;
-            }
-            if (shakeDelay <= 0f)
-            {
-                shakeDelay = 0.01f;
-                camPos.transform.position = originalCamPos + new Vector3(Random.Range(-1, 1),
-                                                    Random.Range(-0.1f, 0.1f),
-                                                    Random.Range(-1, 1)) * shakeForce;
-            }
-
-
-        }
+        
+        shakeCamera2(Time.fixedDeltaTime);
     }
 }

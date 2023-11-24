@@ -9,6 +9,7 @@ public class BlackHoleBomb : Bomb
     {
         base.Explode();       
         GameObject blackhole = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
+        CameraController.Instance.startShakeCamera(10f, 1f);
         ObjectPool.Instance.PoolObject(gameObject);       
     }
     

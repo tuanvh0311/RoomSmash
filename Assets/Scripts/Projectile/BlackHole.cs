@@ -1,3 +1,4 @@
+using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,7 @@ public class BlackHole : MonoBehaviour
 
     public LayerMask layerMask;
 
-    private void OnEnable()
-    {
-        
-    }
+    
     void FixedUpdate()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, layerMask);
@@ -27,6 +25,15 @@ public class BlackHole : MonoBehaviour
             addForceToRigid(rb,direction, distance);
             
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destructible des = collision.gameObject.GetComponent<Destructible>();
+        if (!des)
+        {
+            ObjectPool.Instance.PoolObject(collision.gameObject, true);
+        }
+        
     }
     void addForceToRigid(Rigidbody rb, Vector3 direction, float distance)
     {
