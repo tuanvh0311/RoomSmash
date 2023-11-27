@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private void OnInit()
     {
         transform.position = new Vector3(0, 1.5f, 0);
+        rb.velocity = Vector3.zero;
     }
 
     public void FixedUpdate()

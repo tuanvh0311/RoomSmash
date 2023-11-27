@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3919243295609539937}
   - component: {fileID: 1805830291423983846}
   - component: {fileID: 8070933531459824717}
-  - component: {fileID: 1778425896724718199}
   - component: {fileID: 3210720225967648851}
   m_Layer: 7
   m_Name: Stone
@@ -184,21 +183,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &1778425896724718199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3270474741291216052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae5a7a1942384f45a292ce82d781740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects:
-  - hitBy: -1
-    effect: {fileID: 100000, guid: 45536824928c30649a722060696ea9be, type: 3}
 --- !u!135 &3210720225967648851
 SphereCollider:
   m_ObjectHideFlags: 0

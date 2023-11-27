@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 617555300988686133}
   - component: {fileID: 6218071216322103508}
   - component: {fileID: 436787222082360502}
+  - component: {fileID: -3770021548153760662}
   m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
@@ -67,6 +68,23 @@ MonoBehaviour:
   rb: {fileID: 0}
   stickObject: {fileID: 0}
   col: {fileID: 0}
+--- !u!114 &-3770021548153760662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617555300988348389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2173075f949abe34cbac509d346178e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 10
+  reenableChildren: 0
+  removeWhenPooled: 0
+  resetToPrefab: 0
+  timeLeft: 0
 --- !u!1 &617555300988375661
 GameObject:
   m_ObjectHideFlags: 0

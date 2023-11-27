@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DestroyIt;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +7,7 @@ public static class Cache
 {
 
     private static Dictionary<Collider, Rigidbody> rigidDict = new Dictionary<Collider, Rigidbody>();
+    private static Dictionary<Collider, Destructible> destructibleDict = new Dictionary<Collider, Destructible>();
     //private static Dictionary<GameObject, Rigidbody> goDict = new Dictionary<GameObject, Rigidbody>();
 
     public static int currentMap = 0;
@@ -20,9 +22,20 @@ public static class Cache
 
         return rigidDict[collider];
     }
-    
-   
-    
+
+    public static Destructible GetDestructibleFromCollider(Collider collider)
+    {
+        if (!destructibleDict.ContainsKey(collider))
+        {
+            Destructible dest = collider.transform.parent.GetComponent<Destructible>();
+            destructibleDict.Add(collider, dest);
+        }
+
+        return destructibleDict[collider];
+    }
+
+
+
 
     public static bool IsPointerOverUIObject()
     {

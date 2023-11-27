@@ -133,6 +133,11 @@ public class GameManager : MonoBehaviour
             CheckShooting(currentWeapon);
             isShooting = false;
         }
+        else
+        {
+            foreach (Transform child in shootPos.transform)
+                child.gameObject.SetActive(false);
+        }
     }
 
 

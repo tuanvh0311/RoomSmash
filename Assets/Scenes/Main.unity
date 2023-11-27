@@ -5031,6 +5031,9 @@ MonoBehaviour:
   - {fileID: 4271578393768556047, guid: dfba1b7502bb7b34e99585974c55a042, type: 3}
   - {fileID: 3934369541860530049, guid: 934a668f0203378468b66ae98f9d9ae6, type: 3}
   - {fileID: 7719248848077856151, guid: 5885c8950b2068843b8754ea84821481, type: 3}
+  - {fileID: 3307787309304460246, guid: 650fb6fb7c8e51c4a85debeab120472a, type: 3}
+  - {fileID: 5539579908895009862, guid: 1283ad2fb201bdf4abfa7974fd25b790, type: 3}
+  - {fileID: 7863815049329867384, guid: fe112da920c037e4c92c19024a0bb831, type: 3}
   currentWeapon: {fileID: 0}
   currentWeaponType: 0
   mode: 0
@@ -6179,14 +6182,17 @@ MonoBehaviour:
   - Prefab: {fileID: 1458911923242181006, guid: ada8d0dd08a2f2144887a2d268a28d98, type: 3}
     Count: 1
     OnlyPooled: 0
-  - Prefab: {fileID: 3404558656239548759, guid: f51e6daa2793cdb4d997a3ee5b7d2730, type: 3}
-    Count: 1
-    OnlyPooled: 0
   - Prefab: {fileID: 2030478542905350946, guid: 47fa160b63b14244fa6c6048fae77b5f, type: 3}
     Count: 1
     OnlyPooled: 0
   - Prefab: {fileID: 7081101724992754204, guid: 971c59679df97c241abceb85a4633355, type: 3}
     Count: 1
+    OnlyPooled: 0
+  - Prefab: {fileID: 163286, guid: d5ff317215b5f8e45b1d5964fd5c322f, type: 3}
+    Count: 60
+    OnlyPooled: 0
+  - Prefab: {fileID: 1071430079427247208, guid: 939e146aa135f8b42b975ece05ac5f54, type: 3}
+    Count: 5
     OnlyPooled: 0
   suppressWarnings: 0
 --- !u!114 &971548325
@@ -9948,7 +9954,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112

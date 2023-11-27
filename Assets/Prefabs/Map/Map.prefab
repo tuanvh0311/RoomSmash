@@ -219,6 +219,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damagedSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _totalHitPoints
       value: 300
       objectReference: {fileID: 0}
@@ -229,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: velocityReduction
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: replaceMaterials.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[0].maxHitPoints

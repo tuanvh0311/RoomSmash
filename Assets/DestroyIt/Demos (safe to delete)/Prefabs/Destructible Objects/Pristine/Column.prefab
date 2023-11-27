@@ -279,9 +279,7 @@ MonoBehaviour:
   ignoreCollisionsUnder: 2
   unparentOnDestroy: []
   disableKinematicOnUparentedChildren: 1
-  replaceMaterials:
-  - SourceMaterial: {fileID: 2100000, guid: a210b46155a8a8c44a3452b82df06d0b, type: 2}
-    ReplacementMaterial: {fileID: 0}
+  replaceMaterials: []
   replaceParticleMats: []
   canBeDestroyed: 1
   canBeRepaired: 0
@@ -302,7 +300,7 @@ MonoBehaviour:
   shouldDeactivate: 0
   isTerrainTree: 0
   destroyedSound: {fileID: 8300000, guid: 55bc0bc302a054e85b65fd3bc69b4d30, type: 3}
-  damagedSound: {fileID: 8300000, guid: e83fc6426e5f2e0448cc3e51102509aa, type: 3}
+  damagedSound: {fileID: 0}
   repairedSound: {fileID: 8300000, guid: d7d9352f94f1740e189ad0bd02e02d5e, type: 3}
 --- !u!54 &54137527141858926
 Rigidbody:
