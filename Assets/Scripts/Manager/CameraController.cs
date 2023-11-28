@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         GameManager.Instance.reloadScene += OnInit;
-        originalCamPos = camPos.transform.position;
+        originalCamPos = camPos.transform.localPosition;
         OnInit();
     }
 
@@ -33,7 +33,8 @@ public class CameraController : MonoBehaviour
         CameraController.Instance = this;
         shakeTimer = 0f;
         shakeForce = 0f;
-        camPos.transform.position = originalCamPos;
+        isShaking = false;
+        camPos.transform.localPosition = originalCamPos;
         camPos.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         m_Camera = Camera.main;
         rot = camPos.transform.rotation;
@@ -74,7 +75,7 @@ public class CameraController : MonoBehaviour
                 shakeForce = 0f;
                 isShaking = false;
             }
-            if (shakeDelay <= 0f)
+            if (isShaking && shakeDelay <= 0f)
             {
                 shakeDelay = Time.deltaTime;
                 camPos.transform.position = originalCamPos + new Vector3(Random.Range(-1f, 1f),
@@ -93,19 +94,14 @@ public class CameraController : MonoBehaviour
         if (isShaking && shakeTimer > 0f)
         {
             shakeForce += time / 5;
-            if (shakeForce > 1f) shakeForce = 1.25f;
+            if (shakeForce > 1.25f) shakeForce = 1.25f;
             if (shakeDelay <= 0f)
             {
                 shakeDelay = Time.deltaTime;
                 Vector3 gotoPos = originalCamPos + (new Vector3(Random.Range(-1f, 1f),
                                                     Random.Range(-0.3f, 0.3f),
                                                     Random.Range(-1f, 1f)) * shakeForce * 3f);
-                camPos.transform.position = Vector3.Lerp(transform.position, gotoPos, lerpDuration);
-                //length = Vector3.Distance(camPos.transform.position, gotoPos);
-                //if (length > 0.01f)
-                //{
-                                    
-                //}
+                camPos.transform.localPosition = Vector3.Lerp(camPos.transform.localPosition, gotoPos, lerpDuration);
                 
             }
         }      
@@ -115,16 +111,16 @@ public class CameraController : MonoBehaviour
             if (shakeForce < 0f)
             {
                 shakeForce = 0f;
-                camPos.transform.position = Vector3.Lerp(transform.position, originalCamPos, lerpDuration);
+                camPos.transform.localPosition = Vector3.Lerp(camPos.transform.localPosition, originalCamPos, lerpDuration);
                 isShaking = false;
             }
-            if (shakeDelay <= 0f)
+            if (isShaking && shakeDelay <= 0f)
             {
                 shakeDelay = Time.deltaTime;
                 Vector3 gotoPos = originalCamPos + (new Vector3(Random.Range(-1f, 1f),
                                                     Random.Range(-0.3f, 0.3f),
                                                     Random.Range(-1f, 1f)) * shakeForce * 3f);
-                camPos.transform.position = Vector3.Lerp(transform.position, gotoPos, lerpDuration);
+                camPos.transform.localPosition = Vector3.Lerp(camPos.transform.localPosition, gotoPos, lerpDuration);
             }
                        
         }

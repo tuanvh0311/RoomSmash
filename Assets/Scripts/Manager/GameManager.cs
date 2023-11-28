@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public ScriptableMap[] scriptableMaps;
     public UnityAction reloadScene;
     public GameObject map;
+    public Detonator detonator;
 
     private float holdTime;
     private Vector3 holdPosition;
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
-            SaveSetting(0, currentAudioMode);
+            SaveSetting(1, currentAudioMode);
         }
         return PlayerPrefs.GetInt(GRAPHICS_KEY);
     }
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour
                 isShooting = currentWeapon.isHoldToShoot;
         }
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Cache.IsPointerOverUIObject())
         {
             startHold = true;
             holdPosition = Input.mousePosition;          
@@ -136,7 +137,7 @@ public class GameManager : MonoBehaviour
         else
         {
             foreach (Transform child in shootPos.transform)
-                child.gameObject.SetActive(false);
+                child.GetComponent<ParticleSystem>().Stop();
         }
     }
 

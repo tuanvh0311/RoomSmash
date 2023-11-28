@@ -49,7 +49,7 @@ public class Grenade : Bomb
     public override void Explode()
     {
         base.Explode();
-        CameraController.Instance.startShakeCamera(0f, 0.5f);
+        //CameraController.Instance.startShakeCamera(0f, 0.5f);
         Vector3 currPos = transform.position;
         // Play explosion particle effect.
         ObjectPool.Instance.Spawn(explosionPrefab, currPos, GetComponent<Rigidbody>().rotation);

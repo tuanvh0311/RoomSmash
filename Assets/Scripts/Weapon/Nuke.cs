@@ -19,10 +19,10 @@ public class Nuke : Weapon
             
             if (!canShoot()) return;
             FadeIn flashEffect = s.AddComponent<FadeIn>();
+            windZone = GameObject.Find("WindZone (for nuke)");
             flashEffect.startColor = Color.white;
             flashEffect.fadeLength = 5f;
             CameraController.Instance.startShakeCamera(5f, 0.8f);
-            // position the nuke 2500m in front of where the player is facing.
             Transform player = s.transform;
             Vector3 nukeForwardPos = player.position + player.forward * nukeDistance;
             Vector3 nukePos = new Vector3(nukeForwardPos.x, 0f, nukeForwardPos.z);
@@ -44,7 +44,6 @@ public class Nuke : Weapon
             {
                 windZone.transform.position = nukeForwardPos;
                 windZone.transform.LookAt(player);
-                Invoke("EnableWindZone", 5f);
                 DisableAfter disableAfter = windZone.GetComponent<DisableAfter>() ?? windZone.AddComponent<DisableAfter>();
                 disableAfter.seconds = 25f;
                 disableAfter.removeScript = true;
