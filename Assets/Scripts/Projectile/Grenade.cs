@@ -126,7 +126,8 @@ public class Grenade : Bomb
             // Ignore self (the rocket)
             if (col == GetComponent<Collider>())
                 continue;
-
+            if (col.gameObject.name == "Player")
+                continue;
             // Check for Rigidbodies
             Rigidbody rbody = col.attachedRigidbody;
             if (rbody != null && !rbody.isKinematic && !affectedRigidbodies.Contains(rbody) && rbody.gameObject.name != "Player")

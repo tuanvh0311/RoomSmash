@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     private int currentGraphics = 0;
     private int currentAudioMode = 0;
     public float disableShootTimer = 0f;
-    private int currentMapIndex;
+    public static int currentMapIndex = 0;
     void Awake()
     {
         GameManager.Instance = this;
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             weaponsList.Add(weapon);
             
         }
-        LoadMap(0);
+        LoadMap(currentMapIndex);
     }
 
     
@@ -147,14 +147,14 @@ public class GameManager : MonoBehaviour
         if(currentWeapon != weapon)
         {
             if(currentWeapon)
-            currentWeapon.background.GetComponent<Image>().color = Color.black;
+            currentWeapon.background.GetComponent<Image>().color = Color.white;
             cooldown = 0;
             currentWeapon = weapon;
             weapon.background.GetComponent<Image>().color = Color.yellow;
         }
         else
         {
-            currentWeapon.background.GetComponent<Image>().color = Color.black;
+            currentWeapon.background.GetComponent<Image>().color = Color.white;
             currentWeapon = null;
         }
     }
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         switch (setting)
         {
             case 0:
-                Screen.SetResolution(640, (int)(640 / widthOnHeight), true);
+                Screen.SetResolution(960, (int)(960 / widthOnHeight), true);
                 mainLight.shadows = LightShadows.None;
                 break; 
             case 1:
@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour
         currentMapIndex = mapIndex;
         mode = Mode.freeCam;
         if(currentWeapon)
-        currentWeapon.background.GetComponent<Image>().color = Color.black;
+        currentWeapon.background.GetComponent<Image>().color = Color.white;
         currentWeapon = null;
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
         map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
         mode = Mode.freeCam;
         if (currentWeapon)
-            currentWeapon.background.GetComponent<Image>().color = Color.black;
+            currentWeapon.background.GetComponent<Image>().color = Color.white;
         currentWeapon = null;
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
@@ -276,12 +276,13 @@ public class GameManager : MonoBehaviour
         {
             //RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
             weapon.Shoot(ray.direction, shootPos, map.transform);
 
         }
         else
         {
-            weapon.Shoot(Camera.main.transform.forward, shootPos, map.transform);
+            weapon.Shoot(Camera.main.transform.forward, shootPos.transform.parent.gameObject, map.transform);
         }
         
     }

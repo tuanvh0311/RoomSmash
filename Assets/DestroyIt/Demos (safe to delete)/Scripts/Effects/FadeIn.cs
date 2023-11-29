@@ -19,6 +19,12 @@ namespace DestroyIt
             blackTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
             blackTexture.SetPixel(0, 0, startColor);
             blackTexture.Apply();
+            GameManager.Instance.reloadScene += OnInit;
+        }
+
+        void OnInit()
+        {
+            Destroy(this);
         }
 
         void Update()

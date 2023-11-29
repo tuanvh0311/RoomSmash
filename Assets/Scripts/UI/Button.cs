@@ -8,12 +8,14 @@ public class Button : MonoBehaviour
     public Image background;
     public GameObject panel;
     private bool isToggle = false;
+    private Color originalColor;
 
     public bool isReverse = false;
     // Start is called before the first frame update
     private void Start()
     {
         GameManager.Instance.reloadScene += OnInit;
+        originalColor = background.GetComponent<Image>().color;
         OnInit();
     }
     void OnInit()
@@ -21,14 +23,14 @@ public class Button : MonoBehaviour
         if(!isReverse)
         {
             isToggle = false;
-            background.color = Color.black;
+            background.color = originalColor;
             if (panel)
             panel.SetActive(false);
         }
         else
         {
             isToggle = false;
-            background.color = Color.black;
+            background.color = originalColor;
             if (panel)
             panel.SetActive(true);
         }
@@ -45,7 +47,7 @@ public class Button : MonoBehaviour
         else
         {
             isToggle = false;
-            background.color = Color.black;
+            background.color = originalColor;
             panel.SetActive(false);
         }
     }
@@ -61,7 +63,7 @@ public class Button : MonoBehaviour
         else
         {
             isToggle = false;
-            background.color = Color.black;
+            background.color = originalColor;
             panel.SetActive(false);
             GameManager.Instance.disableShootTimer = Time.deltaTime * 2f;
         }
@@ -77,7 +79,7 @@ public class Button : MonoBehaviour
         else
         {
             isToggle = false;
-            background.color = Color.black;
+            background.color = originalColor;
             panel.SetActive(true);
         }
     }
@@ -86,7 +88,7 @@ public class Button : MonoBehaviour
         if (isToggle)
         {
             isToggle = false;
-            background.color = Color.black;            
+            background.color = originalColor;            
         }
         else
         {

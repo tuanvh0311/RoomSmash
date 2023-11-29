@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public Image[] graphicsButtons = null;
     public Image[] gravityButtons = null;
     public Image[] camModeButtons = null;
-    public GameObject audioModeButton;
+    //public GameObject audioModeButton;
     public GameObject camJoystick = null;
     public GameObject movementJoystick = null;
     public GameObject ADSCam = null;
@@ -137,7 +137,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var item in weaponTypeSlots)
         {
-            item.gameObject.transform.Find("Background").GetComponent<Image>().color = Color.black;            
+            item.gameObject.transform.Find("Background").GetComponent<Image>().color = Color.white;            
             if (item.weaponType == GameManager.Instance.currentWeaponType)
                 item.gameObject.transform.Find("Background").GetComponent<Image>().color = Color.yellow;
         }
@@ -181,37 +181,43 @@ public class UIManager : MonoBehaviour
     public void onPlayButtonPress()
     {
         mainMenu.SetActive(false);
+        GameManager.Instance.ReloadMap();
     }
     public void onGraphicsButtonPress(int key)
     {
         PlayerPrefs.SetInt("Graphics", key);
         GameManager.Instance.LoadSetting();
+        Color imageColor;
         foreach (var item in graphicsButtons)
         {
-            item.color = defaultButtonColor;
+            imageColor = item.color;
+            imageColor.a = 0f;
+            item.color = imageColor;
         }
-        graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = pressedButtonColor;
+        imageColor = graphicsButtons[PlayerPrefs.GetInt("Graphics")].color;
+        imageColor.a = 1f;
+        graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = imageColor;
     }
-    public void onAudioButtonPress()
-    {
-        if (PlayerPrefs.GetInt("Audio") == 0)
-        {
-            PlayerPrefs.SetInt("Audio", 1);
+    //public void onAudioButtonPress()
+    //{
+    //    if (PlayerPrefs.GetInt("Audio") == 0)
+    //    {
+    //        PlayerPrefs.SetInt("Audio", 1);
 
-        }
-        else PlayerPrefs.SetInt("Audio", 0);
-        GameManager.Instance.LoadSetting();
-        if (PlayerPrefs.GetInt("Audio") == 0)
-        {
-            audioModeButton.GetComponent<Image>().color = pressedButtonColor;
-            audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound On";
-        }
-        else
-        {
-            audioModeButton.GetComponent<Image>().color = defaultButtonColor;
-            audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
-        }
-    }
+    //    }
+    //    else PlayerPrefs.SetInt("Audio", 0);
+    //    GameManager.Instance.LoadSetting();
+    //    if (PlayerPrefs.GetInt("Audio") == 0)
+    //    {
+    //        audioModeButton.GetComponent<Image>().color = pressedButtonColor;
+    //        audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound On";
+    //    }
+    //    else
+    //    {
+    //        audioModeButton.GetComponent<Image>().color = defaultButtonColor;
+    //        audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
+    //    }
+    //}
     public void onBackToMenuButtonPress()
     {
         mainMenu.SetActive(true);
@@ -221,21 +227,26 @@ public class UIManager : MonoBehaviour
     private void LoadSetting()
     {
         GameManager.Instance.LoadSetting();
+        Color imageColor;
         foreach (var item in graphicsButtons)
         {
-            item.color = defaultButtonColor;
+            imageColor = item.color;
+            imageColor.a = 0f;
+            item.color = imageColor;
         }
-        graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = pressedButtonColor;
-        if(PlayerPrefs.GetInt("Audio") == 0)
-        {
-            audioModeButton.GetComponent<Image>().color = pressedButtonColor;
-            audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound On";
-        }
-        else
-        {
-            audioModeButton.GetComponent<Image>().color = defaultButtonColor;
-            audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
-        }
+        imageColor = graphicsButtons[PlayerPrefs.GetInt("Graphics")].color;
+        imageColor.a = 1f;
+        graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = imageColor;
+        //if(PlayerPrefs.GetInt("Audio") == 0)
+        //{
+        //    audioModeButton.GetComponent<Image>().color = pressedButtonColor;
+        //    audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound On";
+        //}
+        //else
+        //{
+        //    audioModeButton.GetComponent<Image>().color = defaultButtonColor;
+        //    audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
+        //}
         Time.timeScale = 1f;
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         onGravityButtonPress(0);

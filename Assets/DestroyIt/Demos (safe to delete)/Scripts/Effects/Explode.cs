@@ -116,7 +116,7 @@ namespace DestroyIt
                 if (col == GetComponent<Collider>())
                     continue;
 
-                if (col.gameObject.name != "Player")
+                if (col.gameObject.name == "Player")
                     continue;
                 // Check for Rigidbodies
                 Rigidbody rbody = col.attachedRigidbody;
