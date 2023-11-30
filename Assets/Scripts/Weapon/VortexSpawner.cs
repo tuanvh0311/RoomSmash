@@ -11,7 +11,7 @@ public class VortexSpawner : Weapon
     {
 
         if (!canShoot()) return;
-        CameraController.Instance.startShakeCamera(10f, 1f);
+        
         Ray ray = new Ray();
         ray.direction = vec;
         RaycastHit hit;
@@ -27,6 +27,7 @@ public class VortexSpawner : Weapon
                 }
             }
             GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, spawnPosition, Quaternion.identity, parent);
+            CameraController.Instance.startShakeCamera(10f, 1f);
         }
         base.Shoot(vec, s, parent);
 

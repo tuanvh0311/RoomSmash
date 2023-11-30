@@ -30,6 +30,7 @@ public class EarthquakeGO : MonoBehaviour
                     Vector3 randomForce = new Vector3(Random.Range(-5f, 5f),
                                                             Random.Range(-2f, 3f),
                                                             Random.Range(-5f, 5f));
+                    
                     mass = rb.mass < 0 ? 1 : rb.mass;
 
                     rb.AddForce(randomForce * 80 / mass, ForceMode.Acceleration);

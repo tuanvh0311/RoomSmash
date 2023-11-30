@@ -221,7 +221,7 @@ public class UIManager : MonoBehaviour
     public void onBackToMenuButtonPress()
     {
         mainMenu.SetActive(true);
-        GameManager.Instance.LoadMap(0);
+        GameManager.Instance.ReloadMap();
         
     }
     private void LoadSetting()
