@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Arrow : AttachableObject
 {
-    
-    // Start is called before the first frame update
+
+    private bool collied = false;
     
 
     // Update is called once per frame
     void Update()
     {
-        if(!stickObject)
+        if(!collied)
         rb.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
     
@@ -33,6 +33,7 @@ public class Arrow : AttachableObject
         SetKinematic(true);
         setParent(collision.transform);
         col.enabled = false;
+        collied = true;
     }
 
 

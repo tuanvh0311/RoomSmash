@@ -19,11 +19,16 @@ public class Weapon : MonoBehaviour
     {
         setCooldown();
     }
+    public virtual void stopShooting()
+    {
+
+    }
     public bool canShoot()
     {
         if (GameManager.Instance.cooldown > 0) return false;
         return true;
     }
+    
     
     public void AddSprite()
     {

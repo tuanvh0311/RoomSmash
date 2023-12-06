@@ -106,24 +106,34 @@ public class GameManager : MonoBehaviour
             holdTime += Time.deltaTime;
             if (currentWeapon && !Cache.IsPointerOverUIObject() && disableShootTimer <= 0)
                 isShooting = currentWeapon.isHoldToShoot;
-        }
-        
+        }       
         if (Input.GetMouseButtonDown(0) && !Cache.IsPointerOverUIObject())
         {
             startHold = true;
             holdPosition = Input.mousePosition;          
         }
         
-        if (Input.GetMouseButtonUp(0) )
-        {
-            startHold = false;
-            if (!Cache.IsPointerOverUIObject() && disableShootTimer <= 0)
+        if (Input.GetMouseButtonUp(0) && startHold)
+        {         
+            if (disableShootTimer <= 0)
             {
-                isShooting = (holdTime < 0.15f);
-            }
+                if (currentWeapon)
+                {
+                    if(!currentWeapon.isHoldToShoot)
+                    isShooting = (holdTime < 0.15f);
+                }
+                
+            }                                 
+            startHold = false;
             holdTime = 0f;
         }
-        
+        if (!isShooting)
+        {
+            foreach (ParticleSystem child in shootPos.GetComponentsInChildren<ParticleSystem>())
+                child.Stop();
+            foreach (LineRenderer child in shootPos.GetComponentsInChildren<LineRenderer>())
+                child.enabled = false;
+        }
 
         checkCamMode();
     }
@@ -134,11 +144,7 @@ public class GameManager : MonoBehaviour
             CheckShooting(currentWeapon);
             isShooting = false;
         }
-        else
-        {
-            foreach (Transform child in shootPos.transform)
-                child.GetComponent<ParticleSystem>().Stop();
-        }
+        
     }
 
 
@@ -276,7 +282,6 @@ public class GameManager : MonoBehaviour
         {
             //RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
             weapon.Shoot(ray.direction, shootPos, map.transform);
 
         }

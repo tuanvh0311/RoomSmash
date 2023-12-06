@@ -265,7 +265,7 @@ namespace DestroyIt
                 int instanceId = parentObj.GetInstanceID();
 
                 // Use the mesh center point as the starting position for the particle effect.
-                var position = oldObj.MeshCenterPoint;
+                var position = oldObj.GetComponent<Rigidbody>().centerOfMass;
                 
                 // If a particle spawn point has been specified, use that instead.
                 if (oldObj.centerPointOverride != Vector3.zero)
