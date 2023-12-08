@@ -24,17 +24,20 @@ public class Arrow : AttachableObject
     {
         if (rb == null) return;
         if (stickObject) return;
-        if(collision.gameObject.GetComponent<Destructible>())
+        if (collision.gameObject.GetComponent<Destructible>())
         {
             ImpactDamage impactDamage = new ImpactDamage { DamageAmount = 20f, AdditionalForce = 0f, AdditionalForcePosition = collision.contacts[0].point, AdditionalForceRadius = .5f };
+            collision.rigidbody.AddForce(transform.forward * 1f, ForceMode.Impulse);
             collision.gameObject.GetComponent<Destructible>().ApplyDamage(impactDamage);
-        }        
+        }
         stickObject = collision.gameObject;
         SetKinematic(true);
         setParent(collision.transform);
         col.enabled = false;
         collied = true;
     }
+
+
 
 
 

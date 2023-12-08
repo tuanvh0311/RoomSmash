@@ -7,7 +7,7 @@ public class Cyclone : MonoBehaviour
 {
     private float VortexStrength = 1500f;
     private float SwirlStrength = 50f;
-    private float radius = 10f;
+    private float radius = 5f;
     private Vector3 direction = Vector3.zero;
     private float changeDirectionTimer = 0f;
 
@@ -19,13 +19,13 @@ public class Cyclone : MonoBehaviour
         changeDirectionTimer -= Time.deltaTime;
         if(changeDirectionTimer <= 0)
         {
-            direction = new Vector3(Random.Range(-0.1f, 0.1f),
+            direction = new Vector3(Random.Range(-1f, 1f),
                                             0,
-                                            Random.Range(-0.1f, 0.1f));
-            changeDirectionTimer = 5f;
+                                            Random.Range(-1f, 1f));
+            changeDirectionTimer = 0.5f;
         }
         
-        transform.position += direction * Time.fixedDeltaTime * 5f;
+        GetComponent<Rigidbody>().velocity = direction * 5f;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, layerMask);
         foreach (var hitCollider in hitColliders)
         {

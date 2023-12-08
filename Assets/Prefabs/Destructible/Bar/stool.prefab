@@ -207,30 +207,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvulnerableTimer: 0.5
-  _totalHitPoints: 100
-  _currentHitPoints: 100
+  _totalHitPoints: 200
+  _currentHitPoints: 200
   damageLevels:
-  - maxHitPoints: 100
-    minHitPoints: 80.1
+  - maxHitPoints: 200
+    minHitPoints: 160.09999
     healthPercent: 100
     hasError: 0
     visibleDamageLevel: 0
-  - maxHitPoints: 80
-    minHitPoints: 60.1
+  - maxHitPoints: 160
+    minHitPoints: 120.1
     healthPercent: 80
     hasError: 0
     visibleDamageLevel: 2
-  - maxHitPoints: 60
-    minHitPoints: 40.1
+  - maxHitPoints: 120
+    minHitPoints: 80.1
     healthPercent: 60
     hasError: 0
     visibleDamageLevel: 4
-  - maxHitPoints: 40
-    minHitPoints: 20.1
+  - maxHitPoints: 80
+    minHitPoints: 40.1
     healthPercent: 40
     hasError: 0
     visibleDamageLevel: 6
-  - maxHitPoints: 20
+  - maxHitPoints: 40
     minHitPoints: 0
     healthPercent: 20
     hasError: 0

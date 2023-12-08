@@ -466,13 +466,97 @@ PrefabInstance:
       propertyPath: replaceMaterials.Array.data[0].ReplacementMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 905f10ac7f860634da0fdb8632df6db8, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+    - {fileID: 6411212560418603124, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
 --- !u!4 &1455171741868505136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4176319127355856, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
   m_PrefabInstance: {fileID: 1458911924246559200}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1457260188625446504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1727066128686984, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+  m_PrefabInstance: {fileID: 1458911924246559200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9003033629462377526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457260188625446504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InvulnerableTimer: 0.5
+  _totalHitPoints: 50
+  _currentHitPoints: 50
+  damageLevels:
+  - maxHitPoints: 50
+    minHitPoints: 40.1
+    healthPercent: 100
+    hasError: 0
+    visibleDamageLevel: 0
+  - maxHitPoints: 40
+    minHitPoints: 30.099998
+    healthPercent: 80
+    hasError: 0
+    visibleDamageLevel: 2
+  - maxHitPoints: 30
+    minHitPoints: 20.1
+    healthPercent: 60
+    hasError: 0
+    visibleDamageLevel: 4
+  - maxHitPoints: 20
+    minHitPoints: 10.099999
+    healthPercent: 40
+    hasError: 0
+    visibleDamageLevel: 6
+  - maxHitPoints: 10
+    minHitPoints: 0
+    healthPercent: 20
+    hasError: 0
+    visibleDamageLevel: 8
+  destroyedPrefab: {fileID: 0}
+  destroyedPrefabParent: {fileID: 0}
+  fallbackParticle: {fileID: 19800004, guid: 6b46cad447c64dd48b8b715df6e3d2ad, type: 3}
+  fallbackParticleMatOption: 0
+  damageEffects: []
+  velocityReduction: 0.5
+  limitDamage: 0
+  minDamage: 10
+  maxDamage: 100
+  minDamageTime: 0
+  ignoreCollisionsUnder: 2
+  unparentOnDestroy: []
+  disableKinematicOnUparentedChildren: 1
+  replaceMaterials: []
+  replaceParticleMats: []
+  canBeDestroyed: 1
+  canBeRepaired: 1
+  canBeObliterated: 1
+  debrisToReParentByName: []
+  debrisToReParentIsKinematic: 0
+  childrenToReParentByName: []
+  isDebrisChipAway: 0
+  chipAwayDebrisMass: 1
+  chipAwayDebrisDrag: 0
+  chipAwayDebrisAngularDrag: 0.05
+  autoPoolDestroyedPrefab: 1
+  useFallbackParticle: 1
+  centerPointOverride: {x: 0, y: 0, z: 0}
+  fallbackParticleScale: {x: 1, y: 1, z: 1}
+  fallbackParticleParent: {fileID: 0}
+  sinkWhenDestroyed: 0
+  shouldDeactivate: 0
+  isTerrainTree: 0
+  destroyedSound: {fileID: 0}
+  damagedSound: {fileID: 0}
+  repairedSound: {fileID: 0}
 --- !u!1001 &1458911924445513585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -675,6 +759,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: _totalHitPoints
       value: 300
       objectReference: {fileID: 0}
@@ -693,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: autoPoolDestroyedPrefab
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: replaceMaterials.Array.size
@@ -741,6 +833,14 @@ PrefabInstance:
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: damageLevels.Array.data[4].maxHitPoints
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[4].minHitPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
+      propertyPath: damageLevels.Array.data[5].healthPercent
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114096406790694558, guid: 2af9b1fe346e24f409357eb5edb98301, type: 3}
       propertyPath: replaceMaterials.Array.data[0].SourceMaterial
