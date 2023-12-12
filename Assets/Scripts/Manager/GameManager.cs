@@ -47,10 +47,13 @@ public class GameManager : MonoBehaviour
     private int currentAudioMode = 0;
     public float disableShootTimer = 0f;
     public static int currentMapIndex = 0;
+    private float originWidth = 0;
+    private float originHeight = 0;
     void Awake()
     {
         GameManager.Instance = this;
-        // Disable vSync
+        originWidth = Screen.width;
+        originHeight = Screen.height;
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 30000;
@@ -167,19 +170,18 @@ public class GameManager : MonoBehaviour
     
     public void SetGraphics(int setting)
     {
-        float widthOnHeight = Screen.width/Screen.height;
         switch (setting)
         {
             case 0:
-                Screen.SetResolution(960, (int)(960 / widthOnHeight), true);
+                Screen.SetResolution((int)(originWidth / 2), (int) (originHeight / 2), true);
                 mainLight.shadows = LightShadows.None;
-                break; 
+                break;
             case 1:
-                Screen.SetResolution(1280, (int)(1280/ widthOnHeight), true);
+                Screen.SetResolution((int)(originWidth / 1.5f), (int)(originHeight / 1.5f), true);
                 mainLight.shadows = LightShadows.Hard;
                 break;
             case 2:
-                Screen.SetResolution(1920, (int)(1920 / widthOnHeight), true);
+                Screen.SetResolution((int)(originWidth / 1), (int)(originHeight / 1), true);
                 mainLight.shadows = LightShadows.Soft;
                 break;
         }

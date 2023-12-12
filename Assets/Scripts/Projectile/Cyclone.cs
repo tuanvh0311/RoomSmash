@@ -25,7 +25,7 @@ public class Cyclone : MonoBehaviour
             changeDirectionTimer = 0.5f;
         }
         
-        GetComponent<Rigidbody>().velocity = direction * 5f;
+        GetComponent<Rigidbody>().velocity = direction * 1f;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, layerMask);
         foreach (var hitCollider in hitColliders)
         {
@@ -40,7 +40,9 @@ public class Cyclone : MonoBehaviour
             distanceY = (distanceY < 1) ? 1 : distanceY;
             if (distance < 1) distance = 1;           
             addForceToRigid(rb, direction, distance);
-            var tangent = (SwirlStrength * (distanceY / 10f)) * Vector3.Cross(direction, Vector3.up).normalized;
+            float mass = rb.mass / 2;
+            if (mass < 1f) mass = 1f;
+            var tangent = (SwirlStrength / mass * (distanceY / 10f)) * Vector3.Cross(direction, Vector3.up).normalized;
             rb.velocity = tangent;
 
         }

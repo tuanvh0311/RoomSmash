@@ -13,11 +13,9 @@ GameObject:
   - component: {fileID: 23837679522893116}
   - component: {fileID: 1217025993740255292}
   - component: {fileID: -8450036576300829820}
-  - component: {fileID: -1067515972481397332}
   - component: {fileID: 343993178962714419}
   - component: {fileID: 6145643871460136566}
   - component: {fileID: 9194568679437165541}
-  - component: {fileID: 6007808057238558361}
   m_Layer: 7
   m_Name: Shuriken
   m_TagString: Untagged
@@ -105,7 +103,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!114 &-8450036576300829820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,24 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2173075f949abe34cbac509d346178e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 10
+  seconds: 5
   reenableChildren: 1
   removeWhenPooled: 0
   resetToPrefab: 1
   timeLeft: 0
---- !u!114 &-1067515972481397332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187546458036812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3dbf5a679affaa4f8cdc6a7adcd4e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags: 04000000
 --- !u!114 &343993178962714419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,16 +162,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f7be6201946cacf4c9368c1c2c4508c2, type: 3}
---- !u!65 &6007808057238558361
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187546458036812}
-  m_Material: {fileID: 13400000, guid: 1b200a930bd78974bacf3e72cacd3ff4, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.13072786, y: 0.003777768, z: 0.1509515}
-  m_Center: {x: 0, y: 0, z: 0}
