@@ -43,21 +43,38 @@ public class GameManager : MonoBehaviour
 
     private const string GRAPHICS_KEY = "Graphics";
     private const string AUDIO_KEY = "Audio";
-    private int currentGraphics = 0;
-    private int currentAudioMode = 0;
+    private int currentGraphics;
+    private int currentAudioMode;
     public float disableShootTimer = 0f;
     public static int currentMapIndex = 0;
-    private float originWidth = 0;
-    private float originHeight = 0;
+    private float originWidth = Screen.width;
+    private float originHeight = Screen.height;
+    private float widthOnHeight;
     void Awake()
     {
         GameManager.Instance = this;
-        originWidth = Screen.width;
-        originHeight = Screen.height;
-
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 30000;
-        LoadSetting();
+        widthOnHeight = (float)Display.main.renderingWidth / (float)Display.main.renderingHeight;
+        //if (PlayerPrefs.HasKey(GRAPHICS_KEY))
+        //{
+        //    float mul = 1f;
+        //    switch (PlayerPrefs.GetInt(GRAPHICS_KEY))
+        //    {
+        //        case 0:
+        //            mul = 2f;
+        //            break;
+        //        case 1:
+        //            mul = 1.5f;
+        //            break;
+        //        case 2:
+        //            mul = 1f;
+        //            break;
+        //    }
+        //    originHeight = originHeight * mul;
+        //    originWidth = originWidth * mul;
+        //    
+        //}       
         for (int i = 0; i < weapons.Length; i++)
         {
             Weapon weapon = Instantiate(weapons[i]);
@@ -67,15 +84,18 @@ public class GameManager : MonoBehaviour
         }
         LoadMap(currentMapIndex);
     }
+    private void Start()
+    {
+        LoadSetting();
+    }
 
-    
 
     private int LoadGraphics()
     {
         if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
-            SaveSetting(1, currentAudioMode);
-        }
+            SaveSetting(0, currentAudioMode);
+        }       
         return PlayerPrefs.GetInt(GRAPHICS_KEY);
     }
     private int LoadAudioMode()
@@ -88,10 +108,9 @@ public class GameManager : MonoBehaviour
     }
     public void LoadSetting()
     {
-
         currentGraphics = LoadGraphics();
-        currentAudioMode =LoadAudioMode();
-        SetGraphics(currentGraphics);
+        currentAudioMode = LoadAudioMode();
+        SetGraphics(LoadGraphics());
     }
     private void SaveSetting(int graphics, int audio)
     {
@@ -147,7 +166,6 @@ public class GameManager : MonoBehaviour
             CheckShooting(currentWeapon);
             isShooting = false;
         }
-        
     }
 
 
@@ -173,20 +191,19 @@ public class GameManager : MonoBehaviour
         switch (setting)
         {
             case 0:
-                Screen.SetResolution((int)(originWidth / 2), (int) (originHeight / 2), true);
+                Screen.SetResolution(960, (int) (960/widthOnHeight), true);
                 mainLight.shadows = LightShadows.None;
                 break;
             case 1:
-                Screen.SetResolution((int)(originWidth / 1.5f), (int)(originHeight / 1.5f), true);
+                Screen.SetResolution(1280, (int)(1280 / widthOnHeight), true);
                 mainLight.shadows = LightShadows.Hard;
                 break;
             case 2:
-                Screen.SetResolution((int)(originWidth / 1), (int)(originHeight / 1), true);
+                Screen.SetResolution(1920, (int)(1920 / widthOnHeight), true);
                 mainLight.shadows = LightShadows.Soft;
                 break;
         }
         SaveSetting(setting, currentAudioMode);
-        
     }
 
     

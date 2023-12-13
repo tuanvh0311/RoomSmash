@@ -6,7 +6,7 @@ using UnityEngine;
 public class Showfps : MonoBehaviour
 {
     public TextMeshProUGUI FpsText;
-
+    public TextMeshProUGUI ResolutionText;
     private float pollingTime = 1f;
     private float time;
     private int frameCount;
@@ -30,5 +30,6 @@ public class Showfps : MonoBehaviour
             time -= pollingTime;
             frameCount = 0;
         }
+        ResolutionText.text = Screen.width + "x" + Screen.height;
     }
 }

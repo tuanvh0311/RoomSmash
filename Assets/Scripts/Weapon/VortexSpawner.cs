@@ -17,15 +17,13 @@ public class VortexSpawner : Weapon
         RaycastHit hit;
         if(Physics.Raycast(s.transform.position,ray.direction, out hit, Mathf.Infinity))
         {
-            Vector3 spawnPosition = hit.point;          
-            if(hit.transform.gameObject.layer != layerMask)
-            {
+            Vector3 spawnPosition = hit.point;           
                 RaycastHit anotherRaycastHit;
                 if (Physics.Raycast(hit.point, Vector3.down, out anotherRaycastHit, Mathf.Infinity, layerMask))
                 {
                     spawnPosition = anotherRaycastHit.point;
                 }
-            }
+            
             GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, spawnPosition, Quaternion.identity, parent);
             CameraController.Instance.startShakeCamera(10f, 1f);
         }

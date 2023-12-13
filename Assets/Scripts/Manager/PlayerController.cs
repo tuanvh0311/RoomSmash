@@ -46,6 +46,6 @@ public class PlayerController : MonoBehaviour
             direction = new Vector3(direction.x, 0f, direction.z);
             transform.position += direction.normalized * speed * Time.fixedDeltaTime / Time.timeScale;
         }
-        rb.velocity = Vector3.zero;
+        
     }
 }

@@ -8,6 +8,6 @@ public class ChainedRocket : MonoBehaviour
 {
     private void Update()
     {
-        transform.Rotate(0,0, 5, Space.Self);
+        transform.Rotate(0,0, 120 * Time.fixedDeltaTime, Space.Self);
     }
 }
