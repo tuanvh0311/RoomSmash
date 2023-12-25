@@ -264,9 +264,12 @@ MonoBehaviour:
   weaponType: 5
   weaponSprite: {fileID: 3214765734496488804}
   background: {fileID: 4193875941659292168}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 389d055b23d6a584e90b3e99345db870, type: 3}
   projectilePrefab: {fileID: 2030478542905350946, guid: 47fa160b63b14244fa6c6048fae77b5f, type: 3}
   isHoldToShoot: 0
-  layerMask:
+  hitLayerMask:
     serializedVersion: 2
-    m_Bits: 4608
+    m_Bits: 65471
+  groundLayermask:
+    serializedVersion: 2
+    m_Bits: 512

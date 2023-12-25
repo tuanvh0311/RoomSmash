@@ -177,6 +177,7 @@ namespace DestroyIt
                 {
                     item.release();
                 }
+                GetComponent<HangingObject>()?.Release();
                 destructionManager.ProcessDestruction(this, destroyedPrefab, new ExplosiveDamage(), _isObliterated);
             } 
                 
@@ -242,6 +243,7 @@ namespace DestroyIt
                 {
                     item.release();
                 }
+                GetComponent<HangingObject>()?.Release();
                 DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, new DirectDamage { DamageAmount = amount }, _isObliterated);
                 
             }
@@ -288,6 +290,7 @@ namespace DestroyIt
                 {
                     item.release();
                 }
+                GetComponent<HangingObject>()?.Release();
                 DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, damage, _isObliterated);
             }
                 
@@ -523,5 +526,6 @@ namespace DestroyIt
         {
             DamagedEvent?.Invoke(); // If there is at least one listener, trigger the event.
         }
+        
     }
 }

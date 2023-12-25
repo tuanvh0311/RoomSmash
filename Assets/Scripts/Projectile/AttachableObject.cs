@@ -26,5 +26,6 @@ public class AttachableObject : MonoBehaviour
     public void setParent(Transform parent)
     {
         transform.SetParent(parent);
+        
     }
 }

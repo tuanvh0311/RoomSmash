@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2749693723716400654}
   - component: {fileID: 1262982939817523627}
   - component: {fileID: 3919243295609539937}
-  - component: {fileID: 1805830291423983846}
   - component: {fileID: 8070933531459824717}
   - component: {fileID: 3210720225967648851}
+  - component: {fileID: 5019508928448547601}
   m_Layer: 7
   m_Name: Stone
   m_TagString: Untagged
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd502b75e373e8f428ea141b768dfb07, type: 2}
+  - {fileID: 2100000, guid: 3eb079016c4106b41bc3f19de570f770, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,87 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1805830291423983846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3270474741291216052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InvulnerableTimer: 0
-  _totalHitPoints: 1
-  _currentHitPoints: 1
-  damageLevels:
-  - maxHitPoints: 1
-    minHitPoints: 0.9
-    healthPercent: 100
-    hasError: 0
-    visibleDamageLevel: 0
-  - maxHitPoints: 0.79999995
-    minHitPoints: 0.7
-    healthPercent: 80
-    hasError: 0
-    visibleDamageLevel: 2
-  - maxHitPoints: 0.59999996
-    minHitPoints: 0.5
-    healthPercent: 60
-    hasError: 0
-    visibleDamageLevel: 4
-  - maxHitPoints: 0.39999998
-    minHitPoints: 0.3
-    healthPercent: 40
-    hasError: 0
-    visibleDamageLevel: 6
-  - maxHitPoints: 0.19999999
-    minHitPoints: 0
-    healthPercent: 20
-    hasError: 0
-    visibleDamageLevel: 8
-  destroyedPrefab: {fileID: 0}
-  destroyedPrefabParent: {fileID: 0}
-  fallbackParticle: {fileID: 19800002, guid: 57c55d09e6ab296408c349462a6cf5c1, type: 3}
-  fallbackParticleMatOption: 0
-  damageEffects: []
-  velocityReduction: 1
-  limitDamage: 0
-  minDamage: 10
-  maxDamage: 100
-  minDamageTime: 0
-  ignoreCollisionsUnder: 2
-  unparentOnDestroy: []
-  disableKinematicOnUparentedChildren: 1
-  replaceMaterials:
-  - SourceMaterial: {fileID: -6478536213147159724, guid: ae4c8271a441b2d4f82d8e12959b61b1, type: 3}
-    ReplacementMaterial: {fileID: 2100000, guid: fd502b75e373e8f428ea141b768dfb07, type: 2}
-  - SourceMaterial: {fileID: -3846018093981099296, guid: ae4c8271a441b2d4f82d8e12959b61b1, type: 3}
-    ReplacementMaterial: {fileID: 2100000, guid: 905f10ac7f860634da0fdb8632df6db8, type: 2}
-  replaceParticleMats: []
-  canBeDestroyed: 1
-  canBeRepaired: 0
-  canBeObliterated: 0
-  debrisToReParentByName: []
-  debrisToReParentIsKinematic: 0
-  childrenToReParentByName: []
-  isDebrisChipAway: 0
-  chipAwayDebrisMass: 1
-  chipAwayDebrisDrag: 0
-  chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
-  useFallbackParticle: 1
-  centerPointOverride: {x: 0, y: 0, z: 0}
-  fallbackParticleScale: {x: 0.5, y: 0.5, z: 0.5}
-  fallbackParticleParent: {fileID: 0}
-  sinkWhenDestroyed: 0
-  shouldDeactivate: 0
-  isTerrainTree: 0
-  destroyedSound: {fileID: 0}
-  damagedSound: {fileID: 0}
-  repairedSound: {fileID: 0}
 --- !u!54 &8070933531459824717
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,3 +115,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5019508928448547601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270474741291216052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b5712033ec9fe479fa2e6d5b27b1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 8750184116710516048, guid: e0eaee00f109ed04980dbc170cc17d2c, type: 3}

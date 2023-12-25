@@ -20,7 +20,7 @@ public class Zeus : Weapon
         LineRenderer lightningLineRender = lightningBolt.GetComponent<LineRenderer>();
         LightningBoltScript lightningBoltScript = lightningBolt.GetComponent<LightningBoltScript>();
         lightningLineRender.enabled = true;
-        lightningBoltScript.EndObject.transform.position = (vec * maxRange) + (Vector3.up * 1.5f);       
+        lightningBoltScript.EndObject.transform.position = (vec * maxRange);       
         RaycastHit hit;
         if (Physics.Raycast(s.transform.position, vec * 100000, out hit, maxRange))
         {

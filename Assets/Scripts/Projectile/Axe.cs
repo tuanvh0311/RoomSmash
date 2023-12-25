@@ -20,7 +20,12 @@ public class Axe : AttachableObject
         transform.parent = other.transform;
         GetComponent<Rigidbody>().isKinematic = true;
         ToggleCollider(false);
+        stickObject = other.gameObject;
         isContacted = true;
+        if (stickObject.layer == 15)
+        {
+            setParent(stickObject.transform.GetChild(0));
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

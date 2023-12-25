@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Joystick Joystick;
     public Transform camPos;
     public Rigidbody rb;
+    public bool grounded = false;
 
     private void Start()
     {
@@ -39,13 +40,23 @@ public class PlayerController : MonoBehaviour
     //}
     public void FixedUpdate()
     {
-
         if (Joystick.Vertical != 0 || Joystick.Horizontal != 0)
         {
             Vector3 direction = camPos.forward * Joystick.Vertical + camPos.right * Joystick.Horizontal;
             direction = new Vector3(direction.x, 0f, direction.z);
             transform.position += direction.normalized * speed * Time.fixedDeltaTime / Time.timeScale;
         }
-        
+        if(!grounded)
+        {
+            rb.velocity = Vector3.down * 5f;
+        }
+        grounded = false;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 12)
+        {
+            grounded = true;
+        }
     }
 }

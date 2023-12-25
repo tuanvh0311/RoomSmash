@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class VortexSpawner : Weapon
 {
-    public LayerMask layerMask;
+    public LayerMask hitLayerMask;
+    public LayerMask groundLayermask;
 
     public override void Shoot(Vector3 vec, GameObject s, Transform parent)
     {
@@ -15,15 +16,16 @@ public class VortexSpawner : Weapon
         Ray ray = new Ray();
         ray.direction = vec;
         RaycastHit hit;
-        if (Physics.Raycast(s.transform.position,ray.direction, out hit, Mathf.Infinity))
+        if (Physics.Raycast(s.transform.position,ray.direction, out hit, Mathf.Infinity, hitLayerMask))
         {
             Vector3 spawnPosition = hit.point;           
                 RaycastHit anotherRaycastHit;
-                if (Physics.Raycast(hit.point, Vector3.down, out anotherRaycastHit, Mathf.Infinity, layerMask))
+                if (Physics.Raycast(hit.point, Vector3.down, out anotherRaycastHit, Mathf.Infinity, groundLayermask))
                 {
                         
-                     RaycastHit[] hits = Physics.RaycastAll(hit.point, Vector3.down, Mathf.Infinity, layerMask);
-                     spawnPosition = hits[0].point;
+                     //RaycastHit[] hits = Physics.RaycastAll(hit.point, Vector3.down, Mathf.Infinity, layerMask);
+                     //spawnPosition = hits[0].point;
+                     spawnPosition = anotherRaycastHit.point;
                 }
             
             GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, spawnPosition, Quaternion.identity, parent);

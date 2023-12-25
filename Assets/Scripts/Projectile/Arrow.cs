@@ -5,7 +5,6 @@ public class Arrow : AttachableObject
 {
 
     private bool collied = false;
-    
 
     // Update is called once per frame
     void Update()
@@ -21,7 +20,7 @@ public class Arrow : AttachableObject
 
     }
     private void OnCollisionEnter(Collision collision)
-    {
+    { 
         if (rb == null) return;
         if (stickObject) return;
         if (collision.gameObject.GetComponent<Destructible>())
@@ -30,11 +29,16 @@ public class Arrow : AttachableObject
             collision.rigidbody.AddForce(transform.forward * 1f, ForceMode.Impulse);
             collision.gameObject.GetComponent<Destructible>().ApplyDamage(impactDamage);
         }
+
         stickObject = collision.gameObject;
         SetKinematic(true);
         setParent(collision.transform);
         col.enabled = false;
         collied = true;
+        if (stickObject.layer == 15) {
+            setParent(stickObject.transform.GetChild(0));
+        }
+        
     }
 
 

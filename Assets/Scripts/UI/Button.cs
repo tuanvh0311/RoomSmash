@@ -1,5 +1,6 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,6 +54,7 @@ public class Button : MonoBehaviour
     }
     public void onToggleAndPanelAndDisableShoot()
     {
+
         if (!isToggle)
         {
             isToggle = true;
@@ -67,6 +69,7 @@ public class Button : MonoBehaviour
             panel.SetActive(false);
             GameManager.Instance.disableShootTimer = Time.deltaTime * 2f;
         }
+
     }
     public void onToggleAndPanelReverse()
     {

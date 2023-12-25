@@ -42,13 +42,14 @@ public class CameraController : MonoBehaviour
     }
     public void startShakeCamera(float duration, float startForce)
     {
-        duration -= 1f;
+        duration -= 0.5f;
         isShaking = true;
         if(shakeTimer < duration)
             shakeTimer = duration;
         if(shakeForce < startForce) 
             shakeForce = startForce;
     }
+    
 
     public void shakeCamera(float time)
     {
@@ -130,8 +131,7 @@ public class CameraController : MonoBehaviour
     {
 
         m_Camera.transform.position = camPos.transform.position;
-        m_Camera.transform.rotation = camPos.transform.rotation;
-        shootPos.transform.rotation = camPos.transform.rotation;      
+        m_Camera.transform.rotation = camPos.transform.rotation;    
         
         if (GameManager.Instance.mode == GameManager.Mode.freeCam) 
         {

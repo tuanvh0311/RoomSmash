@@ -14,7 +14,12 @@ public class Sniper : Weapon
         GameObject newObject = ObjectPool.Instance.Spawn(projectilePrefab, s.transform.position, Quaternion.identity, parent);
         newObject.transform.LookAt(vec * 100000);
         newObject.GetComponent<Bullet>().bulletDamage = bulletDamage;
-        newObject.GetComponent<Bullet>().bulletForce = bulletForce;
+        newObject.GetComponent<Bullet>().bulletForce = bulletForce;      
         base.Shoot(vec, s, parent);
+    }
+    public new void onWeaponSelect()
+    {
+        GameManager.Instance.OnChangeWeapon(this);
+        GameManager.Instance.changeCamMode(2);
     }
 }

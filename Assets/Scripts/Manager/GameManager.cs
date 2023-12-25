@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public UnityAction reloadScene;
     public GameObject map;
     public Detonator detonator;
-
+    public LayerMask shootLayerMask;
     private float holdTime;
     private Vector3 holdPosition;
     private bool startHold;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private const string GRAPHICS_KEY = "Graphics";
     private const string AUDIO_KEY = "Audio";
     private int currentGraphics;
-    private int currentAudioMode;
+    private float currentAudioRatio;
     public float disableShootTimer = 0f;
     public static int currentMapIndex = 0;
     private float originWidth = Screen.width;
@@ -94,28 +94,28 @@ public class GameManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
-            SaveSetting(0, currentAudioMode);
+            SaveSetting(0, currentAudioRatio);
         }       
         return PlayerPrefs.GetInt(GRAPHICS_KEY);
     }
-    private int LoadAudioMode()
+    private float LoadAudioMode()
     {
         if(!PlayerPrefs.HasKey(AUDIO_KEY))
         {
-            SaveSetting(currentGraphics, 0);
+            SaveSetting(currentGraphics, 1);
         }
-        return PlayerPrefs.GetInt(AUDIO_KEY);
+        return PlayerPrefs.GetFloat(AUDIO_KEY);
     }
     public void LoadSetting()
     {
         currentGraphics = LoadGraphics();
-        currentAudioMode = LoadAudioMode();
+        currentAudioRatio = LoadAudioMode();
         SetGraphics(LoadGraphics());
     }
-    private void SaveSetting(int graphics, int audio)
+    private void SaveSetting(int graphics, float audio)
     {
         PlayerPrefs.SetInt(GRAPHICS_KEY, graphics);
-        PlayerPrefs.SetInt(AUDIO_KEY, audio);
+        PlayerPrefs.SetFloat(AUDIO_KEY, audio);
     }
 
     // Update is called once per frame
@@ -203,7 +203,7 @@ public class GameManager : MonoBehaviour
                 mainLight.shadows = LightShadows.Soft;
                 break;
         }
-        SaveSetting(setting, currentAudioMode);
+        SaveSetting(setting, currentAudioRatio);
     }
 
     
@@ -299,14 +299,29 @@ public class GameManager : MonoBehaviour
 
         if(mode == Mode.fpsCam || mode == Mode.freeCam)
         {
-            //RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            weapon.Shoot(ray.direction, shootPos, map.transform);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, shootLayerMask))
+            {
+                shootPos.transform.LookAt(hit.point);
+                weapon.Shoot(shootPos.transform.forward, shootPos, map.transform);
+            }
+            else
+                weapon.Shoot(ray.direction, shootPos, map.transform);
 
         }
         else
         {
-            weapon.Shoot(Camera.main.transform.forward, shootPos.transform.parent.gameObject, map.transform);
+            Ray ray = Camera.main.ScreenPointToRay(Camera.main.transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, shootLayerMask))
+            {
+                shootPos.transform.LookAt(hit.point);
+                Debug.Log(hit.transform.name);
+                weapon.Shoot(shootPos.transform.forward, shootPos, map.transform);
+            }
+            else
+                weapon.Shoot(Camera.main.transform.forward, shootPos, map.transform);
         }
         
     }
