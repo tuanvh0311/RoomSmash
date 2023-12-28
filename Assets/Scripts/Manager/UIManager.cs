@@ -152,6 +152,12 @@ public class UIManager : MonoBehaviour
         movementJoystick.SetActive(false);
         ADSCam.SetActive(false);
         mainCamera.fieldOfView = 60;
+        foreach (var item in camModeButtons)
+        {
+            item.color = defaultButtonColor;
+        }
+        int mode = ((int)GameManager.Instance.mode);
+        camModeButtons[mode].color = pressedButtonColor;
     }
     public void onFpsCamEnable()
     {
@@ -159,6 +165,12 @@ public class UIManager : MonoBehaviour
         movementJoystick.SetActive(true);
         ADSCam.SetActive(false);
         mainCamera.fieldOfView = 60;
+        foreach (var item in camModeButtons)
+        {
+            item.color = defaultButtonColor;
+        }
+        int mode = ((int)GameManager.Instance.mode);
+        camModeButtons[mode].color = pressedButtonColor;
     }
     public void onAdsCamEnable()
     {
@@ -166,6 +178,12 @@ public class UIManager : MonoBehaviour
         movementJoystick.SetActive(false);
         ADSCam.SetActive(true);
         mainCamera.fieldOfView = 10;
+        foreach (var item in camModeButtons)
+        {
+            item.color = defaultButtonColor;
+        }
+        int mode = ((int)GameManager.Instance.mode);
+        camModeButtons[mode].color = pressedButtonColor;
     }
 
     public void onCammodeButtonPress(int key) 

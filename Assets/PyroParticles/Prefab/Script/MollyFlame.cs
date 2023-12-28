@@ -1,58 +1,70 @@
 using DestroyIt;
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class MollyFlame : MonoBehaviour
 {
-    public float maxScaleMultiplier = 2f;
-    public float minScaleMultiplier = 0.5f;
     public float damageTick = 1f;
     public float damageRadius = 2.5f;
+    public float fireHeight = 3f;
     public LayerMask layerMask;
     private float damageTimer = 0f;
-
-    private Tween currentTween;
-
-    private void OnEnable()
-    {
-        transform.localScale = Vector3.one * 0.1f;
-        currentTween = transform.DOScale(Vector3.one * maxScaleMultiplier, 2f).OnComplete(() =>
-        {
-            transform.DOScale(Vector3.one * minScaleMultiplier, 1f).SetLoops(-1, LoopType.Yoyo);
-        });
-        currentTween.Play();
-    }
-
-    private void OnDisable()
-    {
-        currentTween.Pause();
-    }
+    private bool grounded = true;
+    public LayerMask groundLayerMask;
+    public bool gravityAffected = true;
 
     private void FixedUpdate()
     {
         damageTimer -= Time.deltaTime;
         if (damageTimer <= 0f)
-        {
-            damageTimer = damageTick;
+        {           
             List<Destructible> damagedList = new List<Destructible>();
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius, layerMask);
             foreach (var hitCollider in hitColliders)
             {
+                hitCollider.GetComponent<ragdollController>()?.RagdollOnMode();
                 Destructible dest = Cache.GetDestructibleFromCollider(hitCollider);              
                 if (dest == null || damagedList.Contains(dest)) continue;            
                 dest.ApplyDamage(10f);
+                
+            }
+            damageTimer = damageTick;
+        }
+        if (gravityAffected)
+        {
+            if (Physics.Raycast(transform.position + Vector3.up, transform.position + Vector3.down, fireHeight, groundLayerMask))
+            {
+                grounded = true;
+
+            }
+            else
+            {
+                grounded = false;
+            }
+            if (!grounded)
+            {
+                transform.position += Vector3.down * Time.fixedDeltaTime * 5f;
+            }
+        }
+        else
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, fireHeight, groundLayerMask);
+            if( hitColliders.Length == 0 ) 
+            {
+                transform.position += Vector3.down * Time.fixedDeltaTime * 5f;
             }
         }
         
-        
+
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, damageRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * fireHeight);
     }
     
 

@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 6627878306779918737}
   - component: {fileID: 8807872934959923207}
   - component: {fileID: 3307787309304460246}
+  - component: {fileID: 7318882451269985185}
   m_Layer: 0
   m_Name: Flame Thrower
   m_TagString: Untagged
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3307787309304460246}
+      - m_Target: {fileID: 7318882451269985185}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: onWeaponSelect
         m_Mode: 1
@@ -265,9 +266,33 @@ MonoBehaviour:
   weaponSprite: {fileID: 2491862272470035790}
   background: {fileID: 3763417320293945890}
   sprite: {fileID: 21300000, guid: 94450f4b0c72e64448c555b8c82736ed, type: 3}
-  projectilePrefab: {fileID: 1771612453207417557, guid: f1bb1d9d0a1ce624b8e96cc91d31def7, type: 3}
+  projectilePrefab: {fileID: 6815313928511006611, guid: eab574cb42df0d34b8791bf11a1c4833, type: 3}
   isHoldToShoot: 1
   layermask:
     serializedVersion: 2
     m_Bits: 8064
   doDamageable: 1
+--- !u!114 &7318882451269985185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869459693820552478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff73c1d4e71977142854589f73a67785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  weaponType: 1
+  weaponSprite: {fileID: 2491862272470035790}
+  background: {fileID: 3763417320293945890}
+  sprite: {fileID: 21300000, guid: 94450f4b0c72e64448c555b8c82736ed, type: 3}
+  projectilePrefab: {fileID: 6815313928511006611, guid: eab574cb42df0d34b8791bf11a1c4833, type: 3}
+  isHoldToShoot: 1
+  layermask:
+    serializedVersion: 2
+    m_Bits: 40832
+  doDamageable: 1
+  smallFire: {fileID: 5627522918103931791, guid: 9aa71cf10fca3f841a0de7671934e4a3, type: 3}

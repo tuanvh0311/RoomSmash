@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Transform camPos;
     public Rigidbody rb;
     public bool grounded = false;
+    
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = new Vector3(0, 1f, 0);
         rb.velocity = Vector3.zero;
+        grounded = false;
     }
 
     //public void FixedUpdate()
@@ -45,18 +47,10 @@ public class PlayerController : MonoBehaviour
             Vector3 direction = camPos.forward * Joystick.Vertical + camPos.right * Joystick.Horizontal;
             direction = new Vector3(direction.x, 0f, direction.z);
             transform.position += direction.normalized * speed * Time.fixedDeltaTime / Time.timeScale;
-        }
-        if(!grounded)
-        {
-            rb.velocity = Vector3.down * 5f;
-        }
-        grounded = false;
+        }       
+            rb.AddForce(Vector3.down * 5f);
+
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer == 12)
-        {
-            grounded = true;
-        }
-    }
+
+    
 }

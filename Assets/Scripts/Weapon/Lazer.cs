@@ -20,14 +20,16 @@ public class Lazer : Weapon
         lazerLineRender.SetPosition(1, vec * 100000f);
         lazerLineRender.enabled = true;
         RaycastHit hit;
-        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, 3000f))
+        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, 3000f, layermask))
         {
             if (!lazerHitEffect)
                 lazerHitEffect = ObjectPool.Instance.Spawn(particlePrefab, hit.point, Quaternion.identity, s.transform);
             else lazerHitEffect.transform.position = hit.point;
             lazer.GetComponent<LineRenderer>().SetPosition(1, hit.point);
             lazerHitEffect.GetComponent<ParticleSystem>().Play();
-            hit.transform.GetComponent<Destructible>()?.ApplyDamage(1f*Time.timeScale);
+            hit.transform.GetComponent<Destructible>()?.ApplyDamage(10f*Time.timeScale);
+            hit.rigidbody?.AddForce(s.transform.forward * 5f, ForceMode.Impulse);
+            hit.transform.GetComponent<ragdollController>()?.RagdollOnMode();
         }
         else
         {

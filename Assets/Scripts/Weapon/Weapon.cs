@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
 
     public virtual void Shoot(Vector3 vec, GameObject shootPos, Transform parent)
     {
+        playShootSound();
         setCooldown();
     }
     public virtual void stopShooting()
@@ -27,6 +28,15 @@ public class Weapon : MonoBehaviour
     {
         if (GameManager.Instance.cooldown > 0) return false;
         return true;
+    }
+    public void playShootSound()
+    {
+        
+    }
+    
+    public void stopShootSound()
+    {
+
     }
     
     
@@ -54,6 +64,8 @@ public class Weapon : MonoBehaviour
     public void onWeaponSelect()
     {
         GameManager.Instance.OnChangeWeapon(this);
+        
+
     }
     
 }

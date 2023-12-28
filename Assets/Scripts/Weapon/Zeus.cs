@@ -22,7 +22,7 @@ public class Zeus : Weapon
         lightningLineRender.enabled = true;
         lightningBoltScript.EndObject.transform.position = (vec * maxRange);       
         RaycastHit hit;
-        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, maxRange))
+        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, maxRange,layermask))
         {
             if (!hitEffect)
                 hitEffect = ObjectPool.Instance.Spawn(particlePrefab, hit.point, Quaternion.identity, s.transform);
@@ -30,6 +30,8 @@ public class Zeus : Weapon
             lightningBoltScript.EndObject.transform.position = hit.point;
             hitEffect.GetComponent<ParticleSystem>().Play();
             hit.transform.GetComponent<Destructible>()?.ApplyDamage(10f*Time.timeScale);
+            hit.rigidbody?.AddForce(s.transform.forward * 5f, ForceMode.Impulse);
+            hit.transform.GetComponent<ragdollController>()?.RagdollOnMode();
         }
         else
         {         

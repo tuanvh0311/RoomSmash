@@ -9,7 +9,8 @@ public class CameraController : MonoBehaviour
     public GameObject camPos = null;
     public GameObject shootPos = null;
     private Vector3 m_v3MousePosition;
-    public float MouseSpeed = 0.1f;
+    public float MouseSpeed = 0.3f;
+    public float joystickSens = 2f;
     public Joystick cameraJoystick;
     private Vector3 originalCamPos;
     private float m_cameraSpeed;
@@ -148,10 +149,10 @@ public class CameraController : MonoBehaviour
             switch (GameManager.Instance.mode)
             {
                 case GameManager.Mode.adsCam:
-                    m_cameraSpeed = 0.3f;
+                    m_cameraSpeed = MouseSpeed;
                     break;
                 case GameManager.Mode.fpsCam:
-                    m_cameraSpeed = 1f;
+                    m_cameraSpeed = joystickSens;
                     break;
             }
             rot.x += cameraJoystick.Vertical * m_cameraSpeed;

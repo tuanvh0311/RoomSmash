@@ -44,7 +44,7 @@ public class ragdollController : MonoBehaviour
         ragdollColliders = ragdoll.GetComponentsInChildren<Collider>();
         ragdollRigidbodies = ragdoll.GetComponentsInChildren<Rigidbody>();
     }
-    void RagdollOnMode()
+    public void RagdollOnMode()
     {
         foreach (var item in ragdollColliders)
         {

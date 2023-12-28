@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private Vector3 holdPosition;
     private bool startHold;
     private bool isShooting;
-
+    public Mode lastCammode = Mode.freeCam;
     public enum Mode
      
     {
@@ -171,6 +171,10 @@ public class GameManager : MonoBehaviour
 
     public void OnChangeWeapon(Weapon weapon)
     {
+        if (currentWeapon && currentWeapon.GetComponent<Sniper>())
+        {
+            changeToLastCamMode();
+        }
         if(currentWeapon != weapon)
         {
             if(currentWeapon)
@@ -265,7 +269,24 @@ public class GameManager : MonoBehaviour
     }
     public void changeCamMode(int camMode)
     {
+        lastCammode = mode;
         switch(camMode) 
+        {
+            case 0:
+                mode = Mode.freeCam;
+                break;
+            case 1:
+                mode = Mode.fpsCam;
+                break;
+            case 2:
+                mode = Mode.adsCam;
+                break;
+        }
+        checkCamMode();
+    }
+    public void changeToLastCamMode()
+    {       
+        switch ((int)lastCammode)
         {
             case 0:
                 mode = Mode.freeCam;
@@ -312,12 +333,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Ray ray = Camera.main.ScreenPointToRay(Camera.main.transform.forward);
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, shootLayerMask))
             {
                 shootPos.transform.LookAt(hit.point);
-                Debug.Log(hit.transform.name);
                 weapon.Shoot(shootPos.transform.forward, shootPos, map.transform);
             }
             else

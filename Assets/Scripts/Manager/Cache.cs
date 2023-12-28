@@ -28,6 +28,8 @@ public static class Cache
         if (!destructibleDict.ContainsKey(collider))
         {
             Destructible dest = collider.transform.parent.GetComponent<Destructible>();
+            if(!dest)
+                dest = collider.GetComponent<Destructible>();
             destructibleDict.Add(collider, dest);
         }
 

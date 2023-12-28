@@ -14,8 +14,9 @@ public class Molly : Bomb
         GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
         if (Physics.Raycast(transform.position,Vector3.down, out hit, Mathf.Infinity, terrainLayerMask))
         {
-            GameObject molly = ObjectPool.Instance.Spawn(mollyPrefab, hit.point, Quaternion.identity);
+            GameObject molly = ObjectPool.Instance.Spawn(mollyPrefab, transform.position, Quaternion.identity);
         }
+
         ObjectPool.Instance.PoolObject(gameObject);
     }
     private void OnCollisionEnter(Collision collision)

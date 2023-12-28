@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7578941757649804176}
   - component: {fileID: 4527130510670268346}
   - component: {fileID: 3695670936963933865}
+  - component: {fileID: 2827209501999587018}
   m_Layer: 10
   m_Name: Mesh_san_kickfit
   m_TagString: Untagged
@@ -182,6 +183,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2827209501999587018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443474147830766938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.6956525, y: 0.9377526, z: 5.695654}
+  m_Center: {x: -0.007304907, y: -0.67265135, z: 0.00005197525}
 --- !u!1 &753591578484968280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,8 +1194,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76208663, y: 3.7986367, z: 5.7162595}
-  m_Center: {x: -2.4740877, y: 0.7577907, z: -0.010250807}
+  m_Size: {x: 0.5322299, y: 3.7986367, z: 0.56980705}
+  m_Center: {x: -2.3591592, y: 0.7577907, z: -2.4031515}
 --- !u!1 &2036254291362006043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,8 +1390,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.6956525, y: 3.7986367, z: 0.7231183}
-  m_Center: {x: -0.007304907, y: 0.7577907, z: 2.4863198}
+  m_Size: {x: 0.51739883, y: 3.7986367, z: 0.47672272}
+  m_Center: {x: 2.4016476, y: 0.7577907, z: 2.5613785}
 --- !u!1 &3471514017057361727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,8 +1435,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76208663, y: 3.7986367, z: 5.7162595}
-  m_Center: {x: -2.4740877, y: 0.7577907, z: -0.010250807}
+  m_Size: {x: 0.56882143, y: 3.7986367, z: 0.5051708}
+  m_Center: {x: -2.5367978, y: 0.7577907, z: 2.3819914}
 --- !u!1 &3719332504151143916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,8 +2795,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.6956525, y: 3.7986367, z: 0.7231183}
-  m_Center: {x: -0.007304907, y: 0.7577907, z: 2.4863198}
+  m_Size: {x: 0.457047, y: 3.7986367, z: 0.5320444}
+  m_Center: {x: -2.349066, y: 0.7577907, z: 2.3907828}
 --- !u!1 &7257600618886289923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3126,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05134dbde8b0fe64791a79dcc2549bbe, type: 2}
+  - {fileID: 2100000, guid: cc1f10ea62a79d847a02f15465699247, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6045,7 +6059,7 @@ MonoBehaviour:
     healthPercent: 20
     hasError: 0
     visibleDamageLevel: 8
-  destroyedPrefab: {fileID: 7385095733858356818, guid: 73c337bc5bad0404dac06fbfef558093, type: 3}
+  destroyedPrefab: {fileID: 8351678942366364837, guid: cc02a1b7280696a4297b76b77a77277d, type: 3}
   destroyedPrefabParent: {fileID: 0}
   fallbackParticle: {fileID: 19800004, guid: 6b46cad447c64dd48b8b715df6e3d2ad, type: 3}
   fallbackParticleMatOption: 0
@@ -6071,7 +6085,7 @@ MonoBehaviour:
   chipAwayDebrisDrag: 0
   chipAwayDebrisAngularDrag: 0.05
   autoPoolDestroyedPrefab: 1
-  useFallbackParticle: 1
+  useFallbackParticle: 0
   centerPointOverride: {x: 0, y: 0, z: 0}
   fallbackParticleScale: {x: 1, y: 1, z: 1}
   fallbackParticleParent: {fileID: 0}

@@ -26,7 +26,8 @@ public class Sprayer : Weapon
             damageTick = 0.5f;
             float distance = Vector3.Distance(s.transform.position, hit.point);
             distance = distance < 5 ? distance : 5;
-            hit.transform.GetComponent<Destructible>()?.ApplyDamage(300f/distance);           
+            hit.transform.GetComponent<Destructible>()?.ApplyDamage(300f/distance);
+            hit.transform.GetComponent<ragdollController>()?.RagdollOnMode();
         }
     }
 
