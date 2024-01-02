@@ -155,6 +155,7 @@ public class GameManager : MonoBehaviour
                 child.Stop();
             foreach (LineRenderer child in shootPos.GetComponentsInChildren<LineRenderer>())
                 child.enabled = false;
+            currentWeapon?.stopShooting();
         }
 
         checkCamMode();

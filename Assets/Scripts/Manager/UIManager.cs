@@ -1,3 +1,4 @@
+using API.Sound;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -219,6 +220,7 @@ public class UIManager : MonoBehaviour
     public void onAudioChange()
     {
         PlayerPrefs.SetFloat("Audio", audioSlider.value);
+        SoundManager.Ins.onAudioChange();
     }
     public void onBackToMenuButtonPress()
     {
@@ -240,6 +242,7 @@ public class UIManager : MonoBehaviour
         imageColor.a = 1f;
         graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = imageColor;
         audioSlider.value = PlayerPrefs.GetFloat("Audio");
+        SoundManager.Ins.onAudioChange();
         //if(PlayerPrefs.GetInt("Audio") == 0)
         //{
         //    audioModeButton.GetComponent<Image>().color = pressedButtonColor;

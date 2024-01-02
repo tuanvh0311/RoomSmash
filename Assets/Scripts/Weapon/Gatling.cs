@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +26,21 @@ public class Gatling : Weapon
             newObject.GetComponent<Bullet>().bulletDamage = bulletDamage;
             newObject.GetComponent<Bullet>().bulletForce = bulletForce;
         }
+        //float randomSoundNumber = Random.Range(0f, 1);
+        //if(randomSoundNumber < 0.5f)
+        //    SoundManager.Ins.PlaySFXRandomPitch(0, false);
+        //else
+        //    SoundManager.Ins.PlaySFXRandomPitch(1, false);
         
         base.Shoot(vec, s, parent);
+    }
+    public override void stopShooting()
+    {
+        if (isShooting)
+        {
+            SoundManager.Ins.PlaySFX(3, false);
+            base.stopShooting();
+        }
+          
     }
 }

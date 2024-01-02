@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ public class Lazer : Weapon
         if (!canShoot()) return;
         if (!lazer)
             lazer = ObjectPool.Instance.Spawn(projectilePrefab, Vector3.zero, Quaternion.identity, s.transform);
+        if (!isShooting) SoundManager.Ins.PlaySFX(8,false);
         LineRenderer lazerLineRender = lazer.GetComponent<LineRenderer>();
         lazerLineRender.SetPosition(0, s.transform.position);
         lazerLineRender.SetPosition(1, vec * 100000f);
@@ -35,6 +37,7 @@ public class Lazer : Weapon
         {
             lazerHitEffect?.GetComponent<ParticleSystem>().Stop();
         }
+        base.Shoot(vec,s,parent);
     }
     
 }

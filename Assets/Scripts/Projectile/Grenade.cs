@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,6 +39,7 @@ public class Grenade : Bomb
     private List<Rigidbody> affectedRigidbodies;
     private Dictionary<ChipAwayDebris, float> affectedChipAwayDebris;
     private Dictionary<Destructible, ExplosiveDamage> affectedDestructibles;
+    public int explodeAudioIndex;
 
     public override void OnEnable()
     {
@@ -49,11 +51,12 @@ public class Grenade : Bomb
     public override void Explode()
     {
         base.Explode();
+
         //CameraController.Instance.startShakeCamera(0f, 0.5f);
         Vector3 currPos = transform.position;
         // Play explosion particle effect.
-        ObjectPool.Instance.Spawn(explosionPrefab, currPos, GetComponent<Rigidbody>().rotation);
-
+        GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, currPos, GetComponent<Rigidbody>().rotation);
+        SoundManager.Ins.PlaySFXWithouPooling(explodeAudioIndex, explosion,false);
         // POINT BLANK RANGE - Apply force and damage to colliders and rigidbodies
         int pointBlankCounter = Physics.OverlapSphereNonAlloc(currPos, pointBlankBlastRadius, DestructionManager.Instance.overlapColliders);
         ExplosiveDamage pointBlankExplosiveDamage = new ExplosiveDamage()
@@ -163,5 +166,6 @@ public class Grenade : Bomb
         ObjectPool.Instance.PoolObject(gameObject, true);
         StopAllCoroutines();
     }
+
 }
 

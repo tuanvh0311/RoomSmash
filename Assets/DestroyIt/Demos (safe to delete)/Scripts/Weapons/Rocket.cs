@@ -1,3 +1,4 @@
+using API.Sound;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,7 +75,7 @@ namespace DestroyIt
         private List<Rigidbody> affectedRigidbodies;
         private Dictionary<ChipAwayDebris, float> affectedChipAwayDebris;
         private Dictionary<Destructible, ExplosiveDamage> affectedDestructibles;
-
+        public int explodeAudioIndex;
         private void Start()
         {
             isInitialized = true;
@@ -172,8 +173,9 @@ namespace DestroyIt
             CameraController.Instance.startShakeCamera(0f,1f);
             TurnOffSmokeTrail();
             // Play explosion particle effect.
-            ObjectPool.Instance.Spawn(explosionPrefab, currPos, GetComponent<Rigidbody>().rotation);
-            
+            GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, currPos, GetComponent<Rigidbody>().rotation);
+            AudioSource audio = SoundManager.Ins.PlaySFXWithouPooling(explodeAudioIndex, explosion,false);
+           
             // POINT BLANK RANGE - Apply force and damage to colliders and rigidbodies
             int pointBlankCounter = Physics.OverlapSphereNonAlloc(currPos, pointBlankBlastRadius, DestructionManager.Instance.overlapColliders);
             ExplosiveDamage pointBlankExplosiveDamage = new ExplosiveDamage()

@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using DigitalRuby.LightningBolt;
 using System.Collections;
@@ -17,6 +18,15 @@ public class Zeus : Weapon
         if (!canShoot()) return;
         if (!lightningBolt)
             lightningBolt = ObjectPool.Instance.Spawn(projectilePrefab, Vector3.zero, Quaternion.identity, s.transform);
+        AudioSource lightningAudio = lightningBolt.GetComponent<AudioSource>();
+        if (!lightningAudio) SoundManager.Ins.PlaySFXOnObject(7, lightningBolt, true);
+        else
+        {
+            if(!lightningAudio.isPlaying)
+            lightningAudio.Play();
+
+        }
+        
         LineRenderer lightningLineRender = lightningBolt.GetComponent<LineRenderer>();
         LightningBoltScript lightningBoltScript = lightningBolt.GetComponent<LightningBoltScript>();
         lightningLineRender.enabled = true;
@@ -37,5 +47,15 @@ public class Zeus : Weapon
         {         
             hitEffect?.GetComponent<ParticleSystem>().Stop();
         }
+        isShooting = true;
+    }
+    public override void stopShooting()
+    {
+        if (isShooting)
+        {
+            lightningBolt.GetComponent<AudioSource>().Stop();
+            base.stopShooting();
+        }
+
     }
 }

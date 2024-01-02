@@ -1,4 +1,5 @@
-﻿using System;
+﻿using API.Sound;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -181,7 +182,7 @@ namespace DestroyIt
 
             // Check for any audio clips we may need to play
             if (oldObj.destroyedSound != null)
-                AudioSource.PlayClipAtPoint(oldObj.destroyedSound, oldObj.transform.position);
+                AudioSource.PlayClipAtPoint(oldObj.destroyedSound, oldObj.transform.position, SoundManager.Ins.volume);
 
             // Look for any debris objects clinging to the old object and un-parent them before destroying the old object.
             oldObj.ReleaseClingingDebris();

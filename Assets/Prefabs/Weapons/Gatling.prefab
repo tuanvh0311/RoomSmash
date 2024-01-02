@@ -108,13 +108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba865123401beeb41b7aa34381d30e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.05
+  cooldown: 0.104
   weaponType: 1
   weaponSprite: {fileID: 8869486232826870485}
   background: {fileID: 7906131997221094841}
   sprite: {fileID: 21300000, guid: 5198a8d5be1e4bb4eabb9db7c1a2cf90, type: 3}
   projectilePrefab: {fileID: 100000, guid: a6fd7dce3d968ee4b8869d5636de45c7, type: 3}
   isHoldToShoot: 1
+  shootAudioIndex: 1
+  isShooting: 0
   bulletDamage: 15
   bulletForce: 40
 --- !u!1 &7906131997221094841

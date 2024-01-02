@@ -31,4 +31,8 @@ public class Flyingbitch : MonoBehaviour
             locked = true;
         }       
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Grenade>().Explode();
+    }
 }

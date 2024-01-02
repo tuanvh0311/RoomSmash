@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ public class BlackHoleBomb : Bomb
     {
         base.Explode();       
         GameObject blackhole = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
+        SoundManager.Ins.PlaySFXWithouPooling(15, blackhole, false);
         CameraController.Instance.startShakeCamera(10f, 1f);
         ObjectPool.Instance.PoolObject(gameObject);       
     }

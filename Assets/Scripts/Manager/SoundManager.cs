@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace API.Sound {
     public enum SoundIds {
@@ -30,6 +31,7 @@ namespace API.Sound {
 
         private bool isSFXOn;
 
+        public float volume;
         public bool IsMusicOn {
             get => isMusicOn;
         }
@@ -50,8 +52,13 @@ namespace API.Sound {
             }
         }
 
+        void OnInit()
+        {
+            StopAllSFX();
+        }
         // Start is called before the first frame update
         void Start() {
+            GameManager.Instance.reloadScene += OnInit;
             if (musicSource == null) {
                 musicSource = gameObject.AddComponent<AudioSource>();
                 musicSource.outputAudioMixerGroup = mainMix.FindMatchingGroups("Music")[0];
@@ -65,6 +72,18 @@ namespace API.Sound {
             isMusicOn = PlayerPrefs.GetInt("IsMusicOn", 1) == 1;
             mainMix.SetFloat("SFXVol", isSFXOn ? onSFXVol : -80f);
             mainMix.SetFloat("MusicVol", isMusicOn ? onMusicVol : -80f);
+        }
+        public void onAudioChange()
+        {
+            volume = PlayerPrefs.GetFloat("Audio");
+            for (int i = sourcePool.Count - 1; i >= 0; i--)
+            {
+                if (sourcePool[i] == null)
+                {
+                    sourcePool.RemoveAt(i);
+                }
+                sourcePool[i].volume = volume;
+            }
         }
         /// <summary>
         /// Turn on or off sfx volume
@@ -125,6 +144,7 @@ namespace API.Sound {
             source.loop = false;
             source.Play();
         }
+        
         /// <summary>
         /// Play game sfx sound
         /// </summary>
@@ -135,6 +155,46 @@ namespace API.Sound {
             AudioSource source = GetAudioSource();
             source.clip = sfxClips[sfxId];
             source.loop = IsLoop;
+            source.volume = volume;
+            source.Play();
+            return source;
+        }
+        public AudioSource PlaySFXWithouPooling(int sfxId, GameObject go, bool IsLoop = false)
+        {
+            AudioSource source = go.AddComponent<AudioSource>();
+            source.outputAudioMixerGroup = mainMix.FindMatchingGroups("SFX")[0];
+            source.clip = sfxClips[sfxId];
+            source.loop = IsLoop;
+            source.volume = volume;
+            source.Play();
+            return source;
+        }
+        public AudioSource PlaySFXRandomPitch(int sfxId, bool IsLoop = false)
+        {
+            AudioSource source = GetAudioSource();
+            source.clip = sfxClips[sfxId];
+            source.loop = IsLoop;
+            source.volume = volume;
+            source.pitch = Random.Range(0.5f, 1.0f);
+            if(!source.isPlaying) 
+            source.Play();
+            return source;
+        }
+        public AudioSource PlaySFXOnObject(int sfxId, GameObject go , bool IsLoop = false)
+        {
+            for (int i = 0; i < sourcePool.Count; i++)
+            {
+                if (!sourcePool[i].isPlaying)
+                {
+                    return sourcePool[i];
+                }
+            }
+            AudioSource source = go.AddComponent<AudioSource>();
+            source.outputAudioMixerGroup = mainMix.FindMatchingGroups("SFX")[0];
+            sourcePool.Add(source);
+            source.clip = sfxClips[sfxId];
+            source.loop = IsLoop;
+            source.volume = volume;
             source.Play();
             return source;
         }
@@ -146,6 +206,13 @@ namespace API.Sound {
             musicSource.clip = musicClips[musicId];
             musicSource.loop = true;
             musicSource.Play();
+        }
+        public void StopAllSFX()
+        {
+            for (int i = 0; i < sourcePool.Count; i++)
+            {
+                sourcePool[i].Stop();
+            }
         }
     }
 }

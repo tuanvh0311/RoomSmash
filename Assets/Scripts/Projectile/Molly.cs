@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,16 +12,16 @@ public class Molly : Bomb
     {
         base.Explode();       
         RaycastHit hit;
-        GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
-        if (Physics.Raycast(transform.position,Vector3.down, out hit, Mathf.Infinity, terrainLayerMask))
-        {
-            GameObject molly = ObjectPool.Instance.Spawn(mollyPrefab, transform.position, Quaternion.identity);
-        }
+        GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);      
+        GameObject molly = ObjectPool.Instance.Spawn(mollyPrefab, transform.position, Quaternion.identity);
+        SoundManager.Ins.PlaySFXWithouPooling(12, molly, true);
+        
 
         ObjectPool.Instance.PoolObject(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {
         Explode();
+        SoundManager.Ins.PlaySFXWithouPooling(11, mollyPrefab, false);
     }
 }
