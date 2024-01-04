@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using API.Sound;
+using UnityEngine;
 
 namespace DestroyIt
 {
@@ -68,6 +69,7 @@ namespace DestroyIt
                         {
                             case ProjectileType.Shuriken:
                                 destObj.ProcessDestructibleCollision(collision, gameObject.GetComponent<Rigidbody>());
+                                
                                 break;
                             default:
                                 destObj.ProcessDestructibleCollision(collision, gameObject.GetComponent<Rigidbody>());

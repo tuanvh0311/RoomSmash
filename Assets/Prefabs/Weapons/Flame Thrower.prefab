@@ -162,7 +162,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6627878306779918737}
   - component: {fileID: 8807872934959923207}
-  - component: {fileID: 3307787309304460246}
   - component: {fileID: 7318882451269985185}
   m_Layer: 0
   m_Name: Flame Thrower
@@ -249,29 +248,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3307787309304460246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8869459693820552478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401e64acc34c89e45ae6e9c26798e625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0
-  weaponType: 1
-  weaponSprite: {fileID: 2491862272470035790}
-  background: {fileID: 3763417320293945890}
-  sprite: {fileID: 21300000, guid: 94450f4b0c72e64448c555b8c82736ed, type: 3}
-  projectilePrefab: {fileID: 6815313928511006611, guid: eab574cb42df0d34b8791bf11a1c4833, type: 3}
-  isHoldToShoot: 1
-  layermask:
-    serializedVersion: 2
-    m_Bits: 8064
-  doDamageable: 1
 --- !u!114 &7318882451269985185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +267,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 94450f4b0c72e64448c555b8c82736ed, type: 3}
   projectilePrefab: {fileID: 6815313928511006611, guid: eab574cb42df0d34b8791bf11a1c4833, type: 3}
   isHoldToShoot: 1
+  shootAudioIndex: 22
+  isShooting: 0
   layermask:
     serializedVersion: 2
     m_Bits: 40832

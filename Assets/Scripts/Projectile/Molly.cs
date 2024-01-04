@@ -11,17 +11,15 @@ public class Molly : Bomb
     public override void Explode()
     {
         base.Explode();       
-        RaycastHit hit;
-        GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);      
-        GameObject molly = ObjectPool.Instance.Spawn(mollyPrefab, transform.position, Quaternion.identity);
-        SoundManager.Ins.PlaySFXWithouPooling(12, molly, true);
-        
-
         ObjectPool.Instance.PoolObject(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject explosion = ObjectPool.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
+        GameObject molly = ObjectPool.Instance.Spawn(mollyPrefab, transform.position, Quaternion.identity);
+        SoundManager.Ins.PlaySFXWithouPooling(12, molly, false);
+        SoundManager.Ins.PlaySFXWithouPooling(11, molly, false);
         Explode();
-        SoundManager.Ins.PlaySFXWithouPooling(11, mollyPrefab, false);
+        
     }
 }

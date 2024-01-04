@@ -16,6 +16,8 @@ namespace API.Sound {
 
         private List<AudioSource> sourcePool = new List<AudioSource>();
 
+        private List<AudioSource> unPooledsource = new List<AudioSource>();
+
         [SerializeField]
         private AudioSource musicSource;
 
@@ -75,15 +77,26 @@ namespace API.Sound {
         }
         public void onAudioChange()
         {
-            volume = PlayerPrefs.GetFloat("Audio");
+            volume = PlayerPrefs.GetFloat("Audio") /2f;
             for (int i = sourcePool.Count - 1; i >= 0; i--)
             {
                 if (sourcePool[i] == null)
                 {
                     sourcePool.RemoveAt(i);
+                    continue;
                 }
                 sourcePool[i].volume = volume;
             }
+            for (int i = unPooledsource.Count - 1; i >= 0; i--)
+            {
+                if (unPooledsource[i] == null)
+                {
+                    unPooledsource.RemoveAt(i);
+                    continue;
+                }
+                unPooledsource[i].volume = volume;
+            }
+
         }
         /// <summary>
         /// Turn on or off sfx volume
@@ -156,16 +169,19 @@ namespace API.Sound {
             source.clip = sfxClips[sfxId];
             source.loop = IsLoop;
             source.volume = volume;
+            source.playOnAwake = false;
             source.Play();
             return source;
         }
         public AudioSource PlaySFXWithouPooling(int sfxId, GameObject go, bool IsLoop = false)
         {
             AudioSource source = go.AddComponent<AudioSource>();
+            unPooledsource.Add(source);
             source.outputAudioMixerGroup = mainMix.FindMatchingGroups("SFX")[0];
             source.clip = sfxClips[sfxId];
             source.loop = IsLoop;
             source.volume = volume;
+            source.playOnAwake = false;
             source.Play();
             return source;
         }

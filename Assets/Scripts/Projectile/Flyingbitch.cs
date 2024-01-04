@@ -1,3 +1,4 @@
+using API.Sound;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -15,6 +16,7 @@ public class Flyingbitch : MonoBehaviour
     {
         wing2.transform.DORotate(new Vector3(0f, 0f, 90f), 0.05f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
         wing1.transform.DORotate(new Vector3(0f, 0f, -90f), 0.05f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
+        SoundManager.Ins.PlaySFXWithouPooling(24, gameObject, true);
         rbody = GetComponent<Rigidbody>();
         locked = false;
     }

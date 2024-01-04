@@ -15,8 +15,12 @@ public class HangingObject : MonoBehaviour
         
         foreach (var item in objectToRelease)
         {
-            item.GetComponent<Rigidbody>().isKinematic = false;
-            item.GetComponent<Rigidbody>().WakeUp();
+            if (item)
+            {
+                item.GetComponent<Rigidbody>().isKinematic = false;
+                item.GetComponent<Rigidbody>().WakeUp();
+            }
+            
         }
 
     }

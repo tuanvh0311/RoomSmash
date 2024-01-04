@@ -1,3 +1,4 @@
+using API.Sound;
 using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
@@ -70,7 +71,10 @@ public class Nuke : Weapon
                 swScript.origin = nukePos;
             }
 
-        base.Shoot(vec, s, parent);
+        isShooting = true;
+        setCooldown();
+        AudioSource sfx = SoundManager.Ins.PlaySFX(21, false);
+        sfx.volume = sfx.volume / 2f;
 
     }
     }

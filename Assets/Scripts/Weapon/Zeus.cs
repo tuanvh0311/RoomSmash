@@ -9,6 +9,7 @@ public class Zeus : Weapon
 {
     private GameObject lightningBolt;
     private GameObject hitEffect;
+    private AudioSource lightningAudio;
     public LayerMask layermask;
     public GameObject particlePrefab;
     public float maxRange = 50f;
@@ -18,26 +19,34 @@ public class Zeus : Weapon
         if (!canShoot()) return;
         if (!lightningBolt)
             lightningBolt = ObjectPool.Instance.Spawn(projectilePrefab, Vector3.zero, Quaternion.identity, s.transform);
-        AudioSource lightningAudio = lightningBolt.GetComponent<AudioSource>();
-        if (!lightningAudio) SoundManager.Ins.PlaySFXOnObject(7, lightningBolt, true);
-        else
+        if (lightningAudio == null)
         {
-            if(!lightningAudio.isPlaying)
-            lightningAudio.Play();
+            lightningAudio = SoundManager.Ins.PlaySFXWithouPooling(7,lightningBolt, false);
 
         }
-        
+        else
+        {
+            if (!lightningAudio.isPlaying)
+                lightningAudio.Play();
+        }
         LineRenderer lightningLineRender = lightningBolt.GetComponent<LineRenderer>();
-        LightningBoltScript lightningBoltScript = lightningBolt.GetComponent<LightningBoltScript>();
         lightningLineRender.enabled = true;
-        lightningBoltScript.EndObject.transform.position = (vec * maxRange);       
+        lightningLineRender.SetPosition(0, s.transform.position);
+        lightningLineRender.SetPosition(1, vec * 100000f);
+
+        LineRenderer lightningLineRenderChild = lightningLineRender.transform.GetChild(0).GetComponent<LineRenderer>();
+        lightningLineRenderChild.SetPosition(0, s.transform.position);
+        lightningLineRenderChild.SetPosition(1, vec * 100000f);
+
+        //lightningLineRenderChild.enabled = true;
         RaycastHit hit;
-        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, maxRange,layermask))
+        if (Physics.Raycast(s.transform.position, vec * 100000f, out hit, maxRange,layermask))
         {
             if (!hitEffect)
                 hitEffect = ObjectPool.Instance.Spawn(particlePrefab, hit.point, Quaternion.identity, s.transform);
             else hitEffect.transform.position = hit.point;
-            lightningBoltScript.EndObject.transform.position = hit.point;
+            lightningLineRender.GetComponent<LineRenderer>().SetPosition(1, hit.point);
+            lightningLineRenderChild.SetPosition(1, hit.point);
             hitEffect.GetComponent<ParticleSystem>().Play();
             hit.transform.GetComponent<Destructible>()?.ApplyDamage(10f*Time.timeScale);
             hit.rigidbody?.AddForce(s.transform.forward * 5f, ForceMode.Impulse);
@@ -53,7 +62,7 @@ public class Zeus : Weapon
     {
         if (isShooting)
         {
-            lightningBolt.GetComponent<AudioSource>().Stop();
+            lightningAudio.Stop();
             base.stopShooting();
         }
 
