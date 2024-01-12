@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cf101f8025e5f47961a3f21b026b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLocked: 0
+  BuyToUnlock: 0
+  WatchAdsToUnlock: 1
   cooldown: 1
   weaponType: 5
   weaponSprite: {fileID: 6435075938033603421}
@@ -115,6 +118,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: d5fb393b6676fa742ac37d68b6dc815a, type: 3}
   projectilePrefab: {fileID: 5154188146232041092, guid: 8d5ac8117009cf24e897382576be4d09, type: 3}
   isHoldToShoot: 0
+  shootAudioIndex: 0
+  isShooting: 0
 --- !u!1 &5756582107455581233
 GameObject:
   m_ObjectHideFlags: 0

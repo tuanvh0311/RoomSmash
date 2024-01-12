@@ -22,7 +22,8 @@ public class Cyclone : MonoBehaviour
             direction = new Vector3(Random.Range(-1f, 1f),
                                             GetComponent<Rigidbody>().velocity.y,
                                             Random.Range(-1f, 1f));
-            changeDirectionTimer = 0.5f;
+            GetComponent<Rigidbody>().velocity = direction * 5f;
+            changeDirectionTimer = 5f;
         }
         
         GetComponent<Rigidbody>().velocity = direction * 1f;

@@ -28,10 +28,11 @@ public class ragdollController : MonoBehaviour
         {
             RagdollOnMode();
         }
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == 7) 
+        if(collision.gameObject.layer == 7)
         {
             RagdollOnMode();
         }
@@ -60,6 +61,8 @@ public class ragdollController : MonoBehaviour
         }
         animator.enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
+
+        
     }
     void RagdollOffMode()
     {

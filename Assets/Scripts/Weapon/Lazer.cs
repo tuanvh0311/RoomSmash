@@ -31,14 +31,14 @@ public class Lazer : Weapon
         }
         LineRenderer lazerLineRender = lazer.GetComponent<LineRenderer>();
         lazerLineRender.SetPosition(0, s.transform.position);
-        lazerLineRender.SetPosition(1, vec * 100000f);
+        lazerLineRender.SetPosition(1, vec * 50f);
         LineRenderer lazerLineRendererChild = lazerLineRender.transform.GetChild(0).GetComponent<LineRenderer>();
         lazerLineRendererChild.SetPosition(0, s.transform.position);
-        lazerLineRendererChild.SetPosition(1, vec * 100000f);
+        lazerLineRendererChild.SetPosition(1, vec * 50f);
         lazerLineRender.enabled = true;
         lazerLineRendererChild.enabled = true;
         RaycastHit hit;
-        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, 3000f, layermask))
+        if (Physics.Raycast(s.transform.position, vec * 100000, out hit, maxDistance: 3000f, layermask))
         {
             if (!lazerHitEffect)
                 lazerHitEffect = ObjectPool.Instance.Spawn(particlePrefab, hit.point, Quaternion.identity, s.transform);

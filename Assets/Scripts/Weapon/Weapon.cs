@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
+    bool IsLocked = false;
+    [SerializeField] bool BuyToUnlock = false;
+    [SerializeField] bool WatchAdsToUnlock = false;
     public float cooldown = 30f;
     public WeaponType weaponType = WeaponType.THROWABLE;
     [SerializeField] GameObject weaponSprite;
@@ -16,12 +19,27 @@ public class Weapon : MonoBehaviour
     public GameObject projectilePrefab;
     public bool isHoldToShoot = false;
     [SerializeField] int shootAudioIndex;
-    public bool isShooting = false; 
+    public bool isShooting = false;
+    private string WeaponName;
     public virtual void Shoot(Vector3 vec, GameObject shootPos, Transform parent)
     {
         isShooting = true;
         playShootSound();
         setCooldown();
+    }
+    private void Start()
+    {
+        
+        if(BuyToUnlock)
+        {          
+            IsLocked = true;
+            
+        }
+        if(WatchAdsToUnlock)
+        {
+            IsLocked = true;          
+        }
+        checkUnlock();
     }
     public virtual void stopShooting()
     {
@@ -61,11 +79,38 @@ public class Weapon : MonoBehaviour
     public void showWeapon()
     {
         gameObject.SetActive(true);
+        checkUnlock();
     }
     public void onWeaponSelect()
     {
-        GameManager.Instance.OnChangeWeapon(this);
-        
+        if(IsLocked) return;
+        GameManager.Instance.OnChangeWeapon(this);        
+    }
+    public void checkUnlock()
+    {
+        WeaponName = this.GetType().Name;
+        if (BuyToUnlock)
+        {
+            IsLocked = PlayerPrefs.GetInt("PackBoughted") == 0;
+        }
+
+        if (WatchAdsToUnlock)
+        {
+            if (PlayerPrefs.GetInt("AdsRemove") == 1)
+            {
+                IsLocked = false;
+                return;
+            }
+            if (!PlayerPrefs.HasKey(WeaponName + "IsLocked"))
+            {
+                PlayerPrefs.SetInt(WeaponName + "IsLocked", 0);
+            }
+
+            else
+            {
+                IsLocked = PlayerPrefs.GetInt(WeaponName + "IsLocked") == 0;
+            }
+        }
 
     }
     

@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public LayerMask cameraRaycast;
     public GameObject shootPos = null;
     public float cooldown = 0;
-    public Light mainLight;
+    public Light[] mainLight;
+    public LightShadows shadowsType;
     public ScriptableMap[] scriptableMaps;
     public UnityAction reloadScene;
     public GameObject map;
@@ -43,8 +44,8 @@ public class GameManager : MonoBehaviour
 
     private const string GRAPHICS_KEY = "Graphics";
     private const string AUDIO_KEY = "Audio";
-    private int currentGraphics;
-    private float currentAudioRatio;
+    private int currentGraphics = 1;
+    private float currentAudioRatio = 1;
     public float disableShootTimer = 0f;
     public static int currentMapIndex = 0;
     private float originWidth = Screen.width;
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
-            SaveSetting(0, currentAudioRatio);
+            SaveSetting(graphics: 0, currentAudioRatio);
         }       
         return PlayerPrefs.GetInt(GRAPHICS_KEY);
     }
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
     {
         if(!PlayerPrefs.HasKey(AUDIO_KEY))
         {
-            SaveSetting(currentGraphics, 1);
+            SaveSetting(currentGraphics, audio: 1);
         }
         return PlayerPrefs.GetFloat(AUDIO_KEY);
     }
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
     {
         currentGraphics = LoadGraphics();
         currentAudioRatio = LoadAudioMode();
+        
         SetGraphics(LoadGraphics());
     }
     private void SaveSetting(int graphics, float audio)
@@ -197,21 +199,30 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 Screen.SetResolution(960, (int) (960/widthOnHeight), true);
-                mainLight.shadows = LightShadows.None;
+                shadowsType = LightShadows.None;
                 break;
             case 1:
                 Screen.SetResolution(1280, (int)(1280 / widthOnHeight), true);
-                mainLight.shadows = LightShadows.Hard;
+                shadowsType = LightShadows.Hard;
                 break;
             case 2:
                 Screen.SetResolution(1920, (int)(1920 / widthOnHeight), true);
-                mainLight.shadows = LightShadows.Soft;
+                shadowsType = LightShadows.Soft;
                 break;
+                
         }
         SaveSetting(setting, currentAudioRatio);
+        setShadowType();
     }
 
-    
+    public void setShadowType()
+    {
+        mainLight = map.GetComponentsInChildren<Light>();
+        foreach (var item in mainLight)
+        {
+            item.shadows = shadowsType; 
+        }
+    }
     public void LoadMap(int mapIndex)
     {
         reloadScene?.Invoke();
@@ -223,6 +234,7 @@ public class GameManager : MonoBehaviour
         if (map)           
             map.GetComponent<PoolAfter>().timeLeft = 0;
         map = ObjectPool.Instance.Spawn(scriptableMaps[mapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        setShadowType();
         currentMapIndex = mapIndex;
         mode = Mode.freeCam;
         if(currentWeapon)
@@ -245,6 +257,7 @@ public class GameManager : MonoBehaviour
             map.GetComponent<PoolAfter>().timeLeft = 0;
         }
         map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        setShadowType();
         mode = Mode.freeCam;
         if (currentWeapon)
             currentWeapon.background.GetComponent<Image>().color = Color.white;
@@ -309,10 +322,27 @@ public class GameManager : MonoBehaviour
         foreach (var weapon in weaponsList)
         {
             if (weapon.weaponType == currentWeaponType)
+            {
                 weapon.showWeapon();
+                weapon.checkUnlock();
+            }
+                
             else weapon.hideWeapon();
         }
+    }
+    public void checkCurrentWeaponType()
+    {
 
+        UIManager.onWeaponTypeChange();
+        foreach (var weapon in weaponsList)
+        {
+            if (weapon.weaponType == currentWeaponType)
+            {
+                weapon.showWeapon();
+                weapon.checkUnlock();
+            }
+            else weapon.hideWeapon();
+        }
     }
     private void CheckShooting(Weapon weapon)
     {

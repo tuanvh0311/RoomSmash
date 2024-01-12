@@ -32,20 +32,20 @@ public class Zeus : Weapon
         LineRenderer lightningLineRender = lightningBolt.GetComponent<LineRenderer>();
         lightningLineRender.enabled = true;
         lightningLineRender.SetPosition(0, s.transform.position);
-        lightningLineRender.SetPosition(1, vec * 100000f);
+        lightningLineRender.SetPosition(1, vec * 100f);
 
         LineRenderer lightningLineRenderChild = lightningLineRender.transform.GetChild(0).GetComponent<LineRenderer>();
         lightningLineRenderChild.SetPosition(0, s.transform.position);
-        lightningLineRenderChild.SetPosition(1, vec * 100000f);
+        lightningLineRenderChild.SetPosition(1, vec * 100f);
 
-        //lightningLineRenderChild.enabled = true;
+        lightningLineRenderChild.enabled = true;
         RaycastHit hit;
         if (Physics.Raycast(s.transform.position, vec * 100000f, out hit, maxRange,layermask))
         {
             if (!hitEffect)
                 hitEffect = ObjectPool.Instance.Spawn(particlePrefab, hit.point, Quaternion.identity, s.transform);
             else hitEffect.transform.position = hit.point;
-            lightningLineRender.GetComponent<LineRenderer>().SetPosition(1, hit.point);
+            lightningLineRender.SetPosition(1, hit.point);
             lightningLineRenderChild.SetPosition(1, hit.point);
             hitEffect.GetComponent<ParticleSystem>().Play();
             hit.transform.GetComponent<Destructible>()?.ApplyDamage(10f*Time.timeScale);

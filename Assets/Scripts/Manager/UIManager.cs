@@ -21,13 +21,10 @@ public class UIManager : MonoBehaviour
     public GameObject ADSCam = null;
     public GameObject weaponTypeArrow = null;
     public GameObject mainMenu = null;
-
     public UnityEngine.UI.Button mapButtonPrefab;
     public RectTransform mapButtonContainer;
-
     public Color pressedButtonColor;
-    public Color defaultButtonColor;
-    
+    public Color defaultButtonColor; 
     private Camera mainCamera;
     private float fixedDeltaTime;
 
@@ -243,20 +240,20 @@ public class UIManager : MonoBehaviour
         graphicsButtons[PlayerPrefs.GetInt("Graphics")].color = imageColor;
         audioSlider.value = PlayerPrefs.GetFloat("Audio");
         SoundManager.Ins.onAudioChange();
-        //if(PlayerPrefs.GetInt("Audio") == 0)
-        //{
-        //    audioModeButton.GetComponent<Image>().color = pressedButtonColor;
-        //    audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound On";
-        //}
-        //else
-        //{
-        //    audioModeButton.GetComponent<Image>().color = defaultButtonColor;
-        //    audioModeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Sound Off";
-        //}
         Time.timeScale = 1f;
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         onGravityButtonPress(0);
         onCammodeButtonPress(0);
+    }
+    public void BuyPack()
+    {
+        PlayerPrefs.SetInt("PackBoughted", 1);
+        GameManager.Instance.checkCurrentWeaponType();
+    }
+    public void BuyAdsRemove()
+    {
+        PlayerPrefs.SetInt("AdsRemove", 1);
+        GameManager.Instance.checkCurrentWeaponType();
     }
 
 }
