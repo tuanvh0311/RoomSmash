@@ -13,7 +13,7 @@ public class MapButton : MonoBehaviour
     public int NumberOfAdsWatched;
     public GameObject lockGO;
     public Image SelectedBackground;
-    
+    public TextMeshProUGUI AdsText;
     public string mapName;
     
 
@@ -25,6 +25,7 @@ public class MapButton : MonoBehaviour
         mapName = NameForMap;
         WatchAdsToUnlock = isWatchAdsToUnlock;
         NumberOfAds = nunberOfAds;
+
         CheckLock();
     }
     
@@ -34,7 +35,8 @@ public class MapButton : MonoBehaviour
     }
     public bool CheckLock()
     {
-        bool IsLocked = false;        
+        bool IsLocked = false;
+        AdsText.text = "Watch Ads" + NumberOfAdsWatched+"/"+NumberOfAds;
         if (WatchAdsToUnlock)
         {
             if (PlayerPrefs.HasKey(mapName))
