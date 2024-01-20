@@ -136,12 +136,17 @@ public class CameraController : MonoBehaviour
         
         if (GameManager.Instance.mode == GameManager.Mode.freeCam) 
         {
+            
             if (Input.GetMouseButton(0) && !Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
-                rot.x += (Input.mousePosition.y - m_v3MousePosition.y) * MouseSpeed;
-                rot.y += (Input.mousePosition.x - m_v3MousePosition.x) * MouseSpeed;
-                rot.x = Mathf.Clamp(rot.x, -90f, 90);
-                camPos.transform.rotation = Quaternion.Euler(-rot.x, rot.y, 0.0f);                
+                if (GameManager.Instance.disableShootTimer <= 0)
+                {
+                    rot.x += (Input.mousePosition.y - m_v3MousePosition.y) * MouseSpeed;
+                    rot.y += (Input.mousePosition.x - m_v3MousePosition.x) * MouseSpeed;
+                    rot.x = Mathf.Clamp(rot.x, -90f, 90);
+                    camPos.transform.rotation = Quaternion.Euler(-rot.x, rot.y, 0.0f);
+                }
+                              
             }
         } 
         if( GameManager.Instance.mode == GameManager.Mode.fpsCam || GameManager.Instance.mode == GameManager.Mode.adsCam)

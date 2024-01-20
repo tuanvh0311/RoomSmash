@@ -15,7 +15,7 @@ namespace DestroyIt
         public int maxPerDestructible = 5;  // max particles to allow for a single Destructible object or DestructibleGroup.
         public float withinSeconds = 4f;    // remove particles from the managed list after this many seconds.
         public float updateFrequency = .5f; // The time (in seconds) this script updates its counters
-
+        public GameObject destroyedParticle;
         public static ParticleManager Instance { get; private set; }
         public ActiveParticle[] ActiveParticles 
         { 

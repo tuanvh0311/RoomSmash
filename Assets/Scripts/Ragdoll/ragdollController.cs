@@ -1,3 +1,4 @@
+using DestroyIt;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,12 +48,14 @@ public class ragdollController : MonoBehaviour
     }
     public void RagdollOnMode()
     {
+        Vector3 impact = ragdoll.GetComponent<Rigidbody>().velocity;
         foreach (var item in ragdollColliders)
         {
             item.enabled = true;
         }
         foreach (var item in ragdollRigidbodies)
         {
+            item.velocity = impact;
             item.isKinematic = false;
         }
         foreach (var item in maincolliders)

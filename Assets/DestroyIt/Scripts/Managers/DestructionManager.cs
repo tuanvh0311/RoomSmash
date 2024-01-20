@@ -251,6 +251,19 @@ namespace DestroyIt
 
             // Try to get the destroyed prefab from the object pool
             GameObject newObj = ObjectPool.Instance.Spawn(destroyedPrefab, oldObj.PositionFixedUpdate, oldObj.RotationFixedUpdate,oldObj.transform.parent , oldObj.GetInstanceID());
+            
+            float particleSize = 0;
+            //particleSize = Mathf.Min(meshSize.x, meshSize.y, meshSize.z);
+            if (oldObj.GetComponent<MeshRenderer>())
+            {
+                Vector3 meshSize = oldObj.GetComponent<MeshRenderer>().bounds.size;
+                particleSize = (meshSize.x + meshSize.y + meshSize.z) / 12;
+            }
+            
+
+
+            GameObject destroyedParticle = ObjectPool.Instance.Spawn(ParticleManager.Instance.destroyedParticle, oldObj.PositionFixedUpdate, Quaternion.identity, oldObj.transform.parent);
+            destroyedParticle.transform.localScale = particleSize * Vector3.one;
             InstantiateDebris(newObj, oldObj, damageInfo);
 
             oldObj.gameObject.SetActive(false);

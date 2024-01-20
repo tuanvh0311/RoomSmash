@@ -1,4 +1,7 @@
 using API.Sound;
+using Cinemachine;
+using DG.Tweening;
+using Sirenix.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -10,29 +13,34 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GridLayoutGroup weaponSelection = null;
+    public GridLayoutGroup weaponSelection;
+    public Sprite LockIcon;
+    public Sprite WatchAdsIcon;
     public WeaponTypeSlot[] weaponTypeSlots;
-    public Image[] graphicsButtons = null;
-    public Image[] gravityButtons = null;
-    public Image[] camModeButtons = null;
+    public Image[] graphicsButtons;
+    public Image[] gravityButtons;
+    public Image[] camModeButtons;
     public Slider audioSlider;
-    public GameObject camJoystick = null;
-    public GameObject movementJoystick = null;
-    public GameObject ADSCam = null;
-    public GameObject weaponTypeArrow = null;
-    public GameObject mainMenu = null;
-    public UnityEngine.UI.Button mapButtonPrefab;
+    public GameObject camJoystick;
+    public GameObject movementJoystick;
+    public GameObject ADSCam;
+    public GameObject mainMenu;
+    public CinemachineVirtualCamera MainCinemachineCamera;
+    public GameObject BackgroundCameraRenderer;
+    public Button mapButtonPrefab;
+    public Button ToggleBuyPackPanel;
+    public GameObject RemoveAdsButton;
     public RectTransform mapButtonContainer;
     public Color pressedButtonColor;
     public Color defaultButtonColor; 
-    private Camera mainCamera;
+    public Color LockedWeaponColor;
+    public Color UnlockedWeaponColor;
     private float fixedDeltaTime;
-
+    public List<MapButton> MapButtons = new List<MapButton>();
 
     void OnInit()
     {
         fixedDeltaTime = Time.fixedDeltaTime;
-        mainCamera = Camera.main;
         LoadSetting();
     }
     private void Start()
@@ -42,17 +50,33 @@ public class UIManager : MonoBehaviour
         foreach (ScriptableMap map in GameManager.Instance.scriptableMaps)
         {
             int temp = index;
-            UnityEngine.UI.Button mapButton = Instantiate(mapButtonPrefab, mapButtonContainer);
-            mapButton.GetComponent<Image>().sprite = GameManager.Instance.scriptableMaps[temp].Background;
+            Button mapButton = Instantiate(mapButtonPrefab, mapButtonContainer);
+            mapButton.name = map.MapName;
+            mapButton.GetComponent<MapButton>().LoadMapData(map.Background, map.MapName, map.WatchAdsToUnlock,map.NumberOfAds);
+            MapButtons.Add(mapButton.GetComponent<MapButton>());
             mapButton.onClick.AddListener(delegate
             {
-                GameManager.Instance.LoadMap(temp);
+                if (mapButton.GetComponent<MapButton>().CheckLock())
+                {
+                    mapButton.GetComponent<MapButton>().onButtonClick();
+                }
+                else 
+                {
+                    GameManager.Instance.LoadMap(temp);                 
+                } 
+                                 
             });
             index++;
+            
         }
-
+        RemoveAdsButton.SetActive(PlayerPrefs.GetInt("AdsRemove") == 0);
         
         OnInit();
+    }
+    
+    private void Awake()
+    {
+        MainCinemachineCamera.m_Lens.FarClipPlane = 0.02f;
     }
     public void addWeapon(Weapon weapon)
     {
@@ -133,23 +157,64 @@ public class UIManager : MonoBehaviour
     }
     public void onWeaponTypeChange()
     {
+        WeaponType currentWeaponType = GameManager.Instance.currentWeaponType;
         foreach (var item in weaponTypeSlots)
         {
-            item.gameObject.transform.Find("Background").GetComponent<Image>().color = Color.white;            
-            if (item.weaponType == GameManager.Instance.currentWeaponType)
+            item.gameObject.transform.Find("Background").GetComponent<Image>().color = Color.white;
+            if (item.weaponType == currentWeaponType)
                 item.gameObject.transform.Find("Background").GetComponent<Image>().color = Color.yellow;
+        }       
+        if(currentWeaponType != WeaponType.NONE)          
+        {
+            weaponSelection.transform.parent.gameObject.SetActive(true);
+            foreach (var weapon in GameManager.Instance.GetWeapons())
+            {
+                if (weapon.weaponType == currentWeaponType)
+                {
+                    weapon.showWeapon();
+                    weapon.CheckIsLocked();
+                }
+                else weapon.hideWeapon();
+            }
         }
-        weaponTypeArrow.gameObject.SetActive(false);
-        if(GameManager.Instance.currentWeaponType != WeaponType.NONE) 
-            weaponTypeArrow.SetActive(true);
+        else
+        {
+            weaponSelection.transform.parent.GetComponent<ButtonsTweener>().OnClose().OnComplete(() => {
+                weaponSelection.transform.parent.gameObject.SetActive(false);
+                foreach (var weapon in GameManager.Instance.GetWeapons())
+                {
+                    if (weapon.weaponType == currentWeaponType)
+                    {
+                        weapon.showWeapon();
+                        weapon.CheckIsLocked();
+                    }
+                    else weapon.hideWeapon();
+                }
+            });
+            
+        }
     }
-    
+    public void onMapSelected(int index)
+    {       
+        for (int i = 0; i < MapButtons.Count; i++)
+        {
+            MapButtons[i].SetSelected(i == index);
+            MapButtons[i].CheckLock();
+        }
+    }
+    public void checkMap()
+    {
+        for (int i = 0; i < MapButtons.Count; i++)
+        {
+            MapButtons[i].CheckLock();
+        }
+    }
     public void onFreeCamEnable()
     {
         camJoystick.SetActive(false);
         movementJoystick.SetActive(false);
         ADSCam.SetActive(false);
-        mainCamera.fieldOfView = 60;
+        MainCinemachineCamera.m_Lens.FieldOfView = 60;
         foreach (var item in camModeButtons)
         {
             item.color = defaultButtonColor;
@@ -162,7 +227,7 @@ public class UIManager : MonoBehaviour
         camJoystick.SetActive(true);
         movementJoystick.SetActive(true);
         ADSCam.SetActive(false);
-        mainCamera.fieldOfView = 60;
+        MainCinemachineCamera.m_Lens.FieldOfView = 60;
         foreach (var item in camModeButtons)
         {
             item.color = defaultButtonColor;
@@ -175,7 +240,7 @@ public class UIManager : MonoBehaviour
         camJoystick.SetActive(true);
         movementJoystick.SetActive(false);
         ADSCam.SetActive(true);
-        mainCamera.fieldOfView = 10;
+        MainCinemachineCamera.m_Lens.FieldOfView = 10;
         foreach (var item in camModeButtons)
         {
             item.color = defaultButtonColor;
@@ -196,8 +261,9 @@ public class UIManager : MonoBehaviour
     }
     public void onPlayButtonPress()
     {
-        mainMenu.SetActive(false);
-        GameManager.Instance.ReloadMap();
+        mainMenu.SetActive(false);      
+        BackgroundCameraRenderer.SetActive(false);
+        MainCinemachineCamera.m_Lens.FarClipPlane = 100f;
     }
     public void onGraphicsButtonPress(int key)
     {
@@ -221,9 +287,12 @@ public class UIManager : MonoBehaviour
     }
     public void onBackToMenuButtonPress()
     {
+        //inter
         mainMenu.SetActive(true);
-        GameManager.Instance.ReloadMap();
-        
+        GameManager.Instance.ReloadMapNoAds();
+        BackgroundCameraRenderer.SetActive(true);
+        MainCinemachineCamera.m_Lens.FarClipPlane = 0.02f;
+        //
     }
     private void LoadSetting()
     {
@@ -247,13 +316,21 @@ public class UIManager : MonoBehaviour
     }
     public void BuyPack()
     {
+        //purchase
         PlayerPrefs.SetInt("PackBoughted", 1);
         GameManager.Instance.checkCurrentWeaponType();
+        CheckBuyPack.Instance.checkBuyPack();
     }
     public void BuyAdsRemove()
     {
+        //purchase
         PlayerPrefs.SetInt("AdsRemove", 1);
         GameManager.Instance.checkCurrentWeaponType();
+        RemoveAdsButton.SetActive(false);
+    }
+    public void OpenBuyPackPanel()
+    {
+        ToggleBuyPackPanel.onClick.Invoke();
     }
 
 }

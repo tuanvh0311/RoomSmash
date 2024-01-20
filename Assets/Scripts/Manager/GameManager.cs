@@ -1,11 +1,7 @@
 using DestroyIt;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -41,13 +37,14 @@ public class GameManager : MonoBehaviour
     List<Weapon> weaponsList = new List<Weapon>();
     public Mode mode = Mode.freeCam;
     public List<PoolAfter> remainObject = new List<PoolAfter>();
-
+    public WatchAdsPanelOpener AdsShower;
     private const string GRAPHICS_KEY = "Graphics";
     private const string AUDIO_KEY = "Audio";
     private int currentGraphics = 1;
     private float currentAudioRatio = 1;
     public float disableShootTimer = 0f;
     public static int currentMapIndex = 0;
+    public CustomUI.Button[] buttons;
     private float originWidth = Screen.width;
     private float originHeight = Screen.height;
     private float widthOnHeight;
@@ -83,7 +80,8 @@ public class GameManager : MonoBehaviour
             weaponsList.Add(weapon);
             
         }
-        LoadMap(currentMapIndex);
+        
+        LoadMapNoAds(currentMapIndex);
     }
     private void Start()
     {
@@ -95,6 +93,11 @@ public class GameManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(GRAPHICS_KEY))
         {
+            if(SystemInfo.systemMemorySize >= 3000 && SystemInfo.graphicsDeviceName != "") 
+            {
+                SaveSetting(graphics: 1, currentAudioRatio);
+            }
+            else
             SaveSetting(graphics: 0, currentAudioRatio);
         }       
         return PlayerPrefs.GetInt(GRAPHICS_KEY);
@@ -134,7 +137,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !Cache.IsPointerOverUIObject())
         {
             startHold = true;
-            holdPosition = Input.mousePosition;          
+            holdPosition = Input.mousePosition;
+            if(currentWeapon)
+            foreach (var item in buttons)
+            {
+                item.OnInit();
+            }
         }
         
         if (Input.GetMouseButtonUp(0) && startHold)
@@ -174,11 +182,17 @@ public class GameManager : MonoBehaviour
 
     public void OnChangeWeapon(Weapon weapon)
     {
-        if (currentWeapon && currentWeapon.GetComponent<Sniper>())
+        //For Sniper
+        if (weapon.GetComponent<Sniper>())
         {
-            changeToLastCamMode();
+            changeCamMode(2);
+            if (currentWeapon && currentWeapon.GetComponent<Sniper>())                
+                changeCamMode(0);                     
         }
-        if(currentWeapon != weapon)
+        else changeCamMode(0);
+        //
+
+        if (currentWeapon != weapon)
         {
             if(currentWeapon)
             currentWeapon.background.GetComponent<Image>().color = Color.white;
@@ -225,7 +239,9 @@ public class GameManager : MonoBehaviour
     }
     public void LoadMap(int mapIndex)
     {
-        reloadScene?.Invoke();
+        //logevent
+        Debug.Log(scriptableMaps[mapIndex].MapName);
+        reloadScene?.Invoke();     
         foreach (var item in remainObject)
         {
             item.timeLeft = 0f;
@@ -236,6 +252,7 @@ public class GameManager : MonoBehaviour
         map = ObjectPool.Instance.Spawn(scriptableMaps[mapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
         setShadowType();
         currentMapIndex = mapIndex;
+        UIManager.onMapSelected(mapIndex);
         mode = Mode.freeCam;
         if(currentWeapon)
         currentWeapon.background.GetComponent<Image>().color = Color.white;
@@ -244,8 +261,34 @@ public class GameManager : MonoBehaviour
         disableShootTimer = 0;
         checkWeaponType(currentWeaponType);   
     }
+    public void LoadMapNoAds(int mapIndex)
+    {
+        
+        reloadScene?.Invoke();
+        foreach (var item in remainObject)
+        {
+            item.timeLeft = 0f;
+        }
+        remainObject.Clear();
+        if (map)
+            map.GetComponent<PoolAfter>().timeLeft = 0;
+        map = ObjectPool.Instance.Spawn(scriptableMaps[mapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        setShadowType();
+        currentMapIndex = mapIndex;
+        UIManager.onMapSelected(mapIndex);
+        mode = Mode.freeCam;
+        if (currentWeapon)
+            currentWeapon.background.GetComponent<Image>().color = Color.white;
+        currentWeapon = null;
+        currentWeaponType = WeaponType.NONE;
+        disableShootTimer = 0;
+        checkWeaponType(currentWeaponType);
+    }
     public void ReloadMap()
     {
+        //inter
+        //logevent
+        Debug.Log(scriptableMaps[currentMapIndex].MapName);
         reloadScene?.Invoke();
         foreach (var item in remainObject)
         {
@@ -257,6 +300,7 @@ public class GameManager : MonoBehaviour
             map.GetComponent<PoolAfter>().timeLeft = 0;
         }
         map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        UIManager.onMapSelected(currentMapIndex);
         setShadowType();
         mode = Mode.freeCam;
         if (currentWeapon)
@@ -265,6 +309,32 @@ public class GameManager : MonoBehaviour
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
         checkWeaponType(currentWeaponType);
+        //
+    }
+    public void ReloadMapNoAds()
+    {
+        
+        reloadScene?.Invoke();
+        foreach (var item in remainObject)
+        {
+            item.timeLeft = 0f;
+        }
+        remainObject.Clear();
+        if (map)
+        {
+            map.GetComponent<PoolAfter>().timeLeft = 0;
+        }
+        map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
+        UIManager.onMapSelected(currentMapIndex);
+        setShadowType();
+        mode = Mode.freeCam;
+        if (currentWeapon)
+            currentWeapon.background.GetComponent<Image>().color = Color.white;
+        currentWeapon = null;
+        currentWeaponType = WeaponType.NONE;
+        disableShootTimer = 0;
+        checkWeaponType(currentWeaponType);
+        
     }
     void checkCamMode()
     {
@@ -319,30 +389,34 @@ public class GameManager : MonoBehaviour
         
         currentWeaponType = currentWeaponType == weaponType ? WeaponType.NONE :  weaponType;
         UIManager.onWeaponTypeChange();
-        foreach (var weapon in weaponsList)
-        {
-            if (weapon.weaponType == currentWeaponType)
-            {
-                weapon.showWeapon();
-                weapon.checkUnlock();
-            }
+        //foreach (var weapon in weaponsList)
+        //{
+        //    if (weapon.weaponType == currentWeaponType)
+        //    {
+        //        weapon.showWeapon();
+        //        weapon.CheckIsLocked();
+        //    }
                 
-            else weapon.hideWeapon();
-        }
+        //    else weapon.hideWeapon();
+        //}
     }
     public void checkCurrentWeaponType()
     {
 
         UIManager.onWeaponTypeChange();
-        foreach (var weapon in weaponsList)
-        {
-            if (weapon.weaponType == currentWeaponType)
-            {
-                weapon.showWeapon();
-                weapon.checkUnlock();
-            }
-            else weapon.hideWeapon();
-        }
+        //foreach (var weapon in weaponsList)
+        //{
+        //    if (weapon.weaponType == currentWeaponType)
+        //    {
+        //        weapon.showWeapon();
+        //        weapon.CheckIsLocked();
+        //    }
+        //    else weapon.hideWeapon();
+        //}
+    }
+    public List<Weapon> GetWeapons()
+    {
+        return weaponsList;
     }
     private void CheckShooting(Weapon weapon)
     {

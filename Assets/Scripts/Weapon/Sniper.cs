@@ -20,6 +20,6 @@ public class Sniper : Weapon
     public new void onWeaponSelect()
     {
         GameManager.Instance.OnChangeWeapon(this);
-        GameManager.Instance.changeCamMode(2);
+        //GameManager.Instance.changeCamMode(2);
     }
 }

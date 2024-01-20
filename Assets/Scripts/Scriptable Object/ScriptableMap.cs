@@ -11,5 +11,7 @@ public class ScriptableMap : ScriptableObject
     public string MapName;
     public string MapDescription;
     public bool CanMove;
+    public bool WatchAdsToUnlock = false;
+    public int NumberOfAds = 0;
 
 }
