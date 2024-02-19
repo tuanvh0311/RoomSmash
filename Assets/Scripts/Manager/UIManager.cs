@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 
@@ -37,11 +38,20 @@ public class UIManager : MonoBehaviour
     public Color UnlockedWeaponColor;
     private float fixedDeltaTime;
     public List<MapButton> MapButtons = new List<MapButton>();
+    public GameObject gdprBtn;
 
     void OnInit()
     {
         fixedDeltaTime = Time.fixedDeltaTime;
         LoadSetting();
+
+#if UNITY_ANDROID
+        //GDPR for Android
+        gdprBtn.SetActive(SkygoBridge.instance.PORS);
+#elif UNITY_IOS
+        //GDPR For IOS
+        //gdprBtn.SetActive(SkygoBridge.instance.PORS && AttPermissionRequest.instance.isHaveAuthorized);
+#endif
     }
     private void Start()
     {        
@@ -287,12 +297,17 @@ public class UIManager : MonoBehaviour
     }
     public void onBackToMenuButtonPress()
     {
-        //inter
-        mainMenu.SetActive(true);
-        GameManager.Instance.ReloadMapNoAds();
-        BackgroundCameraRenderer.SetActive(true);
-        MainCinemachineCamera.m_Lens.FarClipPlane = 0.02f;
-        //
+        
+            mainMenu.SetActive(true);
+            GameManager.Instance.ReloadMapNoAds();
+            BackgroundCameraRenderer.SetActive(true);
+            MainCinemachineCamera.m_Lens.FarClipPlane = 0.02f;
+        
+        
+            //inter
+            //ApplovinBridge.instance.ShowInterAdsApplovin(null);
+        
+
     }
     private void LoadSetting()
     {
@@ -316,21 +331,54 @@ public class UIManager : MonoBehaviour
     }
     public void BuyPack()
     {
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() => {
+            //mua thanh cong thuong gi do
+            PlayerPrefs.SetInt("PackBoughted", 1);
+            GameManager.Instance.checkCurrentWeaponType();
+            CheckBuyPack.Instance.checkBuyPack();
+            //logevent
+            //SkygoBridge.instance.LogEvent("purchase_packweapon");
+        });
         //purchase
-        PlayerPrefs.SetInt("PackBoughted", 1);
-        GameManager.Instance.checkCurrentWeaponType();
-        CheckBuyPack.Instance.checkBuyPack();
+        //SkygoBridge.instance.PurchaseIAP("room_destroy_packweapon_199", e);
     }
     public void BuyAdsRemove()
     {
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() => {
+            //mua thanh cong thuong gi do
+            PlayerPrefs.SetInt("AdsRemove", 1);
+            GameManager.Instance.checkCurrentWeaponType();
+            RemoveAdsButton.SetActive(false);
+            //SkygoBridge.instance.CanShowAd = 0;
+            //logevent
+            //SkygoBridge.instance.LogEvent("purchase_noads");
+        });
         //purchase
-        PlayerPrefs.SetInt("AdsRemove", 1);
-        GameManager.Instance.checkCurrentWeaponType();
-        RemoveAdsButton.SetActive(false);
+        //SkygoBridge.instance.PurchaseIAP("room_destroy_noads_099", e);
     }
     public void OpenBuyPackPanel()
     {
         ToggleBuyPackPanel.onClick.Invoke();
+    }
+
+    //GDPR
+    public void OnCornfirmAds()
+    {
+        LoadAndShowCmpFlow();
+    }
+    private void LoadAndShowCmpFlow()
+    {
+        //var cmpService = MaxSdk.CmpService;
+
+        //cmpService.ShowCmpForExistingUser(error =>
+        //{
+        //    if (null == error)
+        //    {
+        //        // The CMP alert was shown successfully.
+        //    }
+        //});
     }
 
 }

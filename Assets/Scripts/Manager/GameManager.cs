@@ -239,8 +239,6 @@ public class GameManager : MonoBehaviour
     }
     public void LoadMap(int mapIndex)
     {
-        //logevent
-        Debug.Log(scriptableMaps[mapIndex].MapName);
         reloadScene?.Invoke();     
         foreach (var item in remainObject)
         {
@@ -259,7 +257,11 @@ public class GameManager : MonoBehaviour
         currentWeapon = null;
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
-        checkWeaponType(currentWeaponType);   
+        checkWeaponType(currentWeaponType);
+        //
+        //logevent
+        Debug.Log(scriptableMaps[mapIndex].MapName);
+        //SkygoBridge.instance.LogEvent("Play_"+ scriptableMaps[mapIndex].MapName);
     }
     public void LoadMapNoAds(int mapIndex)
     {
@@ -286,8 +288,6 @@ public class GameManager : MonoBehaviour
     }
     public void ReloadMap()
     {
-        //inter
-        //logevent
         Debug.Log(scriptableMaps[currentMapIndex].MapName);
         reloadScene?.Invoke();
         foreach (var item in remainObject)
@@ -309,7 +309,12 @@ public class GameManager : MonoBehaviour
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
         checkWeaponType(currentWeaponType);
-        //
+        
+            //
+            //inter
+            //ApplovinBridge.instance.ShowInterAdsApplovin(null);
+        
+
     }
     public void ReloadMapNoAds()
     {

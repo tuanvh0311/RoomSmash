@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class WatchAdsPanelOpener : MonoBehaviour
@@ -25,11 +26,18 @@ public class WatchAdsPanelOpener : MonoBehaviour
     }
     public void OnWatchAdsButtonClick()
     {
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() => {
+            //xem quang cao thanh cong thuong gi do
+            int NumberOfAdsWatched = PlayerPrefs.GetInt("IsLocked" + WeaponName) + 1;
+            PlayerPrefs.SetInt("IsLocked" + WeaponName, NumberOfAdsWatched);
+            customButton.onToggleTweeningPanelAndDisableShoot();
+            currentWeapon.CheckIsLocked();
+            //logevent
+            //SkygoBridge.instance.LogEvent("reward_openweapon");
+        });
         //reward
-        int NumberOfAdsWatched = PlayerPrefs.GetInt("IsLocked" + WeaponName) + 1;
-        PlayerPrefs.SetInt("IsLocked" + WeaponName, NumberOfAdsWatched);
-        customButton.onToggleTweeningPanelAndDisableShoot();
-        currentWeapon.CheckIsLocked();
+        //ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
     }
     public void ShowPanel(Weapon weapon)
     {

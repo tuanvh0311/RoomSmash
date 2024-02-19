@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MapButton : MonoBehaviour
@@ -58,10 +59,17 @@ public class MapButton : MonoBehaviour
     {
         if (WatchAdsToUnlock)
         {
+            UnityEvent e = new UnityEvent();
+            e.AddListener(() => {
+                //xem quang cao thanh cong thuong gi do
+                NumberOfAdsWatched++;
+                PlayerPrefs.SetInt(mapName, NumberOfAdsWatched);
+                CheckLock();
+                //logevent
+                //SkygoBridge.instance.LogEvent("reward_openmap");
+            });
             //reward
-            NumberOfAdsWatched++;
-            PlayerPrefs.SetInt(mapName, NumberOfAdsWatched);
-            CheckLock();
+            //ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
         }
     }
 }
