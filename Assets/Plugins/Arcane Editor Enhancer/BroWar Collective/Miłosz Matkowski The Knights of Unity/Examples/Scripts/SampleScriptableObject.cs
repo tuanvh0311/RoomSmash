@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Sample Scriptable Object")]
-public class SampleScriptableObject : ScriptableObject
+[CreateAssetMenu(fileName = "New Scriptable Weapon", menuName = "Scriptable Object/Scriptable Weapon")]
+public class ScriptableWeapon : ScriptableObject
 {
-    public bool var1;
-    [EnableIf(nameof(var1), true)]
-    public int var2;
-    public string[] vars;
+   
 }

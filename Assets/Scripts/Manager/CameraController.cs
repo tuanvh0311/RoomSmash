@@ -134,7 +134,7 @@ public class CameraController : MonoBehaviour
         m_Camera.transform.position = camPos.transform.position;
         m_Camera.transform.rotation = camPos.transform.rotation;    
         
-        if (GameManager.Instance.mode == GameManager.Mode.freeCam) 
+        if (GameManager.Instance.mode == GameManager.Mode.FreeCam) 
         {
             
             if (Input.GetMouseButton(0) && !Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -149,14 +149,14 @@ public class CameraController : MonoBehaviour
                               
             }
         } 
-        if( GameManager.Instance.mode == GameManager.Mode.fpsCam || GameManager.Instance.mode == GameManager.Mode.adsCam)
+        if( GameManager.Instance.mode == GameManager.Mode.FPSCam || GameManager.Instance.mode == GameManager.Mode.ADSCam)
         {
             switch (GameManager.Instance.mode)
             {
-                case GameManager.Mode.adsCam:
+                case GameManager.Mode.ADSCam:
                     m_cameraSpeed = MouseSpeed;
                     break;
-                case GameManager.Mode.fpsCam:
+                case GameManager.Mode.FPSCam:
                     m_cameraSpeed = joystickSens;
                     break;
             }

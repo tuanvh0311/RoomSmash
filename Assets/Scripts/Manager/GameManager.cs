@@ -18,24 +18,25 @@ public class GameManager : MonoBehaviour
     public GameObject map;
     public Detonator detonator;
     public LayerMask shootLayerMask;
+    
     private float holdTime;
     private Vector3 holdPosition;
     private bool startHold;
     private bool isShooting;
-    public Mode lastCammode = Mode.freeCam;
+    public Mode lastCammode = Mode.FreeCam;
     public enum Mode
      
     {
-        freeCam,
-        fpsCam,
-        adsCam
+        FreeCam,
+        FPSCam,
+        ADSCam
     };
     
     public Weapon[] weapons;
     public Weapon currentWeapon;
     public WeaponType currentWeaponType = WeaponType.NONE;
     List<Weapon> weaponsList = new List<Weapon>();
-    public Mode mode = Mode.freeCam;
+    public Mode mode = Mode.FreeCam;
     public List<PoolAfter> remainObject = new List<PoolAfter>();
     public WatchAdsPanelOpener AdsShower;
     private const string GRAPHICS_KEY = "Graphics";
@@ -45,6 +46,18 @@ public class GameManager : MonoBehaviour
     public float disableShootTimer = 0f;
     public static int currentMapIndex = 0;
     public CustomUI.Button[] buttons;
+    public GravityMode CurrentGravityMode;
+    public enum GravityMode
+
+    {
+        Normal,
+        Nongravity,
+        Reserve,
+        Left,
+        Right,
+        
+    };
+    public bool isSlowMotion;
     private float originWidth = Screen.width;
     private float originHeight = Screen.height;
     private float widthOnHeight;
@@ -121,6 +134,15 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(GRAPHICS_KEY, graphics);
         PlayerPrefs.SetFloat(AUDIO_KEY, audio);
+    }
+    public void ProcessDestruction(Destructible destroyedObj)
+    {
+
+        print(destroyedObj.gameObject.name + " destroyed on " + scriptableMaps[currentMapIndex].MapName + " with " + currentWeapon?.weaponType 
+            + " Type (" + currentWeapon?.WeaponName +")" 
+            + ", Camera mode: " + mode.ToString() 
+            + ", Gravity mode: " + CurrentGravityMode.ToString() 
+            + ", Slow motion: " + isSlowMotion);
     }
 
     // Update is called once per frame
@@ -239,8 +261,6 @@ public class GameManager : MonoBehaviour
     }
     public void LoadMap(int mapIndex)
     {
-        //logevent
-        Debug.Log(scriptableMaps[mapIndex].MapName);
         reloadScene?.Invoke();     
         foreach (var item in remainObject)
         {
@@ -253,13 +273,17 @@ public class GameManager : MonoBehaviour
         setShadowType();
         currentMapIndex = mapIndex;
         UIManager.onMapSelected(mapIndex);
-        mode = Mode.freeCam;
+        mode = Mode.FreeCam;
         if(currentWeapon)
         currentWeapon.background.GetComponent<Image>().color = Color.white;
         currentWeapon = null;
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
-        checkWeaponType(currentWeaponType);   
+        checkWeaponType(currentWeaponType);
+        //
+        //logevent
+        Debug.Log(scriptableMaps[mapIndex].MapName);
+        //SkygoBridge.instance.LogEvent("Play_"+ scriptableMaps[mapIndex].MapName);
     }
     public void LoadMapNoAds(int mapIndex)
     {
@@ -276,7 +300,7 @@ public class GameManager : MonoBehaviour
         setShadowType();
         currentMapIndex = mapIndex;
         UIManager.onMapSelected(mapIndex);
-        mode = Mode.freeCam;
+        mode = Mode.FreeCam;
         if (currentWeapon)
             currentWeapon.background.GetComponent<Image>().color = Color.white;
         currentWeapon = null;
@@ -286,8 +310,6 @@ public class GameManager : MonoBehaviour
     }
     public void ReloadMap()
     {
-        //inter
-        //logevent
         Debug.Log(scriptableMaps[currentMapIndex].MapName);
         reloadScene?.Invoke();
         foreach (var item in remainObject)
@@ -302,14 +324,19 @@ public class GameManager : MonoBehaviour
         map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
         UIManager.onMapSelected(currentMapIndex);
         setShadowType();
-        mode = Mode.freeCam;
+        mode = Mode.FreeCam;
         if (currentWeapon)
             currentWeapon.background.GetComponent<Image>().color = Color.white;
         currentWeapon = null;
         currentWeaponType = WeaponType.NONE;
         disableShootTimer = 0;
         checkWeaponType(currentWeaponType);
-        //
+        
+            //
+            //inter
+            //ApplovinBridge.instance.ShowInterAdsApplovin(null);
+        
+
     }
     public void ReloadMapNoAds()
     {
@@ -327,7 +354,7 @@ public class GameManager : MonoBehaviour
         map = ObjectPool.Instance.Spawn(scriptableMaps[currentMapIndex].MapPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("#hEnvironment").transform);
         UIManager.onMapSelected(currentMapIndex);
         setShadowType();
-        mode = Mode.freeCam;
+        mode = Mode.FreeCam;
         if (currentWeapon)
             currentWeapon.background.GetComponent<Image>().color = Color.white;
         currentWeapon = null;
@@ -340,13 +367,13 @@ public class GameManager : MonoBehaviour
     {
         switch (mode)
         {
-            case Mode.freeCam:
+            case Mode.FreeCam:
                 UIManager.onFreeCamEnable();
                 break;
-            case Mode.fpsCam:
+            case Mode.FPSCam:
                 UIManager.onFpsCamEnable();
                 break;
-            case Mode.adsCam:
+            case Mode.ADSCam:
                 UIManager.onAdsCamEnable();
                 break;
         }
@@ -357,13 +384,13 @@ public class GameManager : MonoBehaviour
         switch(camMode) 
         {
             case 0:
-                mode = Mode.freeCam;
+                mode = Mode.FreeCam;
                 break;
             case 1:
-                mode = Mode.fpsCam;
+                mode = Mode.FPSCam;
                 break;
             case 2:
-                mode = Mode.adsCam;
+                mode = Mode.ADSCam;
                 break;
         }
         checkCamMode();
@@ -373,13 +400,13 @@ public class GameManager : MonoBehaviour
         switch ((int)lastCammode)
         {
             case 0:
-                mode = Mode.freeCam;
+                mode = Mode.FreeCam;
                 break;
             case 1:
-                mode = Mode.fpsCam;
+                mode = Mode.FPSCam;
                 break;
             case 2:
-                mode = Mode.adsCam;
+                mode = Mode.ADSCam;
                 break;
         }
         checkCamMode();
@@ -423,7 +450,7 @@ public class GameManager : MonoBehaviour
 
         if (!weapon) return;
 
-        if(mode == Mode.fpsCam || mode == Mode.freeCam)
+        if(mode == Mode.FPSCam || mode == Mode.FreeCam)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

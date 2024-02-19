@@ -37,13 +37,13 @@ namespace DestroyIt
             if (!_isInitialized) return;
             if (!_hasAddToList)
             {
-                GameManager.Instance.remainObject.Add(this);
+                GameManager.Instance?.remainObject.Add(this);
                 _hasAddToList = true;
             }
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
-                GameManager.Instance.remainObject.Remove(this);
+                GameManager.Instance?.remainObject.Remove(this);
                 _hasAddToList = false;
                 if (resetToPrefab)
                 {

@@ -176,12 +176,16 @@ namespace CustomUI
         }
         public void onInterButtonClick()
         {
-            //inter 
+            
+                //inter 
+                //ApplovinBridge.instance.ShowInterAdsApplovin(null);
+            
         }
         public void onLogEventButtonClick()
         {
             //logevent 
             Debug.Log(gameObject.name);
+            //SkygoBridge.instance.LogEvent("Use_"+ gameObject.name);
         }
     }
 }

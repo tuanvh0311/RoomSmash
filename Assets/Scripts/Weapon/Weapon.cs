@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
     public bool isHoldToShoot = false;
     [SerializeField] int shootAudioIndex;
     public bool isShooting = false;
-    private string WeaponName;
+    public string WeaponName;
     private GameObject LockIcon;
     private Sprite LockIconImage;
     private UIManager uimanager;

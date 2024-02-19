@@ -7,7 +7,7 @@ public class SampleScriptedImporter : ScriptedImporter
     [SerializeField]
     private float sampleFloat;
     [SerializeField, InLineEditor]
-    private SampleScriptableObject sampleScriptableObject;
+    private ScriptableWeapon sampleScriptableObject;
 
     public override void OnImportAsset(AssetImportContext ctx)
     { }
